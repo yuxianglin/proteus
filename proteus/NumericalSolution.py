@@ -500,6 +500,18 @@ class NS_base:  # (HasTraits):
         self.systemStepController.setFromOptions(so)
         log("Finished NumericalSolution initialization")
 
+        log("Attaching NumericalSolution to petsc_dump")
+        import petsc_dump
+        petsc_dump.ns = self
+        sizes = []
+        for modelName in petsc_dump.models:
+            for m in self.modelList:
+                if m.name == modelName:
+                    sizes.append(m.solver.solverList[-1].par_du.sizes[1])
+                    break
+        petsc_dump.meta['sizes'] = sizes
+        petsc_dump.meta_dump()
+
     ## compute the solution
     def calculateSolution(self,runName):
         log("Setting initial conditions",level=0)
@@ -687,6 +699,7 @@ class NS_base:  # (HasTraits):
                         log("Model: %s" % (model.name),level=1)
                         log("Fractional step %12.5e for model %s" % (self.t_stepSequence,model.name),level=3)
 
+
                         for m in model.levelModelList:
                             if m.movingDomain and m.tLast_mesh != self.systemStepController.t_system_last:
                                 m.t_mesh = self.systemStepController.t_system_last
@@ -714,6 +727,14 @@ class NS_base:  # (HasTraits):
                                 log("Model substep t=%12.5e for model %s model.timeIntegration.t= %12.5e" % (self.tSubstep,model.name,model.levelModelList[-1].timeIntegration.t),level=3)
 
                                 model.stepController.setInitialGuess(model.uList,model.rList)
+
+                                #log("Viewing Jacobian")
+                                #model.viewJacobian('./dump_' + model.name + '_', model.par_rList[-1])
+
+                                #import ipdb
+                                #ipdb.set_trace()
+                                import petsc_dump
+                                petsc_dump.active_model = model
 
                                 solverFailed = model.solver.solveMultilevel(uList=model.uList,
                                                                             rList=model.rList,

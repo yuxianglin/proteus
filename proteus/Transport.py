@@ -6204,11 +6204,11 @@ class MultilevelTransport:
         possess save methods, otherwise, do nothing.
         """
 
-        for idx, par_jacobian in enumerate(self.par_jacobianList):
-            if hasattr(par_jacobian, 'save'):
-                filename = file_prefix + 'par_j' + '_' + str(idx)
-                log('Saving Parallel Jacobian to %s' % filename)
-                par_jacobian.save(filename)
+        par_jacobian = self.par_jacobianList[-1]
+        if hasattr(par_jacobian, 'save'):
+            filename = file_prefix + 'par_j'
+            log('Saving Parallel Jacobian to %s' % filename)
+            par_jacobian.save(filename)
         if b and hasattr(b, 'save'):
             filename = file_prefix + 'b'
             log('Saving right-hand-side to %s' % filename)

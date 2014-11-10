@@ -531,6 +531,13 @@ class KSP_petsc4py(LinearSolver):
         
         if not initialGuessIsZero:
             self.ksp.setInitialGuessNonzero(True)
+
+
+        import petsc_dump
+
+        petsc_dump.petsc_dump(self.par_L, par_b, par_u)
+
+
         self.ksp.solve(par_b,par_u)
         logEvent("after ksp.rtol= %s ksp.atol= %s ksp.converged= %s ksp.its= %s ksp.norm= %s reason = %s" % (self.ksp.rtol,
                                                                                                              self.ksp.atol,
