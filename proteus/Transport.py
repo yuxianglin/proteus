@@ -7,6 +7,7 @@ The solution is the vector of components :math:`u=u_0,\ldots,u_{nc-1}`, and
 the nonlinear coefficients are :math:`m^i,f^i,a^{ik},\phi^k, H^i` and :math:`r^i`.
 """
 from math import *
+
 from EGeometry import *
 from LinearAlgebraTools import *
 from LinearSolvers import *
@@ -858,7 +859,7 @@ class OneLevelTransport(NonlinearEquation):
                                        max(1,self.nSpace_global-1)),
                                       'd')
         log(memory("global exterior element boundary quadrature","OneLevelTransport"),level=4)
-        self.forceStrongConditions=False#True
+        self.forceStrongConditions= numericalFluxType.useStrongDirichletConstraints
         self.dirichletConditionsForceDOF = {}
         if self.forceStrongConditions:
             for cj in range(self.nc):
@@ -876,6 +877,7 @@ class OneLevelTransport(NonlinearEquation):
                 needEBQ_GLOBAL = needEBQ_GLOBAL or self.conservativeFlux[ci] != None
         if options.needEBQ_GLOBAL:
             needEBQ_GLOBAL = True
+        self.needEBQ_GLOBAL=needEBQ_GLOBAL
         if needEBQ_GLOBAL:
             self.points_elementBoundaryQuadrature_global.allocate(self.ebq_global)
             #allocate scalars element boundary quadrature global
@@ -1493,21 +1495,21 @@ class OneLevelTransport(NonlinearEquation):
         log(memory("TimeIntegration","OneLevelTransport"),level=4)
         log("Calculating numerical quadrature formulas",2)
         self.calculateQuadrature()
-        #lay out components/equations contiguously for now
-        self.offset = [0]
-        for ci in range(1,self.nc):
-            self.offset += [self.offset[ci-1]+self.nFreeDOF_global[ci-1]]
-        self.stride = [1 for ci in range(self.nc)]
-        #use contiguous layout of components for parallel, requires weak DBC's
+
         comm = Comm.get()
         self.comm=comm
         if comm.size() > 1:
             assert numericalFluxType != None and numericalFluxType.useWeakDirichletConditions,"You must use a numerical flux to apply weak boundary conditions for parallel runs"
-            self.offset = [0]
-            for ci in range(1,self.nc):
-                self.offset += [ci]
-            self.stride = [self.nc for ci in range(self.nc)]
-        #
+
+        if numericalFluxType != None and numericalFluxType.useWeakDirichletConditions:
+            interleave_DOF=True
+            for nDOF_trial_element_ci in self.nDOF_trial_element:
+                if nDOF_trial_element_ci != self.nDOF_trial_element[0]:
+                    interleave_DOF=False
+        else:
+            interleave_DOF=False
+        self.setupFieldStrides(interleaved=interleave_DOF)
+
         log(memory("stride+offset","OneLevelTransport"),level=4)
         if numericalFluxType != None:
             if options == None or options.periodicDirichletConditions == None:
@@ -1555,6 +1557,21 @@ class OneLevelTransport(NonlinearEquation):
         self.nzval_mass = None
         self.nzval_space = None
     #end __init__
+
+    def setupFieldStrides(self, interleaved=True):
+        """
+        Set up the stride/offset layout for this object.  The default layout is interleaved.
+        """
+
+        if interleaved:
+            self.offset = range(self.nc)
+            self.stride = [self.nc] * self.nc
+        else:
+            self.offset = [0]
+            for ci in range(1,self.nc):
+                self.offset += [self.offset[ci-1]+self.nFreeDOF_global[ci-1]]
+            self.stride = [1] * self.nc
+
     def setInitialConditions(self,getInitialConditionsDict,T=0.0):
         self.timeIntegration.t = T
         #
@@ -1685,14 +1702,10 @@ class OneLevelTransport(NonlinearEquation):
         #cek debug
         #u.tofile("u"+`self.nonlinear_function_evaluations`,sep="\n")
         r.fill(0.0)
-        #Load the Dirichlet conditions
-        for cj in range(self.nc):
-            for dofN,g in self.dirichletConditions[cj].DOFBoundaryConditionsDict.iteritems():
-                self.u[cj].dof[dofN] = g(self.dirichletConditions[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
         if self.forceStrongConditions:
             for cj in range(len(self.dirichletConditionsForceDOF)):
                 for dofN,g in self.dirichletConditionsForceDOF[cj].DOFBoundaryConditionsDict.iteritems():
-                    self.u[cj].dof[dofN] = g(self.dirichletConditionsForceDOF[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
+                    u[self.offset[cj]+self.stride[cj]*dofN] = g(self.dirichletConditionsForceDOF[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
         #Load the unknowns into the finite element dof
         self.timeIntegration.calculateU(u)
         self.setUnknowns(self.timeIntegration.u)
@@ -1719,7 +1732,7 @@ class OneLevelTransport(NonlinearEquation):
         if self.forceStrongConditions:#
             for cj in range(len(self.dirichletConditionsForceDOF)):#
                 for dofN,g in self.dirichletConditionsForceDOF[cj].DOFBoundaryConditionsDict.iteritems():
-                    r[self.offset[cj]+self.stride[cj]*dofN] = 0
+                    r[self.offset[cj]+self.stride[cj]*dofN] = self.u[cj].dof[dofN] - g(self.dirichletConditionsForceDOF[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
         #for keeping solver statistics
         self.nonlinear_function_evaluations += 1
         #cek debug
@@ -1762,15 +1775,18 @@ class OneLevelTransport(NonlinearEquation):
             raise TypeError("Matrix type must be SparseMatrix or array")
         log("Jacobian ",level=10,data=jacobian)
         if self.forceStrongConditions:
-            scaling = 1.0#probably want to add some scaling to match non-dirichlet diagonals in linear system
             for cj in range(self.nc):
                 for dofN in self.dirichletConditionsForceDOF[cj].DOFBoundaryConditionsDict.keys():
                     global_dofN = self.offset[cj]+self.stride[cj]*dofN
-                    for i in range(self.rowptr[global_dofN],self.rowptr[global_dofN+1]):
+                    self.nzval[numpy.where(self.colind == global_dofN)] = 0.0 #column
+                    self.nzval[self.rowptr[global_dofN]:self.rowptr[global_dofN+1]] = 0.0 #row
+                    zeroRow=True
+                    for i in range(self.rowptr[global_dofN],self.rowptr[global_dofN+1]):#row
                         if (self.colind[i] == global_dofN):
-                            self.nzval[i] = scaling
-                        else:
-                            self.nzval[i] = 0.0
+                            self.nzval[i] = 1.0
+                            zeroRow = False
+                    if zeroRow:
+                        raise RuntimeError("Jacobian has a zero row because sparse matrix has no diagonal entry at row "+`global_dofN`+". You probably need add diagonal mass or reaction term")
         #mwf decide if this is reasonable for solver statistics
         self.nonlinear_function_jacobian_evaluations += 1
         #cek debug
@@ -1817,7 +1833,7 @@ class OneLevelTransport(NonlinearEquation):
                 #
                 #element boundary contributions
                 #
-                if self.numericalFlux != None:
+                if self.numericalFlux != None and type(self.numericalFlux) != NumericalFlux.DoNothing:
                     if self.numericalFlux.hasInterior:
                         cfemIntegrals.updateGlobalJacobianFromInteriorElementBoundaryFluxJacobian_dense(self.offset[ci],
                                                                                                         self.stride[ci],
@@ -2143,7 +2159,7 @@ class OneLevelTransport(NonlinearEquation):
                 #
                 #element boundary contributions
                 #
-                if self.numericalFlux != None:
+                if self.numericalFlux != None and not isinstance(self.numericalFlux, NumericalFlux.DoNothing):
                     if self.numericalFlux.hasInterior:
                         cfemIntegrals.updateGlobalJacobianFromInteriorElementBoundaryFluxJacobian_CSR(self.mesh.interiorElementBoundariesArray,
                                                                                                       self.mesh.elementBoundaryElementsArray,
@@ -2444,7 +2460,7 @@ class OneLevelTransport(NonlinearEquation):
         #         print self.elementResidual[0][eN,i]
         #         print self.elementResidual[1][eN,i]
         #         print self.elementResidual[2][eN,i]
-        if self.numericalFlux != None:
+        if self.numericalFlux != None and not isinstance(self.numericalFlux, NumericalFlux.DoNothing):
             for ci in range(self.nc):
                 self.ebq_global[('totalFlux',ci)].fill(0.0)
                 self.ebqe[('totalFlux',ci)].fill(0.0)
@@ -2877,8 +2893,8 @@ class OneLevelTransport(NonlinearEquation):
                     for j in nodeSetList[eN]:
                         self.elementJacobian[cj][cj][eN,j,:]=0.0
                         self.elementJacobian[cj][cj][eN,j,j]=self.weakFactor*self.mesh.elementDiametersArray[eN]
-    
-    
+
+
     def calculateElementBoundaryJacobian(self):
         evalElementBoundaryJacobian = False; evalElementBoundaryJacobian_hj = False
         for jDict in self.fluxJacobian.values():
@@ -2893,7 +2909,7 @@ class OneLevelTransport(NonlinearEquation):
                 evalElementBoundaryJacobian_hj = True
                 j.fill(0.0)
         #cek clean up this logic using numerical flux
-        if self.numericalFlux != None:
+        if self.numericalFlux != None and not isinstance(self.numericalFlux, NumericalFlux.DoNothing):
             #
             self.numericalFlux.updateInteriorNumericalFluxJacobian(self.l2g,self.q,self.ebq,self.ebq_global,self.dphi,
                                                                    self.fluxJacobian,self.fluxJacobian_eb,self.fluxJacobian_hj)
@@ -2908,7 +2924,7 @@ class OneLevelTransport(NonlinearEquation):
         for jDict in self.fluxJacobian_exterior.values():
             for j in jDict.values():
                 j.fill(0.0)
-        if self.numericalFlux != None:
+        if self.numericalFlux != None and not isinstance(self.numericalFlux, NumericalFlux.DoNothing):
             self.numericalFlux.updateExteriorNumericalFluxJacobian(self.l2g,self.inflowFlag,self.q,self.ebqe,self.dphi,
                                                                    self.fluxJacobian_exterior,self.fluxJacobian_eb,self.fluxJacobian_hj)
         else:
@@ -2940,6 +2956,19 @@ class OneLevelTransport(NonlinearEquation):
             if self.q.has_key(('grad(u)',cj)):
                 self.u[cj].getGradientValues(self.q[('grad(v)',cj)],
                                              self.q[('grad(u)',cj)])
+            self.u[cj].getValuesGlobalExteriorTrace(self.ebqe[('v',cj)],
+                                                    self.ebqe[('u',cj)])
+            if self.ebqe.has_key(('grad(u)',cj)):
+                self.u[cj].getGradientValuesGlobalExteriorTrace(self.ebqe[('grad(v)',cj)],
+                                                                self.ebqe[('grad(u)',cj)])
+        if self.needEBQ:
+            for cj in range(self.nc):
+                self.u[cj].getValuesTrace(self.ebq[('v',cj)],
+                                     self.ebq[('u',cj)])
+                if self.ebq.has_key(('grad(u)',cj)):
+                    self.u[cj].getGradientValuesTrace(self.ebq[('grad(v)',cj)],
+                                                 self.ebq[('grad(u)',cj)])
+
     def calculateStrongResidualAndAdjoint(self,cq):
         """
         break off computation of strong residual and adjoint so that we can do this at different quadrature locations?
@@ -3362,7 +3391,7 @@ class OneLevelTransport(NonlinearEquation):
         #
         # calculate the averages and jumps at element boundaries
         #
-        if self.numericalFlux != None:
+        if self.numericalFlux != None and not isinstance(self.numericalFlux, NumericalFlux.DoNothing):
             self.numericalFlux.calculateInteriorNumericalFlux(self.q,self.ebq,self.ebq_global)
         if self.conservativeFlux != None:
             for ci in self.conservativeFlux.keys():
@@ -3498,7 +3527,7 @@ class OneLevelTransport(NonlinearEquation):
         #
         # calculate the averages and jumps at element boundaries
         #
-        if self.numericalFlux != None:
+        if self.numericalFlux != None and not isinstance(self.numericalFlux, NumericalFlux.DoNothing):
             self.numericalFlux.calculateExteriorNumericalFlux(self.inflowFlag,self.q,self.ebqe)
         else:
             #cek this wll go away
@@ -3915,13 +3944,27 @@ class OneLevelTransport(NonlinearEquation):
         #note for now requires advectiveFluxBoundaryConditions to have key if want
         #to set diffusiveFluxBCs
         #mwf should be able to get rid of this too
-        self.fluxBoundaryConditionsObjectsDictGlobalElementBoundary = dict([(cj,FluxBoundaryConditionsGlobalElementBoundaries(self.mesh,
-                                                                                                                              self.nElementBoundaryQuadraturePoints_elementBoundary,
-                                                                                                                              self.ebq_global[('x')],
-                                                                                                                              self.advectiveFluxBoundaryConditionsSetterDict[cj],
-                                                                                                                              self.diffusiveFluxBoundaryConditionsSetterDictDict[cj]))
-                                                                            for cj in self.advectiveFluxBoundaryConditionsSetterDict.keys()])
-
+        #setup flux boundary conditions
+        fluxBoundaryCondition_components = set()
+        if self.advectiveFluxBoundaryConditionsSetterDict != None:
+            fluxBoundaryCondition_components = fluxBoundaryCondition_components.union(set(self.advectiveFluxBoundaryConditionsSetterDict.keys()))
+        if self.diffusiveFluxBoundaryConditionsSetterDictDict != None:
+            fluxBoundaryCondition_components = fluxBoundaryCondition_components.union(set(self.diffusiveFluxBoundaryConditionsSetterDictDict .keys()))
+        self.fluxBoundaryConditionsObjectsDictGlobalElementBoundary = {}
+        for ci in fluxBoundaryCondition_components:
+            if ci in self.advectiveFluxBoundaryConditionsSetterDict:
+                advectiveFluxBC = self.advectiveFluxBoundaryConditionsSetterDict[ci]
+            else:
+                advectiveFluxBC = None
+            if ci in self.diffusiveFluxBoundaryConditionsSetterDictDict:
+                diffusiveFluxBC = self.diffusiveFluxBoundaryConditionsSetterDictDict[ci]
+            else:
+                diffusiveFluxBC = {}
+            self.fluxBoundaryConditionsObjectsDictGlobalElementBoundary[ci] = FluxBoundaryConditionsGlobalElementBoundaries(self.mesh,
+                                                                                                                          self.nElementBoundaryQuadraturePoints_elementBoundary,
+                                                                                                                          self.ebq_global[('x')],
+                                                                                                                          advectiveFluxBC,
+                                                                                                                          diffusiveFluxBC)
         #
         for ci in range(self.nc):
             if self.ebq.has_key(('dS_u',ci)):
@@ -4086,12 +4129,26 @@ class OneLevelTransport(NonlinearEquation):
                                                                                                     self.ebqe[('grad(v)Xw*dS_'+I,ck,cj,ci)])
 
         #setup flux boundary conditions
-        self.fluxBoundaryConditionsObjectsDict = dict([(cj,FluxBoundaryConditions(self.mesh,
-                                                                                  self.nElementBoundaryQuadraturePoints_elementBoundary,
-                                                                                  self.ebqe[('x')],
-                                                                                  self.advectiveFluxBoundaryConditionsSetterDict[cj],
-                                                                                  self.diffusiveFluxBoundaryConditionsSetterDictDict[cj]))
-                                                       for cj in self.advectiveFluxBoundaryConditionsSetterDict.keys()])
+        fluxBoundaryCondition_components = set()
+        if self.advectiveFluxBoundaryConditionsSetterDict != None:
+            fluxBoundaryCondition_components = fluxBoundaryCondition_components.union(set(self.advectiveFluxBoundaryConditionsSetterDict.keys()))
+        if self.diffusiveFluxBoundaryConditionsSetterDictDict != None:
+            fluxBoundaryCondition_components = fluxBoundaryCondition_components.union(set(self.diffusiveFluxBoundaryConditionsSetterDictDict .keys()))
+        self.fluxBoundaryConditionsObjectsDict = {}
+        for ci in fluxBoundaryCondition_components:
+            if ci in self.advectiveFluxBoundaryConditionsSetterDict:
+                advectiveFluxBC = self.advectiveFluxBoundaryConditionsSetterDict[ci]
+            else:
+                advectiveFluxBC = None
+            if ci in self.diffusiveFluxBoundaryConditionsSetterDictDict:
+                diffusiveFluxBC = self.diffusiveFluxBoundaryConditionsSetterDictDict[ci]
+            else:
+                diffusiveFluxBC = {}
+            self.fluxBoundaryConditionsObjectsDict[ci] = FluxBoundaryConditions(self.mesh,
+                                                                                self.nElementBoundaryQuadraturePoints_elementBoundary,
+                                                                                self.ebqe[('x')],
+                                                                                advectiveFluxBC,
+                                                                                diffusiveFluxBC)
         self.stressFluxBoundaryConditionsObjectsDict = dict([(cj,FluxBoundaryConditions(self.mesh,
                                                                                         self.nElementBoundaryQuadraturePoints_elementBoundary,
                                                                                         self.ebqe[('x')],
@@ -5460,6 +5517,23 @@ class OneLevelTransport(NonlinearEquation):
                                                                                                                          self.ebqe[key],
                                                                                                                          name,
                                                                                                                          tCount)
+    def archiveFiniteElementResiduals(self,archive,t,tCount,res_dict,res_name_base='spatial_residual'):
+        """
+        write assembled spatial residual stored in r at time t
+
+        ASSUMES archiveFiniteElementSolutions has already been called for t and tCount!!!
+
+        """
+        class dummy:
+            """
+            needed to satisfy api for writeFunctionXdmf
+            """
+            def __init__(self,ci,r):
+                self.dof=r
+                self.name=res_name_base+'{0}'.format(ci)
+        for ci in range(self.coefficients.nc):
+            self.u[ci].femSpace.writeFunctionXdmf(archive,dummy(ci,res_dict[ci]),tCount)
+
 
     def initializeMassJacobian(self):
         """
@@ -5525,7 +5599,7 @@ class OneLevelTransport(NonlinearEquation):
         for key in q_save.keys():
             self.q[key].flat[:] = q_save[key].flat[:]
         log("Coefficients on element",level=10,data=self.q)
-        ## exterior element boundaries 
+        ## exterior element boundaries
     def calculateElementLoad_inhomogeneous(self):
         """
         Calculate all the portion of the weak element residual corresponding to terms that
@@ -5730,10 +5804,10 @@ class OneLevelTransport(NonlinearEquation):
                                                                   self.elementResidual[ci],
                                                                   f);
         log("Global Load Vector",level=9,data=f)
-        
+
 
     def getMassJacobian(self,jacobian):
-        """ 
+        """
         assemble the portion of the jacobian coming from the time derivative terms
         """
         import superluWrappers
@@ -5782,20 +5856,107 @@ class OneLevelTransport(NonlinearEquation):
             raise TypeError("Matrix type must be SparseMatrix or array")
         log("Mass Jacobian ",level=10,data=jacobian)
         if self.forceStrongConditions:
-            scaling = 1.0#probably want to add some scaling to match non-dirichlet diagonals in linear system
             for cj in range(self.nc):
                 for dofN in self.dirichletConditionsForceDOF[cj].DOFBoundaryConditionsDict.keys():
                     global_dofN = self.offset[cj]+self.stride[cj]*dofN
                     for i in range(self.rowptr[global_dofN],self.rowptr[global_dofN+1]):
                         if (self.colind[i] == global_dofN):
-                            self.nzval[i] = scaling
+                            self.nzval[i] = 1.0
                         else:
                             self.nzval[i] = 0.0
         return jacobian
     #
     def getSpatialJacobian(self,jacobian):
         return self.getJacobian(jacobian,skipMassTerms=True)
-    
+
+    def getSpatialResidual(self,u,r):
+        """
+        Calculate the element spatial residuals and add in to the global residual
+        This is being used right now to test nonlinear pod and deim
+        """
+        r.fill(0.0)
+        #Load the Dirichlet conditions
+        for cj in range(self.nc):
+            for dofN,g in self.dirichletConditions[cj].DOFBoundaryConditionsDict.iteritems():
+                self.u[cj].dof[dofN] = g(self.dirichletConditions[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
+        if self.forceStrongConditions:
+            for cj in range(len(self.dirichletConditionsForceDOF)):
+                for dofN,g in self.dirichletConditionsForceDOF[cj].DOFBoundaryConditionsDict.iteritems():
+                    self.u[cj].dof[dofN] = g(self.dirichletConditionsForceDOF[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
+        #Load the unknowns into the finite element dof
+        self.timeIntegration.calculateU(u)
+        self.setUnknowns(self.timeIntegration.u)
+        self.calculateCoefficients()
+        self.calculateElementResidual()
+        self.scale_dt = False
+        log("Element spatial residual",level=9,data=self.elementSpatialResidual)
+        if self.timeIntegration.dt < 1.0e-8*self.mesh.h:
+            self.scale_dt = True
+            log("Rescaling residual for small time steps")
+        else:
+            self.scale_dt = False
+        for ci in range(self.nc):
+            if self.scale_dt:
+                self.elementSpatialResidual[ci]*=self.timeIntegration.dt
+            cfemIntegrals.updateGlobalResidualFromElementResidual(self.offset[ci],
+                                                                  self.stride[ci],
+                                                                  self.l2g[ci]['nFreeDOF'],
+                                                                  self.l2g[ci]['freeLocal'],
+                                                                  self.l2g[ci]['freeGlobal'],
+                                                                  self.elementSpatialResidual[ci],
+                                                                  r);
+        log("Global spatial residual",level=9,data=r)
+        if self.forceStrongConditions:#
+            for cj in range(len(self.dirichletConditionsForceDOF)):#
+                for dofN,g in self.dirichletConditionsForceDOF[cj].DOFBoundaryConditionsDict.iteritems():
+                    r[self.offset[cj]+self.stride[cj]*dofN] = 0
+    def getMassResidual(self,u,r):
+        """
+        Calculate the portion of the element residuals associated with the temporal term and assemble into a global residual
+        This is being used right now to test nonlinear pod and deim and is inefficient
+        """
+        r.fill(0.0)
+        #Load the Dirichlet conditions
+        for cj in range(self.nc):
+            for dofN,g in self.dirichletConditions[cj].DOFBoundaryConditionsDict.iteritems():
+                self.u[cj].dof[dofN] = g(self.dirichletConditions[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
+        if self.forceStrongConditions:
+            for cj in range(len(self.dirichletConditionsForceDOF)):
+                for dofN,g in self.dirichletConditionsForceDOF[cj].DOFBoundaryConditionsDict.iteritems():
+                    self.u[cj].dof[dofN] = g(self.dirichletConditionsForceDOF[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
+        #Load the unknowns into the finite element dof
+        self.timeIntegration.calculateU(u)
+        self.setUnknowns(self.timeIntegration.u)
+        self.calculateCoefficients()
+        self.calculateElementResidual()
+        elementMassResidual = {}
+        for ci in range(self.nc):
+            elementMassResidual[ci]=np.copy(self.elementResidual[ci])
+            elementMassResidual[ci]-= self.elementSpatialResidual[ci]
+
+        self.scale_dt = False
+        log("Element Mass residual",level=9,data=elementMassResidual)
+        if self.timeIntegration.dt < 1.0e-8*self.mesh.h:
+            self.scale_dt = True
+            log("Rescaling residual for small time steps")
+        else:
+            self.scale_dt = False
+        for ci in range(self.nc):
+            if self.scale_dt:
+                elementMassResidual[ci]*=self.timeIntegration.dt
+            cfemIntegrals.updateGlobalResidualFromElementResidual(self.offset[ci],
+                                                                  self.stride[ci],
+                                                                  self.l2g[ci]['nFreeDOF'],
+                                                                  self.l2g[ci]['freeLocal'],
+                                                                  self.l2g[ci]['freeGlobal'],
+                                                                  elementMassResidual[ci],
+                                                                  r);
+        log("Global mass residual",level=9,data=r)
+        if self.forceStrongConditions:#
+            for cj in range(len(self.dirichletConditionsForceDOF)):#
+                for dofN,g in self.dirichletConditionsForceDOF[cj].DOFBoundaryConditionsDict.iteritems():
+                    r[self.offset[cj]+self.stride[cj]*dofN] = 0
+
 #end Transport definition
 class MultilevelTransport:
     """Nonlinear ADR on a multilevel mesh"""

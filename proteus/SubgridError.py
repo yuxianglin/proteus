@@ -104,6 +104,51 @@ class Advection_ASGS(SGE_base):
                                                                q[('subgridError',ci)],
                                                                q[('dsubgridError',ci,cj)])
 
+class AdvectionLag_ASGS(SGE_base):
+    def __init__(self,coefficients,nd,stabFlag='1',lag=False):
+        SGE_base.__init__(self,coefficients,nd,lag)
+        self.stabilizationFlag = stabFlag
+
+    def initializeElementQuadrature(self,mesh,t,cq):
+        import copy
+        self.mesh=mesh
+        self.tau=[]
+        self.tau_last=[]
+        self.df_last={}
+        self.cq=cq
+        for ci in range(self.nc):
+            if self.lag:
+                self.tau_last.append(numpy.zeros(cq[('u',ci)].shape,'d'))
+                self.tau.append(numpy.zeros(cq[('u',ci)].shape,'d'))
+                if cq.has_key(('df',ci,ci)):
+                    self.df_last = copy.deepcopy(cq[('df',ci,ci)])
+                    cq[('df_sge',ci,ci)] = self.df_last
+            else:
+                if cq.has_key(('df',ci,ci)):
+                    cq[('df_sge',ci,ci)] = cq[('df',ci,ci)]
+                self.tau.append(numpy.zeros(cq[('u',ci)].shape,'d'))
+    def updateSubgridErrorHistory(self,initializationPhase=False):
+        if self.lag:
+            for ci in range(self.nc):
+                self.tau_last[ci][:] = self.tau[ci]
+                self.df_last[:] = self.cq[('df',ci,ci)]
+    def calculateSubgridError(self,q):
+        for ci in range(self.nc):
+            csubgridError.calculateSubgridError_A_tau(self.stabilizationFlag,
+                                                      self.mesh.elementDiametersArray,
+                                                      q[('dmt',ci,ci)],
+                                                      q[('df_sge',ci,ci)],
+                                                      q[('cfl',ci)],
+                                                      self.tau[ci])
+            tau=self.tau[ci]
+            for cj in range(self.nc):
+                if q.has_key(('dpdeResidual',ci,cj)):
+                    csubgridError.calculateSubgridError_tauRes(tau,
+                                                               q[('pdeResidual',ci)],
+                                                               q[('dpdeResidual',ci,cj)],
+                                                               q[('subgridError',ci)],
+                                                               q[('dsubgridError',ci,cj)])
+
 class AdvectionDiffusionReaction_ASGS(SGE_base):
     def __init__(self,coefficients,nd,stabFlag='1',lag=False):
         SGE_base.__init__(self,coefficients,nd,lag)
@@ -584,6 +629,132 @@ class HamiltonJacobi_ASGS(SGE_base):
             for ci in range(self.nc):
                 self.cq[('dH_sge',ci,ci)][:]= self.cq[('dH',ci,ci)]
 
+class HamiltonJacobiDiffusionReaction_ASGS(SGE_base):
+    def __init__(self,coefficients,nd,stabFlag='1',lag=False):
+        SGE_base.__init__(self,coefficients,nd,lag)
+        self.stabilizationFlag = stabFlag
+    def initializeElementQuadrature(self,mesh,t,cq):
+        import copy
+        self.mesh=mesh
+        self.tau=[]
+        self.tau_last=[]
+        self.cq=cq
+        for ci in range(self.nc):
+            if self.lag:
+                self.tau_last.append(numpy.zeros(cq[('u',ci)].shape,'d'))
+                self.tau.append(numpy.zeros(cq[('u',ci)].shape,'d'))
+                if cq.has_key(('dH',ci,ci)):
+                    cq[('dH_sge',ci,ci)] = copy.deepcopy(cq[('dH',ci,ci)])
+                if cq.has_key(('dm',ci,ci)):
+                    cq[('dm_sge',ci,ci)] = copy.deepcopy(cq[('dm',ci,ci)])
+                if cq.has_key(('dmt',ci,ci)):
+                    cq[('dmt_sge',ci,ci)] = copy.deepcopy(cq[('dmt',ci,ci)])
+            else:
+                if cq.has_key(('dH',ci,ci)):
+                    cq[('dH_sge',ci,ci)] = cq[('dH',ci,ci)]
+                if cq.has_key(('dm',ci,ci)):
+                    cq[('dm_sge',ci,ci)] = cq[('dm',ci,ci)]
+                if cq.has_key(('dmt',ci,ci)):
+                    cq[('dmt_sge',ci,ci)] = cq[('dmt',ci,ci)]
+                self.tau.append(numpy.zeros(cq[('u',ci)].shape,'d'))
+
+        for ci,ckDict in self.coefficients.diffusion.iteritems():
+            if self.lag:#mwf looks like this was missing if lag May 7 09
+                for ck,cjDict in ckDict.iteritems():
+                    cq[('grad(phi)_sge',ck)]=copy.deepcopy(cq[('grad(phi)',ck)])
+                    for cj in cjDict.keys():
+                        cq[('dphi_sge',ck,cj)]=copy.deepcopy(cq[('dphi',ck,cj)])
+                        cq[('da_sge',ci,ck,cj)]=copy.deepcopy(cq[('da',ci,ck,cj)])
+            else:
+                for ck,cjDict in ckDict.iteritems():
+                    cq[('grad(phi)_sge',ck)]=cq[('grad(phi)',ck)]
+                    for cj in cjDict.keys():
+                        cq[('dphi_sge',ck,cj)]=cq[('dphi',ck,cj)]
+                        cq[('da_sge',ci,ck,cj)]=cq[('da',ci,ck,cj)]
+
+    def updateSubgridErrorHistory(self,initializationPhase=False):
+        if self.lag:
+            for ci in range(self.nc):
+                self.tau_last[ci][:] = self.tau[ci]
+                #mwf should these be deep copies?
+                self.cq[('dH_sge',ci,ci)][:] = self.cq[('dH',ci,ci)]
+                self.cq[('dm_sge',ci,ci)][:] = self.cq[('dm',ci,ci)]
+            for ci,ckDict in self.coefficients.diffusion.iteritems():
+                for ck,cjDict in ckDict.iteritems():
+                    self.cq[('grad(phi)_sge',ck)][:]=self.cq[('grad(phi)',ck)]
+                    for cj in cjDict.keys():
+                        self.cq[('dphi_sge',ck,cj)][:]=0.0 #grad(phi) will be a constant when lagged so dphi=0 not 1
+                        self.cq[('da_sge',ci,ck,cj)][:]=self.cq[('da',ci,ck,cj)]
+
+    def calculateSubgridError(self,q):
+        oldTau=False#True #mwf oldTau not working with sd!
+        for ci in range(self.nc):
+            if oldTau:
+                if self.coefficients.sd:
+                    csubgridError.calculateSubgridError_ADR_tau_sd(self.stabilizationFlag,
+                                                                   self.coefficients.sdInfo[(ci,ci)][0],self.coefficients.sdInfo[(ci,ci)][1],
+                                                                   self.mesh.elementDiametersArray,
+                                                                   q[('dmt',ci,ci)],
+                                                                   q[('dH',ci,ci)],
+                                                                   q[('a',ci,ci)],
+                                                                   q[('da',ci,ci,ci)],
+                                                                   q[('grad(phi)',ci)],
+                                                                   q[('dphi',ci,ci)],
+                                                                   q[('dr',ci,ci)],
+                                                                   q[('pe',ci)],
+                                                                   q[('cfl',ci)],
+                                                                   self.tau[ci])
+                else:
+                    csubgridError.calculateSubgridError_ADR_tau(self.stabilizationFlag,
+                                                                self.mesh.elementDiametersArray,
+                                                                q[('dmt',ci,ci)],
+                                                                q[('dH',ci,ci)],
+                                                                q[('a',ci,ci)],
+                                                                q[('da',ci,ci,ci)],
+                                                                q[('grad(phi)',ci)],
+                                                                q[('dphi',ci,ci)],
+                                                                q[('dr',ci,ci)],
+                                                                q[('pe',ci)],
+                                                                q[('cfl',ci)],
+                                                                self.tau[ci])
+            else:
+                if self.coefficients.sd:
+                    csubgridError.calculateSubgridError_ADR_generic_tau_sd(self.coefficients.sdInfo[(ci,ci)][0],self.coefficients.sdInfo[(ci,ci)][1],
+                                                                           q['inverse(J)'],
+                                                                           q[('dmt',ci,ci)],
+                                                                           q[('dH',ci,ci)],
+                                                                           q[('a',ci,ci)],
+                                                                           q[('da',ci,ci,ci)],
+                                                                           q[('grad(phi)',ci)],
+                                                                           q[('dphi',ci,ci)],
+                                                                           q[('dr',ci,ci)],
+                                                                           q[('pe',ci)],
+                                                                           q[('cfl',ci)],
+                                                                           self.tau[ci])
+                else:
+                    csubgridError.calculateSubgridError_ADR_generic_tau(q['inverse(J)'],
+                                                                        q[('dmt',ci,ci)],
+                                                                        q[('dH',ci,ci)],
+                                                                        q[('a',ci,ci)],
+                                                                        q[('da',ci,ci,ci)],
+                                                                        q[('grad(phi)',ci)],
+                                                                        q[('dphi',ci,ci)],
+                                                                        q[('dr',ci,ci)],
+                                                                        q[('pe',ci)],
+                                                                        q[('cfl',ci)],
+                                                                        self.tau[ci])
+            if self.lag:
+                tau=self.tau_last[ci]
+            else:
+                tau=self.tau[ci]
+            for cj in range(self.nc):
+                if q.has_key(('dpdeResidual',ci,cj)):
+                    csubgridError.calculateSubgridError_tauRes(tau,
+                                                               q[('pdeResidual',ci)],
+                                                               q[('dpdeResidual',ci,cj)],
+                                                               q[('subgridError',ci)],
+                                                               q[('dsubgridError',ci,cj)])
+
 class HamiltonJacobi_ASGS_opt(SGE_base):
     def __init__(self,coefficients,nd,stabFlag='1',lag=False):
         SGE_base.__init__(self,coefficients,nd,lag)
@@ -668,6 +839,7 @@ class StokesStabilization_1(SGE_base):
 class StokesASGS_velocity(SGE_base):
     def __init__(self,coefficients,nd):
         SGE_base.__init__(self,coefficients,nd,lag=False)
+        self.stabilizationFlag = '1'
         coefficients.stencil[0].add(0)
         if nd == 2:
             coefficients.stencil[1].add(2)
@@ -679,8 +851,6 @@ class StokesASGS_velocity(SGE_base):
             coefficients.stencil[2].add(3)
             coefficients.stencil[3].add(1)
             coefficients.stencil[3].add(2)
-    def initializeElementQuadrature(self,mesh,t,cq):
-        self.mesh=mesh
     def calculateSubgridError(self,q):
         if self.nd == 2:
             if self.coefficients.sd:
@@ -1347,6 +1517,7 @@ class StokesASGS_velocity_pressure(SGE_base):
                                                                     q[('a',1,1)],
                                                                     self.tau[0],
                                                                     self.tau[1])
+            self.tau[1] /= q[('dH',1,0)][...,0]#if mom. eqn. is scaled by density, rescale tau
             if self.lag:
                 tau0=self.tau_last[0]
                 tau1=self.tau_last[1]

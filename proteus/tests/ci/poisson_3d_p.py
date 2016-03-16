@@ -16,7 +16,15 @@ Heterogeneous Poisson's equation, -div(a(x)u) = f(x), on unit domain [0,1]x[0,1]
 #space dimension
 nd = 3
 #if unstructured would need variable polyfile or meshfile set
+x0 = (-3.,-3.,-3.)
+L  = ( 6., 6., 6.)
 
+test_hexMesh_3x3 = False
+if test_hexMesh_3x3 == True:
+    meshfile='hexMesh_3x3'
+    domain = Domain.MeshHexDomain(meshfile)
+    x0 = (-3.,-3.,-3.)
+    L  = ( 6., 6., 6.)
 #steady-state so no initial conditions
 initialConditions = None
 #use sparse diffusion representation
@@ -24,6 +32,7 @@ sd=True
 #identity tensor for defining analytical heterogeneity functions
 Ident = numpy.zeros((nd,nd),'d')
 Ident[0,0]=1.0; Ident[1,1] = 1.0; Ident[2,2]=1.0
+
 
 #for computing exact 'Darcy' velocity
 class velEx:
@@ -62,18 +71,32 @@ class u5Ex:
     def duOfXT(self,X,T):
         return self.duOfX(X)
 
+eps=1.0e-4
+
+def onDirichletBoundary(x):
+    if (x[0] <= x0[0] + eps or
+        x[1] <= x0[1] + eps or
+        x[1] >= x0[1] + L[1] - eps or
+        x[2] <= x0[2] + eps or
+        x[2] >= x0[2] + L[2] - eps):
+        return True
+    else:
+        return False
+
 #dirichlet boundary condition functions on (x=0,y,z), (x,y=0,z), (x,y=1,z), (x,y,z=0), (x,y,z=1)
 def getDBC5(x,flag):
-    if x[0] in [0.0] or x[1] in [0.0,1.0] or x[2] in [0.0,1.0]:
+    if onDirichletBoundary(x):
         return lambda x,t: u5Ex().uOfXT(x,t)
 def getAdvFluxBC5(x,flag):
-    pass
+    return None
+
 #specify flux on (x=1,y,z)
 def getDiffFluxBC5(x,flag):
-    if x[0] == 1.0:
-        n = numpy.zeros((nd,),'d'); n[0]=1.0
+    if x[0] >= x0[0] + L[0] - eps:
+        n = numpy.zeros((nd,),'d');
+        n[0]=1.0
         return lambda x,t: numpy.dot(velEx(u5Ex(),a5).uOfXT(x,t),n)
-    if not (x[0] in [0.0] or x[1] in [0.0,1.0] or x[2] in [0.0,1.0]):
+    elif not onDirichletBoundary(x):
         return lambda x,t: 0.0
 #store a,f in dictionaries since coefficients class allows for one entry per component
 aOfX = {0:a5}; fOfX = {0:f5}
@@ -87,8 +110,6 @@ analyticalSolutionVelocity = {0:velEx(analyticalSolution[0],aOfX[0])}
 dirichletConditions = {0:getDBC5}
 advectiveFluxBoundaryConditions =  {0:getAdvFluxBC5}
 diffusiveFluxBoundaryConditions = {0:{0:getDiffFluxBC5}}
-fluxBoundaryConditions = {0:'setFlow'} #options are 'setFlow','noFlow','mixedFlow'
-
 
 #equation coefficient names
 coefficients = TransportCoefficients.PoissonEquationCoefficients(aOfX,fOfX,nc,nd)

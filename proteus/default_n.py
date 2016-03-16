@@ -118,7 +118,7 @@ multilevelNonlinearSolver  = NLNI
 levelNonlinearSolver = Newton
 """A nonlinear solver class of type :class:`proteus.NonlinearSolvers.NonlinearSolver`"""
 
-nonlinearSmoother = NLGaussSeidel
+nonlinearSmoother = None
 """A nonlinear solver class of type :class:`proteus.NonlinearSolvers.NonlinearSolver`"""
 
 fullNewtonFlag = True
@@ -147,7 +147,7 @@ computeEigenvalues = False
 
 computeEigenvectors = None#'left','right'
 
-linearSmoother = StarILU#GaussSeidel
+linearSmoother = None
 
 linTolFac = 0.001
 
@@ -181,7 +181,7 @@ linearPreSmooths = 3
 
 linearPostSmooths = 3
 
-computeNonlinearSolverRates=True
+computeNonlinearSolverRates=False
 
 printNonlinearSolverInfo=False
 
@@ -228,3 +228,6 @@ levelNonlinearSolverConvergenceTest = 'r'
 linearSolverConvergenceTest = 'r' #r,its,r-true for true residual
 #we can add this if desired for setting solver specific options in petsc
 #linear_solver_options_prefix= None #
+
+bcsTimeDependent = True
+"""Allow optimizations if boundary conditions are not time dependent"""

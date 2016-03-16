@@ -312,9 +312,9 @@ ParMat_init(ParMat *self, PyObject *args, PyObject *kwds)
   //set up a local 2 global mapping
   std::vector<int> indices(bs*SHAPE(subdomain2global)[0]);
   for (int i=0;i<SHAPE(subdomain2global)[0];i++)
-    for (int I=0;I<bs;I++)
+    for (int bI=0;bI<bs;bI++)
       {
-        indices[i*bs+I] = IDATA(subdomain2global)[i]*bs+I;
+        indices[i*bs+bI] = IDATA(subdomain2global)[i]*bs+bI;
       }
   if (bs==1)
     {
@@ -3067,9 +3067,6 @@ int partitionNodesFromTetgenFiles(const char* filebase, int indexBase, Mesh& new
   int nElements_owned_subdomain(elements_subdomain_owned.size()),
     nElements_owned_new=0;
   MPI_Allreduce(&nElements_owned_subdomain,&nElements_owned_new,1,MPI_INT,MPI_SUM,PROTEUS_COMM_WORLD);
-  std::cout<<"nElements_owned_new "<<nElements_owned_new
-	   <<'\t'
-	   <<"nElements_global "<<nElements_global<<std::endl;
   assert(nElements_owned_new == nElements_global);
   PetscLogEventEnd(build_subdomains_reread_elements_event,0,0,0,0);
   int build_subdomains_send_marked_elements_event;
@@ -3262,9 +3259,6 @@ int partitionNodesFromTetgenFiles(const char* filebase, int indexBase, Mesh& new
   int nElementBoundaries_owned_subdomain=elementBoundaries_subdomain_owned.size(),
     nElementBoundaries_owned_new=0;
   MPI_Allreduce(&nElementBoundaries_owned_subdomain,&nElementBoundaries_owned_new,1,MPI_INT,MPI_SUM,PROTEUS_COMM_WORLD);
-  std::cout<<nElementBoundaries_owned_new
-	   <<'\t'
-	   <<nElementBoundaries_global<<std::endl;
   assert(nElementBoundaries_owned_new == nElementBoundaries_global);
 
   //now get the element boundaries on the outside of the star
@@ -3427,9 +3421,6 @@ int partitionNodesFromTetgenFiles(const char* filebase, int indexBase, Mesh& new
   int nEdges_owned_subdomain=edges_subdomain_owned.size(),
     nEdges_owned_new=0;
   MPI_Allreduce(&nEdges_owned_subdomain,&nEdges_owned_new,1,MPI_INT,MPI_SUM,PROTEUS_COMM_WORLD);
-  std::cout<<nEdges_owned_new
-	   <<'\t'
-	   <<nEdges_global<<std::endl;
   assert(nEdges_owned_new == nEdges_global);
   //done with edge file
   //
@@ -5230,16 +5221,16 @@ int buildQuadraticSubdomain2GlobalMappings_1d(Mesh& mesh,
 	  else
 	    subdomain_l2g[eN*nDOF_element+nN] = nN_global_subdomain[nN]-nNodes_owned + ghostNodeOffset;
 	  //vertex dof
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+nN]*3+I] = mesh.subdomainp->nodeArray[3*nN_global_subdomain[nN]+I];
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+nN]*3+eI] = mesh.subdomainp->nodeArray[3*nN_global_subdomain[nN]+eI];
 	}
       if (eN < nElements_owned)
 	subdomain_l2g[eN*nDOF_element+2] = nNodes_owned + eN;
       else
 	subdomain_l2g[eN*nDOF_element+2] = eN - nElements_owned + ghostElementOffset; 
       //vertex dof
-      for (int I=0; I < 3; I++)
-	lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+2]*3+I] = 0.5*(mesh.subdomainp->nodeArray[3*nN_global_subdomain[0]+I]+mesh.subdomainp->nodeArray[3*nN_global_subdomain[1]+I]);
+      for (int eI=0; eI < 3; eI++)
+	lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+2]*3+eI] = 0.5*(mesh.subdomainp->nodeArray[3*nN_global_subdomain[0]+eI]+mesh.subdomainp->nodeArray[3*nN_global_subdomain[1]+eI]);
     }
 
   ISRestoreIndices(quadraticNumberingIS_global_new2old,&quadraticNumbering_global_new2old);
@@ -5386,8 +5377,8 @@ int buildQuadraticSubdomain2GlobalMappings_2d(Mesh& mesh,
 	  else
 	    subdomain_l2g[eN*nDOF_element+nN] = nN_global_subdomain[nN]-nNodes_owned + ghostNodeOffset;
 	  //vertex dof
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+nN]*3+I] = mesh.subdomainp->nodeArray[3*nN_global_subdomain[nN]+I];
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+nN]*3+eI] = mesh.subdomainp->nodeArray[3*nN_global_subdomain[nN]+eI];
 	}
       for (int ebN=0; ebN < mesh.subdomainp->nElementBoundaries_element; ebN++)
 	{
@@ -5399,8 +5390,8 @@ int buildQuadraticSubdomain2GlobalMappings_2d(Mesh& mesh,
 	  else
 	    subdomain_l2g[eN*nDOF_element+3+ebN] = ebN_global - nElementBoundaries_owned + ghostElementBoundaryOffset; 
 	  //center of edge dof
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+3+ebN]*3+I] = 0.5*(mesh.subdomainp->nodeArray[3*nN_global_subdomain[(ebN+0)%3]+I]+mesh.subdomainp->nodeArray[3*nN_global_subdomain[(ebN+1)%3]+I]);
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+3+ebN]*3+eI] = 0.5*(mesh.subdomainp->nodeArray[3*nN_global_subdomain[(ebN+0)%3]+eI]+mesh.subdomainp->nodeArray[3*nN_global_subdomain[(ebN+1)%3]+eI]);
 	}
     }//eN
 
@@ -5575,8 +5566,8 @@ int buildQuadraticSubdomain2GlobalMappings_3d(Mesh& mesh,
 // 	      std::cout<<"build loc2glob c0p2 3d eN= "<<eN<<" node= "<<nN<<" sub_dof= "<< subdomain_l2g[eN*nDOF_element + local_offset + nN]
 // 		       <<" glob_dof= "<<subdomain2global[subdomain_l2g[eN*nDOF_element + local_offset + nN]]<<std::endl;
 // 	    }
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element + local_offset +nN]*3+I] = mesh.subdomainp->nodeArray[nN_global_subdomain*3+I];
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element + local_offset +nN]*3+eI] = mesh.subdomainp->nodeArray[nN_global_subdomain*3+eI];
 	}
       local_offset += mesh.subdomainp->nNodes_element;
       //(node_i,node_{i+1}) --> unique subdomain edge, 0 <= i < 3
@@ -5613,9 +5604,9 @@ int buildQuadraticSubdomain2GlobalMappings_3d(Mesh& mesh,
 // 	      std::cout<<"build loc2glob c0p2 3d eN= "<<eN<<" edge("<<nN<<","<<nN_neig<<") sub_dof= "<< subdomain_l2g[eN*nDOF_element + local_offset + nN]
 // 		       <<" glob_dof= "<<subdomain2global[subdomain_l2g[eN*nDOF_element + local_offset + nN]]<<std::endl;
 // 	    }  
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+I] = 0.5*(mesh.subdomainp->nodeArray[nN_global_subdomain*3+I]+
-											  mesh.subdomainp->nodeArray[nN_neig_global_subdomain*3+I]);
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+eI] = 0.5*(mesh.subdomainp->nodeArray[nN_global_subdomain*3+eI]+
+											  mesh.subdomainp->nodeArray[nN_neig_global_subdomain*3+eI]);
 	}
       local_offset +=  mesh.subdomainp->nNodes_element-1;
       //(node_i,node_{i+2}) --> unique subdomain edge, 0 <= i < 2
@@ -5651,9 +5642,9 @@ int buildQuadraticSubdomain2GlobalMappings_3d(Mesh& mesh,
 // 	      std::cout<<"build loc2glob c0p2 3d eN= "<<eN<<" edge("<<nN<<","<<nN_neig<<") sub_dof= "<< subdomain_l2g[eN*nDOF_element + local_offset + nN]
 // 		       <<" glob_dof= "<<subdomain2global[subdomain_l2g[eN*nDOF_element + local_offset + nN]]<<std::endl;
 // 	    }
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+I] = 0.5*(mesh.subdomainp->nodeArray[nN_global_subdomain*3+I]+
-											  mesh.subdomainp->nodeArray[nN_neig_global_subdomain*3+I]);
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+eI] = 0.5*(mesh.subdomainp->nodeArray[nN_global_subdomain*3+eI]+
+											  mesh.subdomainp->nodeArray[nN_neig_global_subdomain*3+eI]);
 	}
       local_offset += mesh.subdomainp->nNodes_element-2;
       //(node_i,node_{i+3}) --> unique subdomain edge, 0 = i
@@ -5689,9 +5680,9 @@ int buildQuadraticSubdomain2GlobalMappings_3d(Mesh& mesh,
 // 	      std::cout<<"build loc2glob c0p2 3d eN= "<<eN<<" edge("<<nN<<","<<nN_neig<<") sub_dof= "<< subdomain_l2g[eN*nDOF_element + local_offset + nN]
 // 		       <<" glob_dof= "<<subdomain2global[subdomain_l2g[eN*nDOF_element + local_offset + nN]]<<std::endl;
 // 	    }
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+I] = 0.5*(mesh.subdomainp->nodeArray[nN_global_subdomain*3+I]+
-											  mesh.subdomainp->nodeArray[nN_neig_global_subdomain*3+I]);
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+eI] = 0.5*(mesh.subdomainp->nodeArray[nN_global_subdomain*3+eI]+
+											  mesh.subdomainp->nodeArray[nN_neig_global_subdomain*3+eI]);
 	}
       
     }//eN
@@ -5973,8 +5964,8 @@ int buildQuadraticCubeSubdomain2GlobalMappings_3d(Mesh& mesh,
 // 	      std::cout<<"build loc2glob c0p2 3d eN= "<<eN<<" node= "<<nN<<" sub_dof= "<< subdomain_l2g[eN*nDOF_element + local_offset + nN]
 // 		       <<" glob_dof= "<<subdomain2global[subdomain_l2g[eN*nDOF_element + local_offset + nN]]<<std::endl;
 // 	    }
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element + local_offset +nN]*3+I] = mesh.subdomainp->nodeArray[nN_global_subdomain*3+I];
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element + local_offset +nN]*3+eI] = mesh.subdomainp->nodeArray[nN_global_subdomain*3+eI];
 	}
       local_offset += mesh.subdomainp->nNodes_element;
 
@@ -6011,9 +6002,9 @@ int buildQuadraticCubeSubdomain2GlobalMappings_3d(Mesh& mesh,
 // 	      std::cout<<"build loc2glob c0p2 3d eN= "<<eN<<" edge("<<nN<<","<<nN_neig<<") sub_dof= "<< subdomain_l2g[eN*nDOF_element + local_offset + nN]
 // 		       <<" glob_dof= "<<subdomain2global[subdomain_l2g[eN*nDOF_element + local_offset + nN]]<<std::endl;
 // 	    }  
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+I] = 0.5*(mesh.subdomainp->nodeArray[nN_global_subdomain*3+I]+
-											  mesh.subdomainp->nodeArray[nN_neig_global_subdomain*3+I]);
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+eI] = 0.5*(mesh.subdomainp->nodeArray[nN_global_subdomain*3+eI]+
+											  mesh.subdomainp->nodeArray[nN_neig_global_subdomain*3+eI]);
 	}
  
      local_offset += nEdges_element;
@@ -6046,11 +6037,11 @@ int buildQuadraticCubeSubdomain2GlobalMappings_3d(Mesh& mesh,
 // 	      std::cout<<"build loc2glob c0p2 3d eN= "<<eN<<" edge("<<nN<<","<<nN_neig<<") sub_dof= "<< subdomain_l2g[eN*nDOF_element + local_offset + nN]
 // 		       <<" glob_dof= "<<subdomain2global[subdomain_l2g[eN*nDOF_element + local_offset + nN]]<<std::endl;
 // 	    }  
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+I] = 0.25*(mesh.subdomainp->nodeArray[nodes[0]*3+I]+
-											   mesh.subdomainp->nodeArray[nodes[1]*3+I]+
-											   mesh.subdomainp->nodeArray[nodes[2]*3+I]+
-											   mesh.subdomainp->nodeArray[nodes[3]*3+I]);
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset+nN]*3+eI] = 0.25*(mesh.subdomainp->nodeArray[nodes[0]*3+eI]+
+											   mesh.subdomainp->nodeArray[nodes[1]*3+eI]+
+											   mesh.subdomainp->nodeArray[nodes[2]*3+eI]+
+											   mesh.subdomainp->nodeArray[nodes[3]*3+eI]);
 	}
 
 	    local_offset += mesh.subdomainp->nElementBoundaries_element;
@@ -6069,15 +6060,15 @@ int buildQuadraticCubeSubdomain2GlobalMappings_3d(Mesh& mesh,
 // 	      std::cout<<"build loc2glob c0p2 3d eN= "<<eN<<" edge("<<nN<<","<<nN_neig<<") sub_dof= "<< subdomain_l2g[eN*nDOF_element + local_offset + nN]
 // 		       <<" glob_dof= "<<subdomain2global[subdomain_l2g[eN*nDOF_element + local_offset + nN]]<<std::endl;
 // 	    }  
-	  for (int I=0; I < 3; I++)
-	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset]*3+I] = 0.125*(mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 0]*3+I]+
-											 mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 1]*3+I]+
-											 mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 2]*3+I]+
-										         mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 3]*3+I]+
-                                                                                         mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 4]*3+I]+
-											 mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 5]*3+I]+
-										         mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 6]*3+I]+
-										         mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 7]*3+I]);
+	  for (int eI=0; eI < 3; eI++)
+	    lagrangeNodesArray[subdomain_l2g[eN*nDOF_element+local_offset]*3+eI] = 0.125*(mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 0]*3+eI]+
+											 mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 1]*3+eI]+
+											 mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 2]*3+eI]+
+										         mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 3]*3+eI]+
+                                                                                         mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 4]*3+eI]+
+											 mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 5]*3+eI]+
+										         mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 6]*3+eI]+
+										         mesh.subdomainp->nodeArray[mesh.subdomainp->elementNodesArray[eN*mesh.subdomainp->nNodes_element + 7]*3+eI]);
 
 
     }//eN
@@ -6178,7 +6169,6 @@ static PyObject* flcbdfWrappersGlobalMax(PyObject* self, PyObject* args)
                         "d",
                         &value))
     return NULL;
-
   MPI_Allreduce(&value,&value_new,1,MPI_DOUBLE,MPI_MAX,PROTEUS_COMM_WORLD);
   return Py_BuildValue("d",value_new);
 }

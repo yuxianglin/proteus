@@ -5,6 +5,7 @@ import gc
 import inspect
 import pstats
 from time import time
+import atexit
 
 try:
     from cProfile import Profile
@@ -143,11 +144,11 @@ def memory(message=None,className='',memSaved=None):
                     line = "Unknown Line"
                 if message == None:
                     message = ''
-                logEvent("PROTEUS ERROR: MEMORY HARDLIMIT REACHED, EXIT From "+filename.split("/")[-1]+", "+className+caller+", line "+`line`+": "+message+", %d MB in routine, %d MB in program, %d MB is hard limit" % (memInc,mem,memHardLimit))
+                logEvent("PROTEUS ERROR: MEMORY HARDLIMIT REACHED, EXIT From "+filename.split("/")[-1]+", "+className+caller+", line "+`line`+": "+message+", %f MB in routine, %f MB in program, %f MB is hard limit" % (memInc,mem,memHardLimit))
                 MPI.COMM_WORLD.Abort(1)
                 sys.exit("MPI.COMM_WORLD.Abort(1); exit(1)")
         if message:
-            return "In "+filename.split("/")[-1]+", "+className+caller+", line "+`line`+": "+message+", %d MB in routine, %d MB in program" % (memInc,mem)
+            return "In "+filename.split("/")[-1]+", "+className+caller+", line "+`line`+": "+message+", %f MB in routine, %f MB in program" % (memInc,mem)
 
 def memorySummary():
     global memLog
@@ -204,16 +205,51 @@ class Dispatcher():
         stripped_profile_name = profile_name + '_c' + str(comm.rank())
 
         prof.dump_stats(profile_rank_name)
-        comm.beginSequential()
-        stats = pstats.Stats(profile_rank_name)
-        stats.strip_dirs()
-        stats.dump_stats(stripped_profile_name)
-        stats.sort_stats('cumulative')
-        if verbose and comm.isMaster():
+        comm.barrier()#ensure files are ready for master
+        if comm.isMaster():
+            import copy
+            import StringIO
+            profilingLog = StringIO.StringIO()
+            stats = pstats.Stats(profile_rank_name, stream=profilingLog)
+            stats.__dict__['files']=['Maximum times across MPI tasks for',
+                                     stats.__dict__['files'][0]]
+            for i in range(1,comm.size()):
+                statsm = stats.stats
+                pstatsi = pstats.Stats(profile_name+str(i))
+                statsi = pstatsi.stats
+                stats.__dict__['files'].append(pstatsi.__dict__['files'][0])
+                for f,c in statsi.iteritems():
+                    if f in statsm:
+                        if c[2] > statsm[f][2]:
+                            statsm[f] = c
+                    else:
+                        statsm[f] = c
+            stats.sort_stats('cumulative')
             stats.print_stats(30)
             stats.sort_stats('time')
-            if verbose and comm.isMaster():
-                stats.print_stats(30)
-        comm.endSequential()
+            stats.print_stats(30)
+            logEvent(profilingLog.getvalue())
+            msg = r"""
+Wall clock percentage of top 20 calls
+-------------------------------------
+"""
+            for f in stats.__dict__['fcn_list'][0:20]:
+                if f[0] == '~':
+                    fname=f[-1].strip("<").strip(">")
+                else:
+                    fname="function '{2:s}' at {0:s}:{1:d}".format(*f)
+                msg+=("{0:11.1%} {1:s}\n".format(statsm[f][2]/stats.__dict__['total_tt'],str(fname)))
+            logEvent(msg)
 
         return func_return
+
+@atexit.register
+def ProfilingDtor():
+    global procID, verbose
+    if procID == None:
+        verbose=True
+        logEvent(
+            "Proteus.Profiling never initialized. Doing it at exit.")
+        procID = 0
+        openLog("proteus_default.log",level=11,logLocation=".")
+    closeLog()
