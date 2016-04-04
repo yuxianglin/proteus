@@ -1616,11 +1616,13 @@ class OneLevelTransport(NonlinearEquation):
                 for eN in range(self.mesh.nElements_global):
                     materialFlag = self.mesh.elementMaterialTypes[eN]
                     for k in range(self.u[cj].femSpace.referenceFiniteElement.interpolationConditions.nQuadraturePoints):
+#                        pdb.set_trace()
                         interpolationValues[eN,k] = sol.uOfXT(self.u[cj].femSpace.interpolationPoints[eN,k],T,materialFlag)
             except TypeError:
                 for eN in range(self.mesh.nElements_global):
                     for k in range(self.u[cj].femSpace.referenceFiniteElement.interpolationConditions.nQuadraturePoints):
                         interpolationValues[eN,k] = sol.uOfXT(self.u[cj].femSpace.interpolationPoints[eN,k],T)
+#            pdb.set_trace()
             self.ua[cj].projectFromInterpolationConditions(interpolationValues)
             self.u[cj].femSpace.writeFunctionXdmf(archive,self.ua[cj],tCount)
     #what about setting initial conditions directly from dofs calculated elsewhere?
@@ -1702,10 +1704,13 @@ class OneLevelTransport(NonlinearEquation):
         #cek debug
         #u.tofile("u"+`self.nonlinear_function_evaluations`,sep="\n")
         r.fill(0.0)
+        for cj in range(self.nc):
+            for dofN,g in self.dirichletConditions[cj].DOFBoundaryConditionsDict.iteritems():
+                self.u[cj].dof[dofN] = g(self.dirichletConditions[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
         if self.forceStrongConditions:
             for cj in range(len(self.dirichletConditionsForceDOF)):
                 for dofN,g in self.dirichletConditionsForceDOF[cj].DOFBoundaryConditionsDict.iteritems():
-                    u[self.offset[cj]+self.stride[cj]*dofN] = g(self.dirichletConditionsForceDOF[cj].DOFBoundaryPointDict[dofN],self.timeIntegration.t)
+                    u[self.offset[cj]+self.stride[cj]*dofN] = self.u[cj].dof[dofN]#load the BC value directly into the global array
         #Load the unknowns into the finite element dof
         self.timeIntegration.calculateU(u)
         self.setUnknowns(self.timeIntegration.u)
@@ -2458,12 +2463,6 @@ class OneLevelTransport(NonlinearEquation):
                     cfemIntegrals.updateNumericalDiffusion(self.q[('numDiff',ci,ci)],
                                                            self.q[('grad(u)Xgrad(w)*dV_numDiff',ci,ci)],
                                                            self.elementResidual[ci])
-        # for eN in range(self.mesh.nElements_global):
-        #     for i in range(self.nDOF_test_element[0]):
-        #         print "element residual "+`eN`+'\t'+`i`
-        #         print self.elementResidual[0][eN,i]
-        #         print self.elementResidual[1][eN,i]
-        #         print self.elementResidual[2][eN,i]
         if self.numericalFlux != None and not isinstance(self.numericalFlux, NumericalFlux.DoNothing):
             for ci in range(self.nc):
                 self.ebq_global[('totalFlux',ci)].fill(0.0)
@@ -3606,7 +3605,7 @@ class OneLevelTransport(NonlinearEquation):
                                                           self.elementQuadratureWeights[('u',ci)],
                                                           self.q[('dV_u',ci)])
 
-            #
+            # 
             if not self.q.has_key('dV') and self.q.has_key(('dV_u',ci)):
                 self.q['dV'] = self.q[('dV_u',ci)]
 
@@ -4186,6 +4185,8 @@ class OneLevelTransport(NonlinearEquation):
         list of local dof because of the exclusion of Dirichlet nodes
         (otherwise we could just loop over range(self.nDOF_element).
         """
+        import pdb
+#        pdb.set_trace()
         self.l2g=[{'nFreeDOF':numpy.zeros((self.mesh.nElements_global,),'i'),
                    'freeLocal':numpy.zeros((self.mesh.nElements_global,self.nDOF_trial_element[cj]),'i'),
                    'freeGlobal':numpy.zeros((self.mesh.nElements_global,self.nDOF_trial_element[cj]),'i')} for cj in range(self.nc)]
@@ -6061,8 +6062,8 @@ class MultilevelTransport:
             self.trialSpaceListDict[cj]=[]
             self.bcListDict[cj]=[]
         for mesh in mlMesh.meshList:
-            #import pdb
-            #pdb.set_trace()
+       #     import pdb
+       #     pdb.set_trace()
             sdmesh = mesh.subdomainMesh
             memory()
             log("Generating Trial Space",level=2)
@@ -6091,6 +6092,8 @@ class MultilevelTransport:
             else:
                 useWeakDirichletConditions=numericalFluxType.useWeakDirichletConditions
             log("Setting Boundary Conditions-1")
+            import pdb
+#            pdb.set_trace()
             for cj in trialSpaceDict.keys():
                 if not dirichletConditionsSetterDict.has_key(cj):
                     dirichletConditionsSetterDict[cj] = None
