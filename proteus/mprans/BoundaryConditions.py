@@ -195,7 +195,7 @@ class BC_RANS(BC_Base):
         if len(last_pos) > 2:
             self.hz_dirichlet = get_DBC_h(i=2)
 
-    def setUnsteadyTwoPhaseVelocityInlet(self, wave, vert_axis=None,
+    def setUnsteadyTwoPhaseVelocityInlet(self, wave, he, ecH, vert_axis=None,
                                          windSpeed=(0., 0., 0.), air=1.,
                                          water=0.):
         """
@@ -223,8 +223,7 @@ class BC_RANS(BC_Base):
 
         def get_inlet_ux_dirichlet(i):
             def ux_dirichlet(x, t):
-                from proteus import Context
-                ct = Context.get()
+
                 waveHeight = wave.mwl+wave.eta(x, t)
                 wavePhi = x[vert_axis]-waveHeight
                 if wavePhi <= 0:
@@ -233,7 +232,6 @@ class BC_RANS(BC_Base):
                     x_max = list(x)
                     x_max[vert_axis] = waveHeight
                     waterSpeed = wave.u(x_max, t)
-                he, ecH = ct.domain.MeshOptions.he, ct.epsFact_consrv_heaviside
                 # smoothing only above wave, only on half the VOF smoothing length
                 H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
                 ux = H*windSpeed + (1-H)*waterSpeed
@@ -241,17 +239,11 @@ class BC_RANS(BC_Base):
             return ux_dirichlet
 
         def inlet_vof_dirichlet(x, t):
-            from proteus import Context
-            ct = Context.get()
             level = wave.mwl + wave.eta(x,t)
-            mesh = ct.domain.MeshOptions
-            he, ecH = ct.domain.MeshOptions.he, ct.epsFact_consrv_heaviside
             H = smoothedHeaviside(ecH*he,x[vert_axis]-level)
             return H
 
         def inlet_p_advective(x, t):
-            from proteus import Context
-            ct = Context.get()
             # This is the normal velocity, based on the outwards boundary
             # orientation b_or
             # needs to be equal to -ux_dirichlet
@@ -260,14 +252,12 @@ class BC_RANS(BC_Base):
             waterSpeed = np.array(wave.u(x, t))
             waveHeight = wave.mwl+wave.eta(x, t)
             wavePhi = x[vert_axis]-waveHeight
-            he = ct.domain.MeshOptions.he
             if wavePhi <= 0:
                 waterSpeed = wave.u(x, t)
             else:
                 x_max = list(x)
                 x_max[vert_axis] = waveHeight
                 waterSpeed = wave.u(x_max, t)
-            he, ecH = ct.domain.MeshOptions.he, ct.epsFact_consrv_heaviside
             # smoothing only above wave, only on half the VOF smoothing length
             H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
             U = H*windSpeed + (1-H)*waterSpeed
@@ -410,7 +400,7 @@ class BC_RANS(BC_Base):
 
 class RelaxationZone:
     def __init__(self, shape, zone_type, center, orientation, waves, windSpeed,
-                 epsFact_solid, dragAlpha, dragBeta, porosity):
+                 epsFact_solid, dragAlpha, dragBeta, porosity, he, ecH):
         self.Shape = shape
         self.zone_type = zone_type
         self.center = center
@@ -430,14 +420,13 @@ class RelaxationZone:
         self.dragAlpha = dragAlpha
         self.dragBeta = dragBeta
         self.porosity = porosity
-
+        self.he = he
+        self.ecH = ecH
     def setGenerationFunctions(self, i):
         """
         Sets the functions necessary for generation zones
         """
         def twp_flowVelocity(x, t):
-            from proteus import Context
-            ct = Context.get()
             vert_axis = self.Shape.Domain.nd-1
             waveHeight = self.waves.mwl+self.waves.eta(x, t)
             wavePhi = x[vert_axis]-waveHeight
@@ -447,8 +436,7 @@ class RelaxationZone:
                 x_max = np.copy(x)
                 x_max[vert_axis] = waveHeight
                 waterSpeed = self.waves.u(x_max, t)
-            he, ech = ct.domain.MeshOptions.he, ct.epsFact_consrv_heaviside
-            H = smoothedHeaviside(0.5*ech*he, wavePhi-0.5*ech*he)
+            H = smoothedHeaviside(0.5*self.ecH*self.he, wavePhi-0.5*self.ecH*self.he)
             return H*self.windSpeed[i] + (1-H)*waterSpeed[i]
         return twp_flowVelocity
 

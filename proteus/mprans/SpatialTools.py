@@ -238,10 +238,12 @@ class ShapeRANS(Shape):
                                                  epsFact_solid=epsFact_solid[i],
                                                  dragAlpha=dragAlpha[i],
                                                  dragBeta=dragBeta[i],
-                                                 porosity=porosity[i])
+                                                 porosity=porosity[i],
+                                                 he=None,
+                                                 ecH=None)
 
     def setGenerationZones(self, flags, epsFact_solid, center, orientation,
-                           waves, windSpeed=(0., 0., 0.),
+                           waves,he,ecH, windSpeed=(0., 0., 0.),
                            dragAlpha=0.5/1.005e-6, dragBeta=0.,
                            porosity=1.):
         """
@@ -278,7 +280,9 @@ class ShapeRANS(Shape):
                                                  epsFact_solid=epsFact_solid[i],
                                                  dragAlpha=dragAlpha[i],
                                                  dragBeta=dragBeta[i],
-                                                 porosity=porosity[i])
+                                                 porosity=porosity[i],
+                                                 he=he,
+                                                 ecH=ecH)
 
     def setPorousZones(self, flags, dragAlpha=0.5/1.005e-6, dragBeta=0.,
                        porosity=1.):
@@ -308,7 +312,9 @@ class ShapeRANS(Shape):
                                                  epsFact_solid=1.,
                                                  dragAlpha=dragAlpha[i],
                                                  dragBeta=dragBeta[i],
-                                                 porosity=porosity[i])
+                                                 porosity=porosity[i],
+                                                 he=None, 
+                                                 ecH=None)
 
 # -----------------------------------------------------------------------------
 # ADDING FUNCTIONALITY TO SHAPE FROM proteus.SpatialTools
@@ -683,9 +689,11 @@ class Tank3D(ShapeRANS):
                                                      epsFact_solid=epsFact_solid,
                                                      dragAlpha=dragAlpha,
                                                      dragBeta=dragBeta,
-                                                     porosity=porosity)
+                                                     porosity=porosity,
+                                                     he=None,
+                                                     ecH=None)
 
-    def setGenerationZones(self, waves=None, windSpeed=(0. ,0., 0.),
+    def setGenerationZones(self, waves, he, ecH, windSpeed=(0. ,0., 0.),
                            allSponge=False, left=False, right=False,
                            front=False, back=False,
                            # front_left=False, front_right=False,
@@ -742,7 +750,9 @@ class Tank3D(ShapeRANS):
                                                      epsFact_solid=epsFact_solid,
                                                      dragAlpha=dragAlpha,
                                                      dragBeta=dragBeta,
-                                                     porosity=porosity)
+                                                     porosity=porosity,
+                                                     he=he,
+                                                     ecH=ecH)
 
 
 class Tank2D(ShapeRANS):
@@ -898,7 +908,9 @@ class Tank2D(ShapeRANS):
                                                  epsFact_solid=epsFact_solid,
                                                  dragAlpha=dragAlpha,
                                                  dragBeta=dragBeta,
-                                                 porosity=porosity)
+                                                 porosity=porosity,
+                                                 he=None,
+                                                 ecH=None)
         if right is True:
             center = list(self.coords)
             ind = self.regionIndice['rightSponge']
@@ -915,9 +927,11 @@ class Tank2D(ShapeRANS):
                                                  epsFact_solid=epsFact_solid,
                                                  dragAlpha=dragAlpha,
                                                  dragBeta=dragBeta,
-                                                 porosity=porosity)
+                                                 porosity=porosity,
+                                                 he=None,
+                                                 ecH=None)
 
-    def setGenerationZones(self, waves=None, windSpeed=(0., 0., 0.),
+    def setGenerationZones(self, waves,he,ecH, windSpeed=(0., 0., 0.),
                            left=False, right=False,  dragAlpha=0.5/1.005e-6,
                            dragBeta=0., porosity=1.):
         waves = waves
@@ -940,9 +954,11 @@ class Tank2D(ShapeRANS):
                                                  epsFact_solid=epsFact_solid,
                                                  dragAlpha=dragAlpha,
                                                  dragBeta=dragBeta,
-                                                 porosity=porosity)
+                                                 porosity=porosity,
+                                                 he=he,
+                                                 ecH=ecH)
             self.BC.left.setUnsteadyTwoPhaseVelocityInlet(wave=waves,
-                                                          windSpeed=windSpeed)
+                                                          windSpeed=windSpeed,he=he,ecH=ecH)
         if right is True:
             center = list(self.coords)
             ind = self.regionIndice['rightSponge']
@@ -959,7 +975,9 @@ class Tank2D(ShapeRANS):
                                                  epsFact_solid=epsFact_solid,
                                                  dragAlpha=dragAlpha,
                                                  dragBeta=dragBeta,
-                                                 porosity=porosity)
+                                                 porosity=porosity,
+                                                 he=he,
+                                                 ecH=ecH)
             self.BC.right.setUnsteadyTwoPhaseVelocityInlet(wave=waves,
                                                            windSpeed=windSpeed)
 
