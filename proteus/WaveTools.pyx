@@ -1,5 +1,6 @@
 # A type of -*- python -*- file
 #cython: embedsignature=True
+#cython: profile=True
 """Tools for working with water waves.
 
 The primary objective of this module is to provide solutions (exact and
@@ -10,13 +11,17 @@ generation sources, and validation solutions for numerical wave codes.
 .. inheritance-diagram:: ShockCapturing
     :parts: 2
 """
-from math import pi, tanh, sqrt, exp, log, sin, cos, cosh, sinh
+#from math import pi, tanh, sqrt, exp, log, sin, cos, cosh, sinh
+
 import numpy as np
+cimport numpy as np
 import cmath as cmath
 from Profiling import logEvent
 import time as tt
 import sys as sys
-
+from libc.math cimport  tanh, sqrt, exp, log, sin, cos, cosh, sinh
+cdef extern from "math.h":
+    double M_PI
 
 def loadExistingFunction(funcName, validFunctions):
     """ Checks if a function name  is present in a list of known functions, returns system exit if not present
@@ -99,7 +104,8 @@ def normIntegral(Sint,th):
 
 
 
-def eta_mode(x, t, kDir, omega, phi, amplitude):
+#cdef double eta_mode(np.ndarray[np.float64_t, ndim=3] x, double t,  double* kDir, double omega, double phi, double amplitude):
+def eta_mode( x, t,  kDir,  omega,  phi,  amplitude):
     """Returns a single frequency mode for free-surface elevation at point x,y,z,t
     :param kDir: wave number vector [1/L] with three components
     :param omega: angular frequency [1/T]
@@ -110,7 +116,7 @@ def eta_mode(x, t, kDir, omega, phi, amplitude):
     return amplitude*cos(phase)
 
 
-def vel_mode(x, t, kDir, kAbs, omega, phi, amplitude, mwl, depth, g, vDir):
+cdef np.ndarray[np.float64_t,ndim=1] vel_mode(double x [3],  double t, double kDir [3], double  kAbs,  double omega , double phi, double  amplitude, double  mwl,  double depth,  double   waveDir [3], double vDir [3]):
     """Returns a single frequency mode for velocity at point x,y,z,t
     :param kDir: wave number vector [1/L] with three components
     :param omega: angular frequency [1/T]
@@ -122,19 +128,15 @@ def vel_mode(x, t, kDir, kAbs, omega, phi, amplitude, mwl, depth, g, vDir):
     :param vDir (vertical direction - opposite to the gravity vector)
     :param comp: component "x", "y" or "z"
     """
+    cdef double phase = x[0]*kDir[0]+x[1]*kDir[1]+x[2]*kDir[2] - omega*t  + phi
+    cdef double Z =  (vDir[0]*x[0] + vDir[1]*x[1]+ vDir[2]*x[2]) - mwl
+    cdef double UH=amplitude*omega*cosh(kAbs*(Z + depth))*cos( phase )/sinh(kAbs*depth)
+    cdef double UV=amplitude*omega*sinh(kAbs*(Z + depth))*sin( phase )/sinh(kAbs*depth)
+    cdef double V[3]
 
-    phase = x[0]*kDir[0]+x[1]*kDir[1]+x[2]*kDir[2] - omega*t  + phi
-    Z =  (vDir[0]*x[0] + vDir[1]*x[1]+ vDir[2]*x[2]) - mwl
-    UH = 0.
-    UV=0.
-    ii=0.
-    UH=amplitude*omega*cosh(kAbs*(Z + depth))*cos( phase )/sinh(kAbs*depth)
-    UV=amplitude*omega*sinh(kAbs*(Z + depth))*sin( phase )/sinh(kAbs*depth)
-    waveDir = kDir/kAbs
-#waves(period = 1./self.fi[ii], waveHeight = 2.*self.ai[ii],mwl = self.mwl, depth = self.d,g = self.g,waveDir = self.waveDir,wavelength=self.wi[ii], phi0 = self.phi[ii]).u(x,y,z,t)
-    V = np.array([UH*waveDir[0]+UV*vDir[0],
-                  UH*waveDir[1]+UV*vDir[1],
-                  UH*waveDir[2]+UV*vDir[2]])
+    V[0] = UH*waveDir[0]+UV*vDir[0]
+    V[1] = UH*waveDir[1]+UV*vDir[1]
+    V[2] = UH*waveDir[2]+UV*vDir[2]
     return V
 
 
@@ -166,7 +168,7 @@ def JONSWAP(f,f0,Hs,gamma=3.3,TMA=False, depth = None):
             logEvent("Wavetools:py. Provide valid depth definition definition for TMA spectrum")
             logEvent("Wavetools:py. Stopping simulation")
             sys.exit(1)
-        k = dispersion(2*pi*f,depth)
+        k = dispersion(2*M_PI*f,depth)
         tma = np.tanh(k*depth)*np.tanh(k*depth)/(1.+ 2.*k*depth/np.sinh(2.*k*depth))
 
     return tma * bj*(Hs**2)*(1./((Tp**4) *(f**5)))*np.exp(-1.25*(1./(Tp*f)**(4.)))*(gamma**r)
@@ -262,9 +264,9 @@ def costap(l,cutoff=0.1):
     wind = np.ones(l)
     for k in range(l): # (k,np) = (n,N) normally used
         if k < npoints:
-            wind[k] = 0.5*(1.-cos(pi*float(k)/float(npoints)))
+            wind[k] = 0.5*(1.-cos(M_PI*float(k)/float(npoints)))
         if k > l - npoints -1:
-            wind[k] = 0.5*(1.-cos(pi*float(l-k-1)/float(npoints)))
+            wind[k] = 0.5*(1.-cos(M_PI*float(l-k-1)/float(npoints)))
     return wind
 
 def decompose_tseries(time,eta,dt):
@@ -288,7 +290,7 @@ def decompose_tseries(time,eta,dt):
     freq = freq[1:iend]
                               #%retaining only first half of the spectrum
     aa = 2.*abs(fft_x)/nfft                                 #%amplitudes (only the ones related to positive frequencies)
-    ww = 2*pi*freq
+    ww = 2*M_PI*freq
     
 
     pp = np.zeros(len(aa),complex)
@@ -351,15 +353,15 @@ class MonochromaticWaves:
         self.waveHeight = waveHeight
         self.mwl = mwl
         self.depth = depth
-        self.omega = 2.0*pi/period
+        self.omega = 2.0*M_PI/period
 
 #Calculating / checking wavelength data
         if  self.waveType== "Linear":
             self.k = dispersion(w=self.omega,d=self.depth,g=self.gAbs)
-            self.wavelength = 2.0*pi/self.k
+            self.wavelength = 2.0*M_PI/self.k
         else:
             try:
-                self.k = 2.0*pi/wavelength
+                self.k = 2.0*M_PI/wavelength
                 self.wavelength=wavelength
             except:
                 logEvent("WaveTools.py: Wavelenght is not defined for nonlinear waves. Enter wavelength in class arguments",level=0)
@@ -393,8 +395,9 @@ class MonochromaticWaves:
             return HH/self.k
 
     def u(self, x, t):
+        x = np.array(x)
         if self.waveType == "Linear":
-            return vel_mode(x, t, self.kDir,self.k,self.omega,self.phi0,self.amplitude,self.mwl,self.depth,self.g,self.vDir)
+            return vel_mode(<double [3]> x.data, t, <double [3]> self.kDir.data,self.k,self.omega,self.phi0,self.amplitude,self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
         elif self.waveType == "Fenton":
             Ufenton = self.meanVelocity.copy()
             ii = 0
@@ -404,7 +407,7 @@ class MonochromaticWaves:
                 kmode = ii*self.k
                 kdir = self.waveDir*kmode
                 amp = tanh(kmode*self.depth)*sqrt(self.gAbs/self.k)*B/self.omega
-                Ufenton+= vel_mode(x,t,kdir,kmode,wmode,ii*self.phi0,amp,self.mwl,self.depth,self.g,self.vDir)
+                Ufenton+= vel_mode( <double [3]> x.data,t,<double [3]> kdir.data,kmode,wmode,ii*self.phi0,amp,self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
             return Ufenton # + self.meanVelocity[comp]
 
 
@@ -454,10 +457,10 @@ class RandomWaves:
         self.fmin = self.fp/self.bandFactor
         self.df = (self.fmax-self.fmin)/float(self.N-1)
         self.fi = np.linspace(self.fmin,self.fmax,self.N)
-        self.omega = 2.*pi*self.fi
+        self.omega = 2.*M_PI*self.fi
         self.ki = dispersion(self.omega,self.depth,g=self.gAbs)
         if phi == None:
-            self.phi = 2.0*pi*np.random.random(self.fi.shape[0])
+            self.phi = 2.0*M_PI*np.random.random(self.fi.shape[0])
             logEvent('WaveTools.py: No phase array is given. Assigning random phases. Outputing the phasing of the random waves')
         else:
             try: 
@@ -504,9 +507,10 @@ class RandomWaves:
         :param z: floating point z coordinate (height above bottom)
         :param t: time
         """
+        x = np.array(x)
         U=0.
         for ii in range(self.N):
-            U+= vel_mode(x, t, self.kDir[ii], self.ki[ii],self.omega[ii],self.phi[ii],self.ai[ii],self.mwl,self.depth,self.g,self.vDir)
+            U+= vel_mode (<double [3]> x.data, t, <double [3]> self.kDir[ii].data, self.ki[ii],self.omega[ii],self.phi[ii],self.ai[ii],self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
         return U
 
 class MultiSpectraRandomWaves(RandomWaves):
@@ -576,7 +580,7 @@ class MultiSpectraRandomWaves(RandomWaves):
             self.aiM[NN1:NN] = self.ai
             self.kDirM[NN1:NN,:] =self.kDir[:,:]
             self.phiM[NN1:NN] = self.phi
-        
+            self.waveDir = self.kDirM/self.kiM
 
     def eta(self, x, t):
         """Free surface displacement
@@ -596,9 +600,10 @@ class MultiSpectraRandomWaves(RandomWaves):
         :param z: floating point z coordinate (height above bottom)
         :param t: time
         """
+        x = np.array(x)
         U=0.
         for ii in range(self.Nall):
-            U+= vel_mode(x,t,self.kDirM[ii], self.kiM[ii],self.omegaM[ii],self.phiM[ii],self.aiM[ii],self.mwl,self.depth,self.g,self.vDir)
+            U+= vel_mode (<double [3]> x.data,t, <double [3]> self.kDirM[ii].data, self.kiM[ii],self.omegaM[ii],self.phiM[ii],self.aiM[ii],self.mwl,self.depth,<double [3]> self.waveDir[ii].data, <double [3]>self.vDir.data)
         return U
 
 
@@ -657,7 +662,7 @@ class DirectionalWaves(RandomWaves):
         
         # Directional waves propagate usually in a plane -90 to 90 deg with respect to the direction vector, normal to the gavity direction. Rotating the waveDir0 vector around the g vector to produce the directional space
         from SpatialTools import rotation3D
-        self.thetas = np.linspace(-pi/2,pi/2,2*M+1)
+        self.thetas = np.linspace(-M_PI/2,M_PI/2,2*M+1)
         self.dth = (self.thetas[1] - self.thetas[0])
         self.waveDirs = np.zeros((2*M+1,3),)
         self.phiDirs = np.zeros((2*M+1,N),)
@@ -677,7 +682,7 @@ class DirectionalWaves(RandomWaves):
 
 # Initialising phasing
         if phi == None:
-            self.phiDirs = 2.0*pi*np.random.rand(self.Mtot,self.fi.shape[0])
+            self.phiDirs = 2.0*M_PI*np.random.rand(self.Mtot,self.fi.shape[0])
         elif np.shape(phi) == (2*M+1,self.fi.shape[0]):
             self.phiDirs = phi
         else:
@@ -724,6 +729,7 @@ class DirectionalWaves(RandomWaves):
 #        return (self.ai*np.cos(2.0*pi*self.fi*t - self.ki*x + self.phi)).sum()
 
     def u(self, x, t):
+        x = np.array(x)
         """x-component of velocity
 
         :param x: floating point x coordinate
@@ -734,7 +740,7 @@ class DirectionalWaves(RandomWaves):
         for jj in range(self.Mtot):
             for ii in range(self.N):
                 kDiri = self.waveDirs[jj]*self.ki[ii]
-                U+= vel_mode(x,t,kDiri, self.ki[ii],self.omega[ii],self.phiDirs[jj,ii],self.aiDirs[jj,ii],self.mwl,self.depth,self.g,self.vDir)
+                U+= vel_mode (<double [3]> x.data,t, <double [3]> kDiri.data, self.ki[ii],self.omega[ii],self.phiDirs[jj,ii],self.aiDirs[jj,ii],self.mwl,self.depth,<double [3]> self.waveDir[jj].data,<double [3]> self.vDir.data)
         return U
      
 
@@ -1033,10 +1039,11 @@ class TimeSeries:
         :param z: floating point z coordinate (height above bottom)
         :param t: time
         """
+        x = np.array(x)
         U=0.
         for ii in range(0,self.Nf):
             x1 = x-[self.x0, self.y0, self.z0]
-            U+= vel_mode(x1, t-self.t0, self.kDir[ii],self.ki[ii], self.omega[ii],self.phi[ii],self.ai[ii],self.mwl,self.depth,self.g,self.vDir)
+            U+= vel_mode(<double [3]> x1.data, t-self.t0, <double [3]> self.kDir[ii].data,self.ki[ii], self.omega[ii],self.phi[ii],self.ai[ii],self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
         return U
 
     def findWindow(self,t):
@@ -1072,6 +1079,7 @@ class TimeSeries:
         :param z: floating point z coordinate (height above bottom)
         :param t: time
         """
+        x = np.array(x)
         Nw = self.findWindow(t)
         ai =  self.decompose_window[Nw][1]
         omega = self.decompose_window[Nw][0]
@@ -1082,7 +1090,7 @@ class TimeSeries:
         U=0.
         for ii in range(0,self.Nf):
             x1 =  np.array(x)-[self.x0, self.y0, self.z0]
-            U+= vel_mode(x1, t-t0, kDir[ii],ki[ii],omega[ii],phi[ii],ai[ii],self.mwl,self.depth,self.g,self.vDir)
+            U+= vel_mode(<double [3]> x1.data, t-t0, <double [3]> kDir[ii].data, ki[ii],omega[ii],phi[ii],ai[ii],self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
         return U
 
 
