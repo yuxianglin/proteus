@@ -45,13 +45,13 @@ def setVertDir(g):
     """ Sets the unit vector for the vertical direction, opposite to the gravity vector
     param: g : gravitational acceleration vector [L/T^2] (must have 3 components)
     """
-    return -g/(sqrt(g[0]**2 + g[1]**2 + g[2]**2))
+    return np.array(-g/(sqrt(g[0]**2 + g[1]**2 + g[2]**2)))
 
 def setDirVector(vector):
     """ Returns the direction of a vector in the form of a unit vector
     param: vector : Any vector with three components
     """
-    return vector/(sqrt(vector[0]**2 + vector[1]**2 + vector[2]**2))
+    return np.array(vector/(sqrt(vector[0]**2 + vector[1]**2 + vector[2]**2)))
 
 def dirCheck(v1, v2):
     """ Checks if to vectors are vertical and returns system exit if not
@@ -137,7 +137,7 @@ cdef np.ndarray[np.float64_t,ndim=1] vel_mode(double x [3],  double t, double kD
     V[0] = UH*waveDir[0]+UV*vDir[0]
     V[1] = UH*waveDir[1]+UV*vDir[1]
     V[2] = UH*waveDir[2]+UV*vDir[2]
-    return V
+    return np.array(V)
 
 
 
@@ -366,7 +366,7 @@ class MonochromaticWaves:
             except:
                 logEvent("WaveTools.py: Wavelenght is not defined for nonlinear waves. Enter wavelength in class arguments",level=0)
                 sys.exit(1)
-        self.kDir = self.k * self.waveDir
+        self.kDir = np.array(self.k * self.waveDir)
         self.amplitude = 0.5*self.waveHeight
         self.meanVelocity = np.array(meanVelocity)
 #Checking that meanvelocity is a vector
@@ -395,19 +395,36 @@ class MonochromaticWaves:
             return HH/self.k
 
     def u(self, x, t):
-        x = np.array(x)
+        
+        cdef np.ndarray x_temp = np.array(x)
+        cdef double* xi  =<double *> x_temp.data
+
+        cdef np.ndarray kD_temp = self.kDir
+        cdef double* kDir =<double *> kD_temp.data
+
+        cdef np.ndarray waveDir=self.waveDir
+        cdef double* wDir = <double *> waveDir.data
+
+        cdef np.ndarray vDir_temp=self.vDir
+        cdef double* vDir =  <double *> vDir_temp.data
+        Ufenton =  self.meanVelocity.copy()
+        cdef int ii = 0
+        cdef double wmode = 0.
+        cdef double kmode=0.
+        cdef double* kdir1 =  wDir
+        cdef double* kdir  =  wDir
+        cdef double amp = 0.
         if self.waveType == "Linear":
-            return vel_mode(<double [3]> x.data, t, <double [3]> self.kDir.data,self.k,self.omega,self.phi0,self.amplitude,self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
-        elif self.waveType == "Fenton":
-            Ufenton = self.meanVelocity.copy()
-            ii = 0
+            return vel_mode(xi, t, kDir ,self.k,self.omega,self.phi0,self.amplitude,self.mwl,self.depth,wDir ,vDir)
+        elif self.waveType == "Fenton":           
             for B in self.Bcoeff:
                 ii+=1
                 wmode = ii*self.omega
                 kmode = ii*self.k
-                kdir = self.waveDir*kmode
+                for jj in range(3):
+                    kdir[jj] =  kdir1[jj]*kmode
                 amp = tanh(kmode*self.depth)*sqrt(self.gAbs/self.k)*B/self.omega
-                Ufenton+= vel_mode( <double [3]> x.data,t,<double [3]> kdir.data,kmode,wmode,ii*self.phi0,amp,self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
+                Ufenton+= vel_mode( xi,t,kdir,kmode,wmode,ii*self.phi0,amp,self.mwl,self.depth,wDir, vDir)
             return Ufenton # + self.meanVelocity[comp]
 
 
@@ -507,10 +524,13 @@ class RandomWaves:
         :param z: floating point z coordinate (height above bottom)
         :param t: time
         """
-        x = np.array(x)
-        U=0.
+        cdef double[3] xi  = x.data
+        cdef double[3] kDir = self.kDir.data
+        cdef double[3] wDir = self.waveDir.data
+        cdef double[3] vDir =  self.vDir.data
+        U = np.zeros(3,"d")
         for ii in range(self.N):
-            U+= vel_mode (<double [3]> x.data, t, <double [3]> self.kDir[ii].data, self.ki[ii],self.omega[ii],self.phi[ii],self.ai[ii],self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
+            U+= vel_mode ( xi, t, kDir, self.ki[ii],self.omega[ii],self.phi[ii],self.ai[ii],self.mwl,self.depth,wDir,vDir)
         return U
 
 class MultiSpectraRandomWaves(RandomWaves):
@@ -578,9 +598,9 @@ class MultiSpectraRandomWaves(RandomWaves):
             self.omegaM[NN1:NN] = self.omega
             self.kiM[NN1:NN] = self.ki
             self.aiM[NN1:NN] = self.ai
-            self.kDirM[NN1:NN,:] =self.kDir[:,:]
+            self.kDirM[NN1:NN,:] =np.array(self.kDir[:,:])
             self.phiM[NN1:NN] = self.phi
-            self.waveDir = self.kDirM/self.kiM
+            self.waveDir = np.array(self.kDirM/self.kiM)
 
     def eta(self, x, t):
         """Free surface displacement
@@ -600,10 +620,15 @@ class MultiSpectraRandomWaves(RandomWaves):
         :param z: floating point z coordinate (height above bottom)
         :param t: time
         """
-        x = np.array(x)
-        U=0.
+        cdef double[3] xi  = x.data
+        cdef double[3] vDir =  self.vDir.data
+        cdef double [3] kDir = np.zeros(3,"d").data
+        cdef double [3] wDir = np.zeros(3,"d").data
+        U=np.zeros(3,"d")
         for ii in range(self.Nall):
-            U+= vel_mode (<double [3]> x.data,t, <double [3]> self.kDirM[ii].data, self.kiM[ii],self.omegaM[ii],self.phiM[ii],self.aiM[ii],self.mwl,self.depth,<double [3]> self.waveDir[ii].data, <double [3]>self.vDir.data)
+            kDir = self.kDirM[ii].data
+            wDir = self.waveDir[ii].data
+            U+= vel_mode (xi,t, kDir, self.kiM[ii],self.omegaM[ii],self.phiM[ii],self.aiM[ii],self.mwl,self.depth,wDir,vDir)
         return U
 
 
@@ -736,11 +761,18 @@ class DirectionalWaves(RandomWaves):
         :param z: floating point z coordinate (height above bottom)
         :param t: time
         """
-        U=0.
+        cdef double[3] xi  = x.data
+        cdef double[3] vDir =  self.vDir.data
+        cdef double [3] kDir = np.zeros(3,"d").data
+        cdef double [3] wDir = np.zeros(3,"d").data
+        U=np.zeros(3,"d")
+
         for jj in range(self.Mtot):
             for ii in range(self.N):
-                kDiri = self.waveDirs[jj]*self.ki[ii]
-                U+= vel_mode (<double [3]> x.data,t, <double [3]> kDiri.data, self.ki[ii],self.omega[ii],self.phiDirs[jj,ii],self.aiDirs[jj,ii],self.mwl,self.depth,<double [3]> self.waveDir[jj].data,<double [3]> self.vDir.data)
+                wDir = self.waveDirs[jj].data
+                for kk in range(3):
+                    kDir[kk] = wDir[kk]*self.ki[ii]
+                U+= vel_mode (xi,t, kDir, self.ki[ii],self.omega[ii],self.phiDirs[jj,ii],self.aiDirs[jj,ii],self.mwl,self.depth, wDir , vDir)
         return U
      
 
@@ -1039,11 +1071,14 @@ class TimeSeries:
         :param z: floating point z coordinate (height above bottom)
         :param t: time
         """
-        x = np.array(x)
-        U=0.
+        cdef double [3] x1 = x.data-[self.x0, self.y0, self.z0].data
+        cdef double[3] vDir =  self.vDir.data
+        cdef double [3] kDir = np.zeros(3,"d").data
+        cdef double [3] wDir = np.zeros(3,"d").data
+        U=np.zeros(3,"d")
         for ii in range(0,self.Nf):
-            x1 = x-[self.x0, self.y0, self.z0]
-            U+= vel_mode(<double [3]> x1.data, t-self.t0, <double [3]> self.kDir[ii].data,self.ki[ii], self.omega[ii],self.phi[ii],self.ai[ii],self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
+            kDir = self.kDir[ii].data            
+            U+= vel_mode( x1, t-self.t0,kDir,self.ki[ii], self.omega[ii],self.phi[ii],self.ai[ii],self.mwl,self.depth, wDir, vDir)
         return U
 
     def findWindow(self,t):
@@ -1066,6 +1101,7 @@ class TimeSeries:
         phi = self.decompose_window[Nw][2]
         kDir = self.decompose_window[Nw][4]
         t0 = self.windows_rec[Nw][0,0]
+
         Eta=0.        
         for ii in range(0,self.Nf):
             x1 = np.array(x)-[self.x0, self.y0, self.z0]
@@ -1084,13 +1120,20 @@ class TimeSeries:
         ai =  self.decompose_window[Nw][1]
         omega = self.decompose_window[Nw][0]
         phi = self.decompose_window[Nw][2]
-        kDir = self.decompose_window[Nw][4]
+        kDir = np.array(self.decompose_window[Nw][4])
         ki = self.decompose_window[Nw][5]
         t0 = self.windows_rec[Nw][0,0]
-        U=0.
+
+
+        cdef double [3] x1 = x.data-[self.x0, self.y0, self.z0].data
+        cdef double[3] vDir =  self.vDir.data
+        cdef double [3] kDiri = np.zeros(3,"d").data
+        cdef double [3] wDir = np.zeros(3,"d").data
+        U=np.zeros(3,"d")
         for ii in range(0,self.Nf):
-            x1 =  np.array(x)-[self.x0, self.y0, self.z0]
-            U+= vel_mode(<double [3]> x1.data, t-t0, <double [3]> kDir[ii].data, ki[ii],omega[ii],phi[ii],ai[ii],self.mwl,self.depth,<double [3]> self.waveDir.data, <double [3]> self.vDir.data)
+
+            kDiri = kDir[ii].data
+            U+= vel_mode(x1, t-t0,  kDiri, ki[ii],omega[ii],phi[ii],ai[ii],self.mwl,self.depth, wDir , vDir)
         return U
 
 
