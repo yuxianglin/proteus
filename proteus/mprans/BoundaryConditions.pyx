@@ -1,3 +1,4 @@
+#cython: profile = True
 """
 Module for creating boundary conditions. Imported in mprans.SpatialTools.py
 """
@@ -223,15 +224,15 @@ class BC_RANS(BC_Base):
 
         def get_inlet_ux_dirichlet(i):
             def ux_dirichlet(x, t):
-
+                x = np.array(x)
                 waveHeight = wave.mwl+wave.eta(x, t)
                 wavePhi = x[vert_axis]-waveHeight
-                if wavePhi <= 0:
+                if wavePhi <= 0.5*ecH*he:
+                    x[vert_axis] = min(waveHeight,x[vert_axis])                    
                     waterSpeed = wave.u(x, t)
                 else:
-                    x_max = list(x)
-                    x_max[vert_axis] = waveHeight
-                    waterSpeed = wave.u(x_max, t)
+                    waterSpeed = np.array([0.,0.,0.])
+
                 # smoothing only above wave, only on half the VOF smoothing length
                 H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
                 ux = H*windSpeed + (1-H)*waterSpeed
