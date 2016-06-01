@@ -377,7 +377,7 @@ class MonochromaticWaves:
 
         self.Ycoeff = Ycoeff
         self.Bcoeff = Bcoeff
-
+        self.Ncoeff = len(Bcoeff)
 # Checking for
         if (Ycoeff==None) or (Bcoeff==None):
             if self.waveType!= "Linear":
@@ -407,6 +407,14 @@ class MonochromaticWaves:
 
         cdef np.ndarray vDir_temp=self.vDir
         cdef double* vDir =  <double *> vDir_temp.data
+
+#        cdef np.ndarray Ycoeff=self.Ycoeff
+#        cdef double* Yc =  <double *> Ycoeff.data
+
+        cdef np.ndarray Bcoeff=self.Bcoeff
+        cdef double* Bc =  <double *> Bcoeff.data
+
+
         Ufenton =  self.meanVelocity.copy()
         cdef int ii = 0
         cdef double wmode = 0.
@@ -417,15 +425,14 @@ class MonochromaticWaves:
         if self.waveType == "Linear":
             return vel_mode(xi, t, kDir ,self.k,self.omega,self.phi0,self.amplitude,self.mwl,self.depth,wDir ,vDir)
         elif self.waveType == "Fenton":           
-            for B in self.Bcoeff:
-                ii+=1
+            for ii in range(1,self.Ncoeff):
                 wmode = ii*self.omega
                 kmode = ii*self.k
                 for jj in range(3):
                     kdir[jj] =  kdir1[jj]*kmode
-                amp = tanh(kmode*self.depth)*sqrt(self.gAbs/self.k)*B/self.omega
+                amp = tanh(kmode*self.depth)*sqrt(self.gAbs/self.k)*Bc[ii-1]/self.omega
                 Ufenton+= vel_mode( xi,t,kdir,kmode,wmode,ii*self.phi0,amp,self.mwl,self.depth,wDir, vDir)
-            return Ufenton # + self.meanVelocity[comp]
+            return Ufenton
 
 
 class RandomWaves:

@@ -4,6 +4,7 @@ Module for creating boundary conditions. Imported in mprans.SpatialTools.py
 """
 import sys
 import numpy as np
+cimport numpy as np
 from proteus import AuxiliaryVariables
 from proteus.BoundaryConditions import (BC_Base,
                                         constantBC,
@@ -456,18 +457,34 @@ class RelaxationZoneWaveGenerator(AuxiliaryVariables.AV_base):
         self.nd = nd
 
     def calculate(self):
+        cdef int l = 0
+        cdef int m = 0
+        cdef int eN = 0
+        cdef int mType
+        cdef int k 
+        cdef double t
+        cdef np.ndarray x = np.zeros(3,"d")
+        cdef np.ndarray zone_type_array=np.zeros(len(self.zones),"i")
+        for mType, zone in enumerate(self.zones):
+            if zone.zone_type == 'porous':
+                zone_type_array[mType] = 1
+            else:
+                zone_type_array[mType] = 0
+        
+
+
         for l, m in enumerate(self.model.levelModelList):
             for eN in range(m.coefficients.q_phi.shape[0]):
                 mType = m.mesh.elementMaterialTypes[eN]
                 if mType in self.zones:
                     for k in range(m.coefficients.q_phi.shape[1]):
                         t = m.timeIntegration.t
-                        x = m.q['x'][eN, k]
+                        x = np.array(m.q['x'][eN, k]).data
                         zone = self.zones[mType]
                         coeff = m.coefficients
                         ori = zone.orientation
                         nd = zone.Shape.Domain.nd
-                        if zone.zone_type == 'porous':
+                        if zone_type_array[mType] == 1:
                             coeff.q_phi_solid[eN, k] = zone.epsFact_solid
                         else:
                             coeff.q_phi_solid[eN, k] = np.dot(ori, zone.center[:nd]-x[:nd])
