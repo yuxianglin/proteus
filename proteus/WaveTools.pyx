@@ -377,7 +377,6 @@ class MonochromaticWaves:
 
         self.Ycoeff = Ycoeff
         self.Bcoeff = Bcoeff
-        self.Ncoeff = len(Bcoeff)
 # Checking for
         if (Ycoeff==None) or (Bcoeff==None):
             if self.waveType!= "Linear":
@@ -411,11 +410,8 @@ class MonochromaticWaves:
 #        cdef np.ndarray Ycoeff=self.Ycoeff
 #        cdef double* Yc =  <double *> Ycoeff.data
 
-        cdef np.ndarray Bcoeff=self.Bcoeff
-        cdef double* Bc =  <double *> Bcoeff.data
+        cdef np.ndarray Ufenton =  self.meanVelocity.copy()
 
-
-        Ufenton =  self.meanVelocity.copy()
         cdef int ii = 0
         cdef double wmode = 0.
         cdef double kmode=0.
@@ -424,8 +420,13 @@ class MonochromaticWaves:
         cdef double amp = 0.
         if self.waveType == "Linear":
             return vel_mode(xi, t, kDir ,self.k,self.omega,self.phi0,self.amplitude,self.mwl,self.depth,wDir ,vDir)
-        elif self.waveType == "Fenton":           
-            for ii in range(1,self.Ncoeff):
+        elif self.waveType == "Fenton":             
+            cdef np.ndarray Bcoeff=self.Bcoeff
+            cdef double* Bc =  <double *> Bcoeff.data
+            cdef int Ncoeff = len(
+
+            for ii in range(0,self.Bcoeff):
+                ii+=1
                 wmode = ii*self.omega
                 kmode = ii*self.k
                 for jj in range(3):
