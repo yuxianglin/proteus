@@ -424,20 +424,20 @@ class RelaxationZone:
         self.porosity = porosity
         self.he = he
         self.ecH = ecH
+        self.vert_axis = self.Shape.Domain.nd-1       
     def setGenerationFunctions(self, i):
         """
         Sets the functions necessary for generation zones
         """
         def twp_flowVelocity(x, t):
-            vert_axis = self.Shape.Domain.nd-1
+            x = np.array(x)
             waveHeight = self.waves.mwl+self.waves.eta(x, t)
-            wavePhi = x[vert_axis]-waveHeight
-            if wavePhi <= 0:
+            wavePhi = x[self.vert_axis]-waveHeight
+            if wavePhi <= 0.5*self.ecH*self.he:
+                x[self.vert_axis] = min(x[self.vert_axis],waveHeight)
                 waterSpeed = self.waves.u(x, t)
             else:
-                x_max = np.copy(x)
-                x_max[vert_axis] = waveHeight
-                waterSpeed = self.waves.u(x_max, t)
+                waterSpeed = np.zeros(3,"d")
             H = smoothedHeaviside(0.5*self.ecH*self.he, wavePhi-0.5*self.ecH*self.he)
             return H*self.windSpeed[i] + (1-H)*waterSpeed[i]
         return twp_flowVelocity
@@ -457,19 +457,6 @@ class RelaxationZoneWaveGenerator(AuxiliaryVariables.AV_base):
         self.nd = nd
 
     def calculate(self):
-        cdef int eN = 0
-        cdef int mType
-        cdef double t
-        cdef np.ndarray zone_type_array=np.zeros(1000,"i")
-        for mType in self.zones:
-            zone = self.zones[mType]
-            if zone.zone_type == 'porous':
-                zone_type_array[mType] = 1
-            else:
-                zone_type_array[mType] = 0
-        
-
-
         for l, m in enumerate(self.model.levelModelList):
             for eN in range(m.coefficients.q_phi.shape[0]):
                 mType = m.mesh.elementMaterialTypes[eN]
@@ -481,12 +468,12 @@ class RelaxationZoneWaveGenerator(AuxiliaryVariables.AV_base):
                         coeff = m.coefficients
                         ori = zone.orientation
                         nd = zone.Shape.Domain.nd
-                        if zone_type_array[mType] == 1:
+                        if zone.zone_type == 'porous':
                             coeff.q_phi_solid[eN, k] = zone.epsFact_solid
                         else:
                             coeff.q_phi_solid[eN, k] = np.dot(ori, zone.center[:nd]-x[:nd])
-                        coeff.q_velocity_solid[eN, k, 0] = zone.u(x, t)
-                        coeff.q_velocity_solid[eN, k, 1] = zone.v(x, t)
+                            coeff.q_velocity_solid[eN, k, 0] = zone.u(x, t)
+                            coeff.q_velocity_solid[eN, k, 1] = zone.v(x, t)
                         if self.nd > 2:
                             coeff.q_velocity_solid[eN, k, 2] = zone.w(x, t)
             m.q['phi_solid'] = m.coefficients.q_phi_solid
