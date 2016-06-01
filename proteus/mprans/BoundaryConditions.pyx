@@ -457,15 +457,12 @@ class RelaxationZoneWaveGenerator(AuxiliaryVariables.AV_base):
         self.nd = nd
 
     def calculate(self):
-        cdef int l = 0
-        cdef int m = 0
         cdef int eN = 0
         cdef int mType
-        cdef int k 
         cdef double t
-        cdef np.ndarray x = np.zeros(3,"d")
-        cdef np.ndarray zone_type_array=np.zeros(len(self.zones),"i")
-        for mType, zone in enumerate(self.zones):
+        cdef np.ndarray zone_type_array=np.zeros(1000,"i")
+        for mType in self.zones:
+            zone = self.zones[mType]
             if zone.zone_type == 'porous':
                 zone_type_array[mType] = 1
             else:
@@ -479,7 +476,7 @@ class RelaxationZoneWaveGenerator(AuxiliaryVariables.AV_base):
                 if mType in self.zones:
                     for k in range(m.coefficients.q_phi.shape[1]):
                         t = m.timeIntegration.t
-                        x = np.array(m.q['x'][eN, k]).data
+                        x = m.q['x'][eN, k]
                         zone = self.zones[mType]
                         coeff = m.coefficients
                         ori = zone.orientation
