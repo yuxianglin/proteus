@@ -418,12 +418,11 @@ class MonochromaticWaves:
         cdef double* kdir1 =  wDir
         cdef double* kdir  =  wDir
         cdef double amp = 0.
+
+
         if self.waveType == "Linear":
             return vel_mode(xi, t, kDir ,self.k,self.omega,self.phi0,self.amplitude,self.mwl,self.depth,wDir ,vDir)
         elif self.waveType == "Fenton":             
-            cdef np.ndarray Bcoeff=self.Bcoeff
-            cdef double* Bc =  <double *> Bcoeff.data
-            cdef int Ncoeff = len(
 
             for ii in range(0,self.Bcoeff):
                 ii+=1
@@ -431,7 +430,7 @@ class MonochromaticWaves:
                 kmode = ii*self.k
                 for jj in range(3):
                     kdir[jj] =  kdir1[jj]*kmode
-                amp = tanh(kmode*self.depth)*sqrt(self.gAbs/self.k)*Bc[ii-1]/self.omega
+                amp = tanh(kmode*self.depth)*sqrt(self.gAbs/self.k)*self.Bcoeff[ii-1]/self.omega
                 Ufenton+= vel_mode( xi,t,kdir,kmode,wmode,ii*self.phi0,amp,self.mwl,self.depth,wDir, vDir)
             return Ufenton
 
