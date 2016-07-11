@@ -312,7 +312,7 @@ def decompose_tseries(time,eta,dt):
     results.append(setup)
     return results
 
-
+    
 
 
 
@@ -519,6 +519,7 @@ class RandomWaves:
         for ii in range(self.N):
             U+= vel_mode(x, t, self.kDir[ii], self.ki[ii],self.omega[ii],self.phi[ii],self.ai[ii],self.mwl,self.depth,self.g,self.vDir)
         return U
+
     def writeEtaSeries(self,Tstart,Tend,x0,fname,Vgen= np.array([0.,0,0])):
         """Write a timeseries for the free-surface elevation.
         :param Tstart: start time of timeseries
@@ -531,6 +532,7 @@ class RandomWaves:
                 logEvent('WaveTools.py: Location vector of generation zone should not be opposite to the wave direction')
                 sys.exit(1)
         dt = self.Tp/50.
+
         Tlag = np.zeros(len(self.omega),)
         for j in range(len(self.omega)):
             Tlag[j] = sum(self.kDir[j,:]*Vgen[:])/self.omega[j]
