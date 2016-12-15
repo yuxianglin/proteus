@@ -1,0 +1,5 @@
+Another issue with regard to installation
+
+In proteus/stack/pkgs/python-netcdf4.yaml, the url it provides seems invalid any more, I've find another url https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/netcdf4-python/netCDF4-1.0.4.tar.gz providing the same netCDF4-1.0.4.tar.gz seems works
+
+And, the domain.py line 963 https://github.com/erdc-cm/proteus/blob/master/proteus/Domain.py#L963, should be sth like pf.write(`hN+1`+' %f %f %f\n' % (h[0],h[1],h[2])), like other lines in to write the hole coordinate to polyfiles.
