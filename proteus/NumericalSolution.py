@@ -569,7 +569,7 @@ class NS_base:  # (HasTraits):
                     for ci in range(lm.coefficients.nc):
                         lm.u[ci].dof_last = lm.u[ci].dof.copy()
         self.archiveFlag= so.archiveFlag
-        logEvent("Setting up SimTools for "+p.name)
+        logEvent("Setting up SimTools ")
         self.simOutputList = []
         self.auxiliaryVariables = {}
         if self.simFlagsList != None:

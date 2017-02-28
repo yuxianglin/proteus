@@ -506,6 +506,11 @@ class Coefficients(proteus.TransportCoefficients.TC_base):
         self.ebqe_dragAlpha.fill(self.dragAlpha)
         self.ebqe_dragBeta = numpy.ones(cebqe[('u',1)].shape,'d')
         self.ebqe_dragBeta.fill(self.dragBeta)
+
+        self.forces_x = numpy.zeros(cebqe[('u',1)].shape,'d')
+        self.forces_y = numpy.zeros(cebqe[('u',1)].shape,'d')
+        self.forces_z = numpy.zeros(cebqe[('u',1)].shape,'d')
+
         logEvent("porosity and drag")
         #TODO make loops faster
         if self.setParamsFunc != None:
@@ -1476,7 +1481,10 @@ class LevelModel(proteus.Transport.OneLevelTransport):
             self.coefficients.wettedAreas,
             self.coefficients.netForces_p,
             self.coefficients.netForces_v,
-            self.coefficients.netMoments)
+            self.coefficients.netMoments,
+            self.coefficients.forces_x,
+            self.coefficients.forces_y,
+            self.coefficients.forces_z)
 	from proteus.flcbdfWrappers import globalSum
         for i in range(self.coefficients.netForces_p.shape[0]):
             self.coefficients.wettedAreas[i] = globalSum(self.coefficients.wettedAreas[i])

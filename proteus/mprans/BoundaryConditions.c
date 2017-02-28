@@ -594,7 +594,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_5_ux_dirichlet_
 };
 
 
-/* "mprans/BoundaryConditions.pyx":276
+/* "mprans/BoundaryConditions.pyx":277
  *             return ux_dirichlet_cython
  * 
  *         def vof_dirichlet_cython():             # <<<<<<<<<<<<<<
@@ -611,7 +611,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_6_vof_dirichlet
 };
 
 
-/* "mprans/BoundaryConditions.pyx":287
+/* "mprans/BoundaryConditions.pyx":288
  *             return vof_dirichlet
  * 
  *         def p_advective_cython():             # <<<<<<<<<<<<<<
@@ -632,7 +632,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_7_p_advective_c
 };
 
 
-/* "mprans/BoundaryConditions.pyx":323
+/* "mprans/BoundaryConditions.pyx":324
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setTwoPhaseVelocityInlet(self, U, waterLevel, vert_axis=None, air=1.,             # <<<<<<<<<<<<<<
@@ -650,7 +650,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVe
 };
 
 
-/* "mprans/BoundaryConditions.pyx":349
+/* "mprans/BoundaryConditions.pyx":350
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def get_inlet_ux_dirichlet_cython(i):             # <<<<<<<<<<<<<<
@@ -664,7 +664,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_9_get_inlet_ux_
 };
 
 
-/* "mprans/BoundaryConditions.pyx":387
+/* "mprans/BoundaryConditions.pyx":388
  *         self.p_advective.init_cython = inlet_p_advective_cython
  * 
  *     def setHydrostaticPressureOutlet(self, rho, g, refLevel, vof, pRef=0.0,             # <<<<<<<<<<<<<<
@@ -677,7 +677,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_10_setHydrostat
 };
 
 
-/* "mprans/BoundaryConditions.pyx":394
+/* "mprans/BoundaryConditions.pyx":395
  *        # This is the normal velocity, based on the boundary orientation
  * 
  *         def get_outlet_ux_dirichlet(i):             # <<<<<<<<<<<<<<
@@ -691,7 +691,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_11_get_outlet_u
 };
 
 
-/* "mprans/BoundaryConditions.pyx":411
+/* "mprans/BoundaryConditions.pyx":412
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setHydrostaticPressureOutletWithDepth(self, seaLevel, rhoUp, rhoDown, g,             # <<<<<<<<<<<<<<
@@ -711,7 +711,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_12_setHydrostat
 };
 
 
-/* "mprans/BoundaryConditions.pyx":515
+/* "mprans/BoundaryConditions.pyx":516
  *         self.nd = nd
  * 
  *     def calculate_init(self):             # <<<<<<<<<<<<<<
@@ -730,7 +730,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_13_calculate_in
 };
 
 
-/* "mprans/BoundaryConditions.pyx":530
+/* "mprans/BoundaryConditions.pyx":531
  *                 ecH = ct.ecH
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):             # <<<<<<<<<<<<<<
@@ -744,7 +744,7 @@ struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_14_get_twp_flow
 };
 
 
-/* "mprans/BoundaryConditions.pyx":552
+/* "mprans/BoundaryConditions.pyx":553
  * 
  * 
  *     def calculate(self):             # <<<<<<<<<<<<<<
@@ -5753,8 +5753,8 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
  *                 he = self.ct.he
  *                 ecH = self.ct.ecH
  *                 def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
+ * 					#print x,t
  *                     waveHeight = wave_mwl+wave_eta(x, t)
- *                     wavePhi = x[vert_axis]-waveHeight
  */
 
 /* Python wrapper */
@@ -5840,15 +5840,15 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_5_ux_dirichlet_cython *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":259
- *                 ecH = self.ct.ecH
+  /* "mprans/BoundaryConditions.pyx":260
  *                 def ux_dirichlet(x, t):
+ * 					#print x,t
  *                     waveHeight = wave_mwl+wave_eta(x, t)             # <<<<<<<<<<<<<<
  *                     wavePhi = x[vert_axis]-waveHeight
  *                     if wavePhi <= 0:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_mwl)) { __Pyx_RaiseClosureNameError("wave_mwl"); __PYX_ERR(0, 259, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_eta)) { __Pyx_RaiseClosureNameError("wave_eta"); __PYX_ERR(0, 259, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_mwl)) { __Pyx_RaiseClosureNameError("wave_mwl"); __PYX_ERR(0, 260, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_eta)) { __Pyx_RaiseClosureNameError("wave_eta"); __PYX_ERR(0, 260, __pyx_L1_error) }
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_wave_eta);
   __pyx_t_2 = __pyx_cur_scope->__pyx_v_wave_eta; __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -5862,7 +5862,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (__pyx_t_3) {
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -5873,52 +5873,52 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __Pyx_INCREF(__pyx_v_t);
   __Pyx_GIVEREF(__pyx_v_t);
   PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_t);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Add(__pyx_cur_scope->__pyx_v_wave_mwl, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_cur_scope->__pyx_v_wave_mwl, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_waveHeight = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":260
- *                 def ux_dirichlet(x, t):
+  /* "mprans/BoundaryConditions.pyx":261
+ * 					#print x,t
  *                     waveHeight = wave_mwl+wave_eta(x, t)
  *                     wavePhi = x[vert_axis]-waveHeight             # <<<<<<<<<<<<<<
  *                     if wavePhi <= 0:
  *                         water_speed = wave_u(x, t)
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 260, __pyx_L1_error) }
-  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 261, __pyx_L1_error) }
+  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_v_waveHeight); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_v_waveHeight); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_wavePhi = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":261
+  /* "mprans/BoundaryConditions.pyx":262
  *                     waveHeight = wave_mwl+wave_eta(x, t)
  *                     wavePhi = x[vert_axis]-waveHeight
  *                     if wavePhi <= 0:             # <<<<<<<<<<<<<<
  *                         water_speed = wave_u(x, t)
  *                     elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 262, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":262
+    /* "mprans/BoundaryConditions.pyx":263
  *                     wavePhi = x[vert_axis]-waveHeight
  *                     if wavePhi <= 0:
  *                         water_speed = wave_u(x, t)             # <<<<<<<<<<<<<<
  *                     elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  *                         x_max = list(x)
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_wave_u)) { __Pyx_RaiseClosureNameError("wave_u"); __PYX_ERR(0, 262, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_wave_u)) { __Pyx_RaiseClosureNameError("wave_u"); __PYX_ERR(0, 263, __pyx_L1_error) }
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_wave_u);
     __pyx_t_2 = __pyx_cur_scope->__pyx_v_wave_u; __pyx_t_5 = NULL;
     __pyx_t_4 = 0;
@@ -5932,7 +5932,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
         __pyx_t_4 = 1;
       }
     }
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 262, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 263, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -5943,14 +5943,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     __Pyx_INCREF(__pyx_v_t);
     __Pyx_GIVEREF(__pyx_v_t);
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_4, __pyx_v_t);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_water_speed = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":261
+    /* "mprans/BoundaryConditions.pyx":262
  *                     waveHeight = wave_mwl+wave_eta(x, t)
  *                     wavePhi = x[vert_axis]-waveHeight
  *                     if wavePhi <= 0:             # <<<<<<<<<<<<<<
@@ -5960,66 +5960,66 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     goto __pyx_L3;
   }
 
-  /* "mprans/BoundaryConditions.pyx":263
+  /* "mprans/BoundaryConditions.pyx":264
  *                     if wavePhi <= 0:
  *                         water_speed = wave_u(x, t)
  *                     elif wavePhi > 0 and wavePhi < 0.5*ecH*he:             # <<<<<<<<<<<<<<
  *                         x_max = list(x)
  *                         x_max[vert_axis] = waveHeight
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_7) {
   } else {
     __pyx_t_6 = __pyx_t_7;
     goto __pyx_L4_bool_binop_done;
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 263, __pyx_L1_error) }
-  __pyx_t_1 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 264, __pyx_L1_error) }
+  __pyx_t_1 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 263, __pyx_L1_error) }
-  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 264, __pyx_L1_error) }
+  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_t_2, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_t_2, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = __pyx_t_7;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":264
+    /* "mprans/BoundaryConditions.pyx":265
  *                         water_speed = wave_u(x, t)
  *                     elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  *                         x_max = list(x)             # <<<<<<<<<<<<<<
  *                         x_max[vert_axis] = waveHeight
  *                         water_speed = wave_u(x_max, t)
  */
-    __pyx_t_1 = PySequence_List(__pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
+    __pyx_t_1 = PySequence_List(__pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_x_max = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":265
+    /* "mprans/BoundaryConditions.pyx":266
  *                     elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  *                         x_max = list(x)
  *                         x_max[vert_axis] = waveHeight             # <<<<<<<<<<<<<<
  *                         water_speed = wave_u(x_max, t)
  *                     else:
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 265, __pyx_L1_error) }
-    if (unlikely(PyObject_SetItem(__pyx_v_x_max, __pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_vert_axis, __pyx_v_waveHeight) < 0)) __PYX_ERR(0, 265, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 266, __pyx_L1_error) }
+    if (unlikely(PyObject_SetItem(__pyx_v_x_max, __pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_vert_axis, __pyx_v_waveHeight) < 0)) __PYX_ERR(0, 266, __pyx_L1_error)
 
-    /* "mprans/BoundaryConditions.pyx":266
+    /* "mprans/BoundaryConditions.pyx":267
  *                         x_max = list(x)
  *                         x_max[vert_axis] = waveHeight
  *                         water_speed = wave_u(x_max, t)             # <<<<<<<<<<<<<<
  *                     else:
  *                         water_speed = np.array([0., 0., 0.])
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_wave_u)) { __Pyx_RaiseClosureNameError("wave_u"); __PYX_ERR(0, 266, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_wave_u)) { __Pyx_RaiseClosureNameError("wave_u"); __PYX_ERR(0, 267, __pyx_L1_error) }
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_wave_u);
     __pyx_t_2 = __pyx_cur_scope->__pyx_v_wave_u; __pyx_t_3 = NULL;
     __pyx_t_4 = 0;
@@ -6033,7 +6033,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
         __pyx_t_4 = 1;
       }
     }
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 266, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -6044,14 +6044,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     __Pyx_INCREF(__pyx_v_t);
     __Pyx_GIVEREF(__pyx_v_t);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_t);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_water_speed = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":263
+    /* "mprans/BoundaryConditions.pyx":264
  *                     if wavePhi <= 0:
  *                         water_speed = wave_u(x, t)
  *                     elif wavePhi > 0 and wavePhi < 0.5*ecH*he:             # <<<<<<<<<<<<<<
@@ -6061,7 +6061,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     goto __pyx_L3;
   }
 
-  /* "mprans/BoundaryConditions.pyx":268
+  /* "mprans/BoundaryConditions.pyx":269
  *                         water_speed = wave_u(x_max, t)
  *                     else:
  *                         water_speed = np.array([0., 0., 0.])             # <<<<<<<<<<<<<<
@@ -6069,12 +6069,12 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
  *                     H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyList_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 268, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 269, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_float_0_);
     __Pyx_GIVEREF(__pyx_float_0_);
@@ -6096,17 +6096,17 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
       }
     }
     if (!__pyx_t_3) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else {
-      __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 268, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 269, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_3); __pyx_t_3 = NULL;
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_2);
       __pyx_t_2 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
@@ -6116,30 +6116,30 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   }
   __pyx_L3:;
 
-  /* "mprans/BoundaryConditions.pyx":270
+  /* "mprans/BoundaryConditions.pyx":271
  *                         water_speed = np.array([0., 0., 0.])
  *                         # smoothing only above wave, only on half the VOF smoothing length
  *                     H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)             # <<<<<<<<<<<<<<
  *                     ux = H*wind_speed_arr + (1-H)*water_speed
  *                     return ux[i]
  */
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 270, __pyx_L1_error) }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 271, __pyx_L1_error) }
+  __pyx_t_8 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 270, __pyx_L1_error) }
-  __pyx_t_2 = PyNumber_Multiply(__pyx_t_8, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 271, __pyx_L1_error) }
+  __pyx_t_2 = PyNumber_Multiply(__pyx_t_8, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 270, __pyx_L1_error) }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 271, __pyx_L1_error) }
+  __pyx_t_8 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 270, __pyx_L1_error) }
-  __pyx_t_3 = PyNumber_Multiply(__pyx_t_8, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 271, __pyx_L1_error) }
+  __pyx_t_3 = PyNumber_Multiply(__pyx_t_8, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = PyNumber_Subtract(__pyx_v_wavePhi, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Subtract(__pyx_v_wavePhi, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -6154,7 +6154,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_9 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_9 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   if (__pyx_t_3) {
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -6165,36 +6165,36 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_4, __pyx_t_8);
   __pyx_t_2 = 0;
   __pyx_t_8 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_H = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":271
+  /* "mprans/BoundaryConditions.pyx":272
  *                         # smoothing only above wave, only on half the VOF smoothing length
  *                     H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                     ux = H*wind_speed_arr + (1-H)*water_speed             # <<<<<<<<<<<<<<
  *                     return ux[i]
  *                 return ux_dirichlet
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_wind_speed_arr)) { __Pyx_RaiseClosureNameError("wind_speed_arr"); __PYX_ERR(0, 271, __pyx_L1_error) }
-  __pyx_t_1 = PyNumber_Multiply(__pyx_v_H, __pyx_cur_scope->__pyx_v_wind_speed_arr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_wind_speed_arr)) { __Pyx_RaiseClosureNameError("wind_speed_arr"); __PYX_ERR(0, 272, __pyx_L1_error) }
+  __pyx_t_1 = PyNumber_Multiply(__pyx_v_H, __pyx_cur_scope->__pyx_v_wind_speed_arr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_v_H, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_v_H, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_9 = PyNumber_Multiply(__pyx_t_5, __pyx_v_water_speed); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_9 = PyNumber_Multiply(__pyx_t_5, __pyx_v_water_speed); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_v_ux = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":272
+  /* "mprans/BoundaryConditions.pyx":273
  *                     H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                     ux = H*wind_speed_arr + (1-H)*water_speed
  *                     return ux[i]             # <<<<<<<<<<<<<<
@@ -6202,8 +6202,8 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
  *             return ux_dirichlet_cython
  */
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 272, __pyx_L1_error) }
-  __pyx_t_5 = PyObject_GetItem(__pyx_v_ux, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 273, __pyx_L1_error) }
+  __pyx_t_5 = PyObject_GetItem(__pyx_v_ux, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 273, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
@@ -6213,8 +6213,8 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
  *                 he = self.ct.he
  *                 ecH = self.ct.ecH
  *                 def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
+ * 					#print x,t
  *                     waveHeight = wave_mwl+wave_eta(x, t)
- *                     wavePhi = x[vert_axis]-waveHeight
  */
 
   /* function exit code */
@@ -6373,7 +6373,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
  *                 he = self.ct.he
  *                 ecH = self.ct.ecH             # <<<<<<<<<<<<<<
  *                 def ux_dirichlet(x, t):
- *                     waveHeight = wave_mwl+wave_eta(x, t)
+ * 					#print x,t
  */
   if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 257, __pyx_L1_error) }
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_ct); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
@@ -6389,15 +6389,15 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
  *                 he = self.ct.he
  *                 ecH = self.ct.ecH
  *                 def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
+ * 					#print x,t
  *                     waveHeight = wave_mwl+wave_eta(x, t)
- *                     wavePhi = x[vert_axis]-waveHeight
  */
   __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_23get_ux_dirichlet_cython_19ux_dirichlet_cython_1ux_dirichlet, 0, __pyx_n_s_BC_RANS_setUnsteadyTwoPhaseVeloc, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ux_dirichlet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":273
+  /* "mprans/BoundaryConditions.pyx":274
  *                     ux = H*wind_speed_arr + (1-H)*water_speed
  *                     return ux[i]
  *                 return ux_dirichlet             # <<<<<<<<<<<<<<
@@ -6473,7 +6473,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_v_ux_dirichlet_cython = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":274
+  /* "mprans/BoundaryConditions.pyx":275
  *                     return ux[i]
  *                 return ux_dirichlet
  *             return ux_dirichlet_cython             # <<<<<<<<<<<<<<
@@ -6506,7 +6506,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":276
+/* "mprans/BoundaryConditions.pyx":277
  *             return ux_dirichlet_cython
  * 
  *         def vof_dirichlet_cython():             # <<<<<<<<<<<<<<
@@ -6528,7 +6528,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":281
+/* "mprans/BoundaryConditions.pyx":282
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  *             def vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -6565,11 +6565,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("vof_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 281, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("vof_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 282, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "vof_dirichlet") < 0)) __PYX_ERR(0, 281, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "vof_dirichlet") < 0)) __PYX_ERR(0, 282, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -6582,7 +6582,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("vof_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 281, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("vof_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 282, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setUnsteadyTwoPhaseVelocityInlet.vof_dirichlet_cython.vof_dirichlet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6613,15 +6613,15 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_6_vof_dirichlet_cython *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":282
+  /* "mprans/BoundaryConditions.pyx":283
  *             ecH = self.ct.ecH
  *             def vof_dirichlet(x, t):
  *                 level = wave_mwl + wave_eta(x,t)             # <<<<<<<<<<<<<<
  *                 H = smoothedHeaviside(ecH*he,x[vert_axis]-level)
  *                 return H*vof_air+(1-H)*vof_water
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_mwl)) { __Pyx_RaiseClosureNameError("wave_mwl"); __PYX_ERR(0, 282, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_eta)) { __Pyx_RaiseClosureNameError("wave_eta"); __PYX_ERR(0, 282, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_mwl)) { __Pyx_RaiseClosureNameError("wave_mwl"); __PYX_ERR(0, 283, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_eta)) { __Pyx_RaiseClosureNameError("wave_eta"); __PYX_ERR(0, 283, __pyx_L1_error) }
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_wave_eta);
   __pyx_t_2 = __pyx_cur_scope->__pyx_v_wave_eta; __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -6635,7 +6635,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 283, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (__pyx_t_3) {
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -6646,33 +6646,33 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __Pyx_INCREF(__pyx_v_t);
   __Pyx_GIVEREF(__pyx_v_t);
   PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_t);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 283, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Add(__pyx_cur_scope->__pyx_v_wave_mwl, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_cur_scope->__pyx_v_wave_mwl, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_level = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":283
+  /* "mprans/BoundaryConditions.pyx":284
  *             def vof_dirichlet(x, t):
  *                 level = wave_mwl + wave_eta(x,t)
  *                 H = smoothedHeaviside(ecH*he,x[vert_axis]-level)             # <<<<<<<<<<<<<<
  *                 return H*vof_air+(1-H)*vof_water
  *             return vof_dirichlet
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 283, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 283, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 283, __pyx_L1_error) }
-  __pyx_t_5 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_ecH, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 283, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 284, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 284, __pyx_L1_error) }
+  __pyx_t_5 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_ecH, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 283, __pyx_L1_error) }
-  __pyx_t_3 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 283, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 284, __pyx_L1_error) }
+  __pyx_t_3 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = PyNumber_Subtract(__pyx_t_3, __pyx_v_level); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 283, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Subtract(__pyx_t_3, __pyx_v_level); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -6687,7 +6687,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_7 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 283, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__pyx_t_3) {
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -6698,14 +6698,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_4, __pyx_t_6);
   __pyx_t_5 = 0;
   __pyx_t_6 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_H = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":284
+  /* "mprans/BoundaryConditions.pyx":285
  *                 level = wave_mwl + wave_eta(x,t)
  *                 H = smoothedHeaviside(ecH*he,x[vert_axis]-level)
  *                 return H*vof_air+(1-H)*vof_water             # <<<<<<<<<<<<<<
@@ -6713,16 +6713,16 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vof_air)) { __Pyx_RaiseClosureNameError("vof_air"); __PYX_ERR(0, 284, __pyx_L1_error) }
-  __pyx_t_2 = PyNumber_Multiply(__pyx_v_H, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vof_air); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vof_air)) { __Pyx_RaiseClosureNameError("vof_air"); __PYX_ERR(0, 285, __pyx_L1_error) }
+  __pyx_t_2 = PyNumber_Multiply(__pyx_v_H, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vof_air); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_v_H, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_v_H, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vof_water)) { __Pyx_RaiseClosureNameError("vof_water"); __PYX_ERR(0, 284, __pyx_L1_error) }
-  __pyx_t_7 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vof_water); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 284, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vof_water)) { __Pyx_RaiseClosureNameError("vof_water"); __PYX_ERR(0, 285, __pyx_L1_error) }
+  __pyx_t_7 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vof_water); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -6730,7 +6730,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":281
+  /* "mprans/BoundaryConditions.pyx":282
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  *             def vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -6756,7 +6756,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":276
+/* "mprans/BoundaryConditions.pyx":277
  *             return ux_dirichlet_cython
  * 
  *         def vof_dirichlet_cython():             # <<<<<<<<<<<<<<
@@ -6782,81 +6782,81 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __Pyx_INCREF(((PyObject *)__pyx_cur_scope->__pyx_outer_scope));
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope);
 
-  /* "mprans/BoundaryConditions.pyx":277
+  /* "mprans/BoundaryConditions.pyx":278
  * 
  *         def vof_dirichlet_cython():
  *             wave_mwl = wave.mwl             # <<<<<<<<<<<<<<
  *             wave_eta = wave.eta
  *             he = self.ct.he
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 277, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_mwl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 277, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 278, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_mwl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_wave_mwl = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":278
+  /* "mprans/BoundaryConditions.pyx":279
  *         def vof_dirichlet_cython():
  *             wave_mwl = wave.mwl
  *             wave_eta = wave.eta             # <<<<<<<<<<<<<<
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 278, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_eta); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 279, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_eta); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_wave_eta = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":279
+  /* "mprans/BoundaryConditions.pyx":280
  *             wave_mwl = wave.mwl
  *             wave_eta = wave.eta
  *             he = self.ct.he             # <<<<<<<<<<<<<<
  *             ecH = self.ct.ecH
  *             def vof_dirichlet(x, t):
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 279, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_ct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 280, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_ct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_cur_scope->__pyx_v_he = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":280
+  /* "mprans/BoundaryConditions.pyx":281
  *             wave_eta = wave.eta
  *             he = self.ct.he
  *             ecH = self.ct.ecH             # <<<<<<<<<<<<<<
  *             def vof_dirichlet(x, t):
  *                 level = wave_mwl + wave_eta(x,t)
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 280, __pyx_L1_error) }
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_ct); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 281, __pyx_L1_error) }
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_ct); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ecH); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ecH); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_ecH = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":281
+  /* "mprans/BoundaryConditions.pyx":282
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  *             def vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *                 level = wave_mwl + wave_eta(x,t)
  *                 H = smoothedHeaviside(ecH*he,x[vert_axis]-level)
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_20vof_dirichlet_cython_1vof_dirichlet, 0, __pyx_n_s_BC_RANS_setUnsteadyTwoPhaseVeloc_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_20vof_dirichlet_cython_1vof_dirichlet, 0, __pyx_n_s_BC_RANS_setUnsteadyTwoPhaseVeloc_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_vof_dirichlet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":285
+  /* "mprans/BoundaryConditions.pyx":286
  *                 H = smoothedHeaviside(ecH*he,x[vert_axis]-level)
  *                 return H*vof_air+(1-H)*vof_water
  *             return vof_dirichlet             # <<<<<<<<<<<<<<
@@ -6868,7 +6868,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_r = __pyx_v_vof_dirichlet;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":276
+  /* "mprans/BoundaryConditions.pyx":277
  *             return ux_dirichlet_cython
  * 
  *         def vof_dirichlet_cython():             # <<<<<<<<<<<<<<
@@ -6890,7 +6890,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":287
+/* "mprans/BoundaryConditions.pyx":288
  *             return vof_dirichlet
  * 
  *         def p_advective_cython():             # <<<<<<<<<<<<<<
@@ -6912,7 +6912,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":299
+/* "mprans/BoundaryConditions.pyx":300
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  *             def p_advective(x, t):             # <<<<<<<<<<<<<<
@@ -6949,11 +6949,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("p_advective", 1, 2, 2, 1); __PYX_ERR(0, 299, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("p_advective", 1, 2, 2, 1); __PYX_ERR(0, 300, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "p_advective") < 0)) __PYX_ERR(0, 299, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "p_advective") < 0)) __PYX_ERR(0, 300, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -6966,7 +6966,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("p_advective", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 299, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("p_advective", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 300, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setUnsteadyTwoPhaseVelocityInlet.p_advective_cython.p_advective", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -7004,15 +7004,15 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_7_p_advective_cython *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":300
+  /* "mprans/BoundaryConditions.pyx":301
  *             ecH = self.ct.ecH
  *             def p_advective(x, t):
  *                 waveHeight = wave_mwl+wave_eta(x, t)             # <<<<<<<<<<<<<<
  *                 wavePhi = x[vert_axis]-waveHeight
  *                 if wavePhi <= 0:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_mwl)) { __Pyx_RaiseClosureNameError("wave_mwl"); __PYX_ERR(0, 300, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_eta)) { __Pyx_RaiseClosureNameError("wave_eta"); __PYX_ERR(0, 300, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_mwl)) { __Pyx_RaiseClosureNameError("wave_mwl"); __PYX_ERR(0, 301, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_wave_eta)) { __Pyx_RaiseClosureNameError("wave_eta"); __PYX_ERR(0, 301, __pyx_L1_error) }
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_wave_eta);
   __pyx_t_2 = __pyx_cur_scope->__pyx_v_wave_eta; __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -7026,7 +7026,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (__pyx_t_3) {
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -7037,52 +7037,52 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __Pyx_INCREF(__pyx_v_t);
   __Pyx_GIVEREF(__pyx_v_t);
   PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_t);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Add(__pyx_cur_scope->__pyx_v_wave_mwl, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_cur_scope->__pyx_v_wave_mwl, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_waveHeight = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":301
+  /* "mprans/BoundaryConditions.pyx":302
  *             def p_advective(x, t):
  *                 waveHeight = wave_mwl+wave_eta(x, t)
  *                 wavePhi = x[vert_axis]-waveHeight             # <<<<<<<<<<<<<<
  *                 if wavePhi <= 0:
  *                     water_speed = wave_u(x, t)
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 301, __pyx_L1_error) }
-  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 302, __pyx_L1_error) }
+  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_v_waveHeight); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 301, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_v_waveHeight); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_wavePhi = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":302
+  /* "mprans/BoundaryConditions.pyx":303
  *                 waveHeight = wave_mwl+wave_eta(x, t)
  *                 wavePhi = x[vert_axis]-waveHeight
  *                 if wavePhi <= 0:             # <<<<<<<<<<<<<<
  *                     water_speed = wave_u(x, t)
  *                 elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 302, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":303
+    /* "mprans/BoundaryConditions.pyx":304
  *                 wavePhi = x[vert_axis]-waveHeight
  *                 if wavePhi <= 0:
  *                     water_speed = wave_u(x, t)             # <<<<<<<<<<<<<<
  *                 elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  *                     x_max = list(x)
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_wave_u)) { __Pyx_RaiseClosureNameError("wave_u"); __PYX_ERR(0, 303, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_wave_u)) { __Pyx_RaiseClosureNameError("wave_u"); __PYX_ERR(0, 304, __pyx_L1_error) }
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_wave_u);
     __pyx_t_2 = __pyx_cur_scope->__pyx_v_wave_u; __pyx_t_5 = NULL;
     __pyx_t_4 = 0;
@@ -7096,7 +7096,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
         __pyx_t_4 = 1;
       }
     }
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 303, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 304, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -7107,14 +7107,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     __Pyx_INCREF(__pyx_v_t);
     __Pyx_GIVEREF(__pyx_v_t);
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_4, __pyx_v_t);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_water_speed = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":302
+    /* "mprans/BoundaryConditions.pyx":303
  *                 waveHeight = wave_mwl+wave_eta(x, t)
  *                 wavePhi = x[vert_axis]-waveHeight
  *                 if wavePhi <= 0:             # <<<<<<<<<<<<<<
@@ -7124,66 +7124,66 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     goto __pyx_L3;
   }
 
-  /* "mprans/BoundaryConditions.pyx":304
+  /* "mprans/BoundaryConditions.pyx":305
  *                 if wavePhi <= 0:
  *                     water_speed = wave_u(x, t)
  *                 elif wavePhi > 0 and wavePhi < 0.5*ecH*he:             # <<<<<<<<<<<<<<
  *                     x_max = list(x)
  *                     x_max[vert_axis] = waveHeight
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 305, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_7) {
   } else {
     __pyx_t_6 = __pyx_t_7;
     goto __pyx_L4_bool_binop_done;
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 304, __pyx_L1_error) }
-  __pyx_t_1 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 305, __pyx_L1_error) }
+  __pyx_t_1 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 304, __pyx_L1_error) }
-  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 304, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 305, __pyx_L1_error) }
+  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_t_2, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_t_2, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 305, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = __pyx_t_7;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":305
+    /* "mprans/BoundaryConditions.pyx":306
  *                     water_speed = wave_u(x, t)
  *                 elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  *                     x_max = list(x)             # <<<<<<<<<<<<<<
  *                     x_max[vert_axis] = waveHeight
  *                     water_speed = wave_u(x_max, t)
  */
-    __pyx_t_1 = PySequence_List(__pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 305, __pyx_L1_error)
+    __pyx_t_1 = PySequence_List(__pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_x_max = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":306
+    /* "mprans/BoundaryConditions.pyx":307
  *                 elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  *                     x_max = list(x)
  *                     x_max[vert_axis] = waveHeight             # <<<<<<<<<<<<<<
  *                     water_speed = wave_u(x_max, t)
  *                 else:
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 306, __pyx_L1_error) }
-    if (unlikely(PyObject_SetItem(__pyx_v_x_max, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis, __pyx_v_waveHeight) < 0)) __PYX_ERR(0, 306, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 307, __pyx_L1_error) }
+    if (unlikely(PyObject_SetItem(__pyx_v_x_max, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis, __pyx_v_waveHeight) < 0)) __PYX_ERR(0, 307, __pyx_L1_error)
 
-    /* "mprans/BoundaryConditions.pyx":307
+    /* "mprans/BoundaryConditions.pyx":308
  *                     x_max = list(x)
  *                     x_max[vert_axis] = waveHeight
  *                     water_speed = wave_u(x_max, t)             # <<<<<<<<<<<<<<
  *                 else:
  *                     water_speed = np.array([0., 0., 0.])
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_wave_u)) { __Pyx_RaiseClosureNameError("wave_u"); __PYX_ERR(0, 307, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_wave_u)) { __Pyx_RaiseClosureNameError("wave_u"); __PYX_ERR(0, 308, __pyx_L1_error) }
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_wave_u);
     __pyx_t_2 = __pyx_cur_scope->__pyx_v_wave_u; __pyx_t_3 = NULL;
     __pyx_t_4 = 0;
@@ -7197,7 +7197,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
         __pyx_t_4 = 1;
       }
     }
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 308, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -7208,14 +7208,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     __Pyx_INCREF(__pyx_v_t);
     __Pyx_GIVEREF(__pyx_v_t);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_t);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 307, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 308, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_water_speed = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":304
+    /* "mprans/BoundaryConditions.pyx":305
  *                 if wavePhi <= 0:
  *                     water_speed = wave_u(x, t)
  *                 elif wavePhi > 0 and wavePhi < 0.5*ecH*he:             # <<<<<<<<<<<<<<
@@ -7225,7 +7225,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     goto __pyx_L3;
   }
 
-  /* "mprans/BoundaryConditions.pyx":309
+  /* "mprans/BoundaryConditions.pyx":310
  *                     water_speed = wave_u(x_max, t)
  *                 else:
  *                     water_speed = np.array([0., 0., 0.])             # <<<<<<<<<<<<<<
@@ -7233,12 +7233,12 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
  *                 U = H*wind_speed_arr + (1-H)*water_speed
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 310, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 310, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyList_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 310, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_float_0_);
     __Pyx_GIVEREF(__pyx_float_0_);
@@ -7260,17 +7260,17 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
       }
     }
     if (!__pyx_t_3) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 310, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else {
-      __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 309, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 310, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_3); __pyx_t_3 = NULL;
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_2);
       __pyx_t_2 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 310, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
@@ -7280,30 +7280,30 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   }
   __pyx_L3:;
 
-  /* "mprans/BoundaryConditions.pyx":310
+  /* "mprans/BoundaryConditions.pyx":311
  *                 else:
  *                     water_speed = np.array([0., 0., 0.])
  *                 H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)             # <<<<<<<<<<<<<<
  *                 U = H*wind_speed_arr + (1-H)*water_speed
  *                 u_p = np.sum(U[:nd]*b_or)
  */
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 310, __pyx_L1_error) }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 310, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 311, __pyx_L1_error) }
+  __pyx_t_8 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 310, __pyx_L1_error) }
-  __pyx_t_2 = PyNumber_Multiply(__pyx_t_8, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 310, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 311, __pyx_L1_error) }
+  __pyx_t_2 = PyNumber_Multiply(__pyx_t_8, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 310, __pyx_L1_error) }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 310, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 311, __pyx_L1_error) }
+  __pyx_t_8 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 310, __pyx_L1_error) }
-  __pyx_t_3 = PyNumber_Multiply(__pyx_t_8, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 310, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 311, __pyx_L1_error) }
+  __pyx_t_3 = PyNumber_Multiply(__pyx_t_8, __pyx_cur_scope->__pyx_v_he); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = PyNumber_Subtract(__pyx_v_wavePhi, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Subtract(__pyx_v_wavePhi, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -7318,7 +7318,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_9 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __pyx_t_9 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   if (__pyx_t_3) {
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -7329,51 +7329,51 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_4, __pyx_t_8);
   __pyx_t_2 = 0;
   __pyx_t_8 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 310, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_H = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":311
+  /* "mprans/BoundaryConditions.pyx":312
  *                     water_speed = np.array([0., 0., 0.])
  *                 H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                 U = H*wind_speed_arr + (1-H)*water_speed             # <<<<<<<<<<<<<<
  *                 u_p = np.sum(U[:nd]*b_or)
  *                 return u_p
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_wind_speed_arr)) { __Pyx_RaiseClosureNameError("wind_speed_arr"); __PYX_ERR(0, 311, __pyx_L1_error) }
-  __pyx_t_1 = PyNumber_Multiply(__pyx_v_H, __pyx_cur_scope->__pyx_v_wind_speed_arr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_wind_speed_arr)) { __Pyx_RaiseClosureNameError("wind_speed_arr"); __PYX_ERR(0, 312, __pyx_L1_error) }
+  __pyx_t_1 = PyNumber_Multiply(__pyx_v_H, __pyx_cur_scope->__pyx_v_wind_speed_arr); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_v_H, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_v_H, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_9 = PyNumber_Multiply(__pyx_t_5, __pyx_v_water_speed); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __pyx_t_9 = PyNumber_Multiply(__pyx_t_5, __pyx_v_water_speed); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 311, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_v_U = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":312
+  /* "mprans/BoundaryConditions.pyx":313
  *                 H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                 U = H*wind_speed_arr + (1-H)*water_speed
  *                 u_p = np.sum(U[:nd]*b_or)             # <<<<<<<<<<<<<<
  *                 return u_p
  *             return p_advective
  */
-  __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_sum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_sum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyObject_GetSlice(__pyx_v_U, 0, __pyx_cur_scope->__pyx_v_nd, NULL, NULL, NULL, 0, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetSlice(__pyx_v_U, 0, __pyx_cur_scope->__pyx_v_nd, NULL, NULL, NULL, 0, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_b_or)) { __Pyx_RaiseClosureNameError("b_or"); __PYX_ERR(0, 312, __pyx_L1_error) }
-  __pyx_t_8 = PyNumber_Multiply(__pyx_t_9, __pyx_cur_scope->__pyx_v_b_or); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 312, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_b_or)) { __Pyx_RaiseClosureNameError("b_or"); __PYX_ERR(0, 313, __pyx_L1_error) }
+  __pyx_t_8 = PyNumber_Multiply(__pyx_t_9, __pyx_cur_scope->__pyx_v_b_or); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 313, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_t_9 = NULL;
@@ -7387,17 +7387,17 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     }
   }
   if (!__pyx_t_9) {
-    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 313, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GOTREF(__pyx_t_5);
   } else {
-    __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 312, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 313, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_9); __pyx_t_9 = NULL;
     __Pyx_GIVEREF(__pyx_t_8);
     PyTuple_SET_ITEM(__pyx_t_2, 0+1, __pyx_t_8);
     __pyx_t_8 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 313, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
@@ -7405,7 +7405,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_v_u_p = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":313
+  /* "mprans/BoundaryConditions.pyx":314
  *                 U = H*wind_speed_arr + (1-H)*water_speed
  *                 u_p = np.sum(U[:nd]*b_or)
  *                 return u_p             # <<<<<<<<<<<<<<
@@ -7417,7 +7417,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_r = __pyx_v_u_p;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":299
+  /* "mprans/BoundaryConditions.pyx":300
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  *             def p_advective(x, t):             # <<<<<<<<<<<<<<
@@ -7448,7 +7448,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":287
+/* "mprans/BoundaryConditions.pyx":288
  *             return vof_dirichlet
  * 
  *         def p_advective_cython():             # <<<<<<<<<<<<<<
@@ -7477,20 +7477,20 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __Pyx_INCREF(((PyObject *)__pyx_cur_scope->__pyx_outer_scope));
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope);
 
-  /* "mprans/BoundaryConditions.pyx":291
+  /* "mprans/BoundaryConditions.pyx":292
  *             # orientation b_or
  *             # needs to be equal to -ux_dirichlet
  *             b_or = self._b_or[self._b_i]             # <<<<<<<<<<<<<<
  *             cdef int nd = len(b_or)
  *             wave_mwl = wave.mwl
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 291, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_b_or_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 291, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 292, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_b_or_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 291, __pyx_L1_error) }
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_b_i_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 292, __pyx_L1_error) }
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_b_i_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_GetItem(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_3 = PyObject_GetItem(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -7498,7 +7498,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_cur_scope->__pyx_v_b_or = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":292
+  /* "mprans/BoundaryConditions.pyx":293
  *             # needs to be equal to -ux_dirichlet
  *             b_or = self._b_or[self._b_i]
  *             cdef int nd = len(b_or)             # <<<<<<<<<<<<<<
@@ -7507,65 +7507,65 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
  */
   __pyx_t_3 = __pyx_cur_scope->__pyx_v_b_or;
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_Length(__pyx_t_3); if (unlikely(__pyx_t_4 == -1)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_t_3); if (unlikely(__pyx_t_4 == -1)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_cur_scope->__pyx_v_nd = __pyx_t_4;
 
-  /* "mprans/BoundaryConditions.pyx":293
+  /* "mprans/BoundaryConditions.pyx":294
  *             b_or = self._b_or[self._b_i]
  *             cdef int nd = len(b_or)
  *             wave_mwl = wave.mwl             # <<<<<<<<<<<<<<
  *             wave_eta = wave.eta
  *             wave_u = wave.u
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 293, __pyx_L1_error) }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_mwl); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 294, __pyx_L1_error) }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_mwl); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_wave_mwl = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":294
+  /* "mprans/BoundaryConditions.pyx":295
  *             cdef int nd = len(b_or)
  *             wave_mwl = wave.mwl
  *             wave_eta = wave.eta             # <<<<<<<<<<<<<<
  *             wave_u = wave.u
  *             wind_speed_arr = np.array(wind_speed)
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 294, __pyx_L1_error) }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_eta); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 294, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 295, __pyx_L1_error) }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_eta); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_wave_eta = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":295
+  /* "mprans/BoundaryConditions.pyx":296
  *             wave_mwl = wave.mwl
  *             wave_eta = wave.eta
  *             wave_u = wave.u             # <<<<<<<<<<<<<<
  *             wind_speed_arr = np.array(wind_speed)
  *             he = self.ct.he
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 295, __pyx_L1_error) }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_u); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 295, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave)) { __Pyx_RaiseClosureNameError("wave"); __PYX_ERR(0, 296, __pyx_L1_error) }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wave, __pyx_n_s_u); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 296, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_wave_u = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":296
+  /* "mprans/BoundaryConditions.pyx":297
  *             wave_eta = wave.eta
  *             wave_u = wave.u
  *             wind_speed_arr = np.array(wind_speed)             # <<<<<<<<<<<<<<
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed)) { __Pyx_RaiseClosureNameError("wind_speed"); __PYX_ERR(0, 296, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed)) { __Pyx_RaiseClosureNameError("wind_speed"); __PYX_ERR(0, 297, __pyx_L1_error) }
   __pyx_t_2 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_1))) {
     __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
@@ -7577,16 +7577,16 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
     }
   }
   if (!__pyx_t_2) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 296, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 297, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 296, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
     __Pyx_INCREF(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed);
     __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 296, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 297, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -7595,53 +7595,53 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_cur_scope->__pyx_v_wind_speed_arr = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":297
+  /* "mprans/BoundaryConditions.pyx":298
  *             wave_u = wave.u
  *             wind_speed_arr = np.array(wind_speed)
  *             he = self.ct.he             # <<<<<<<<<<<<<<
  *             ecH = self.ct.ecH
  *             def p_advective(x, t):
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 297, __pyx_L1_error) }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_ct); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 297, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 298, __pyx_L1_error) }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_ct); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 298, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_he); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_he); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 298, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_he = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":298
+  /* "mprans/BoundaryConditions.pyx":299
  *             wind_speed_arr = np.array(wind_speed)
  *             he = self.ct.he
  *             ecH = self.ct.ecH             # <<<<<<<<<<<<<<
  *             def p_advective(x, t):
  *                 waveHeight = wave_mwl+wave_eta(x, t)
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 298, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_ct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 298, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 299, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_ct); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ecH); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ecH); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_ecH = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":299
+  /* "mprans/BoundaryConditions.pyx":300
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  *             def p_advective(x, t):             # <<<<<<<<<<<<<<
  *                 waveHeight = wave_mwl+wave_eta(x, t)
  *                 wavePhi = x[vert_axis]-waveHeight
  */
-  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_18p_advective_cython_1p_advective, 0, __pyx_n_s_BC_RANS_setUnsteadyTwoPhaseVeloc_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_18p_advective_cython_1p_advective, 0, __pyx_n_s_BC_RANS_setUnsteadyTwoPhaseVeloc_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_p_advective = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":314
+  /* "mprans/BoundaryConditions.pyx":315
  *                 u_p = np.sum(U[:nd]*b_or)
  *                 return u_p
  *             return p_advective             # <<<<<<<<<<<<<<
@@ -7653,7 +7653,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwo
   __pyx_r = __pyx_v_p_advective;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":287
+  /* "mprans/BoundaryConditions.pyx":288
  *             return vof_dirichlet
  * 
  *         def p_advective_cython():             # <<<<<<<<<<<<<<
@@ -7807,97 +7807,97 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_18setUnsteadyTwo
   __pyx_v_get_ux_dirichlet_cython = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":276
+  /* "mprans/BoundaryConditions.pyx":277
  *             return ux_dirichlet_cython
  * 
  *         def vof_dirichlet_cython():             # <<<<<<<<<<<<<<
  *             wave_mwl = wave.mwl
  *             wave_eta = wave.eta
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_3vof_dirichlet_cython, 0, __pyx_n_s_BC_RANS_setUnsteadyTwoPhaseVeloc_6, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_3vof_dirichlet_cython, 0, __pyx_n_s_BC_RANS_setUnsteadyTwoPhaseVeloc_6, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_vof_dirichlet_cython = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":287
+  /* "mprans/BoundaryConditions.pyx":288
  *             return vof_dirichlet
  * 
  *         def p_advective_cython():             # <<<<<<<<<<<<<<
  *             # This is the normal velocity, based on the outwards boundary
  *             # orientation b_or
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_5p_advective_cython, 0, __pyx_n_s_BC_RANS_setUnsteadyTwoPhaseVeloc_7, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_5p_advective_cython, 0, __pyx_n_s_BC_RANS_setUnsteadyTwoPhaseVeloc_7, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_p_advective_cython = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":316
+  /* "mprans/BoundaryConditions.pyx":317
  *             return p_advective
  * 
  *         self.u_dirichlet.init_cython = get_ux_dirichlet_cython(0)             # <<<<<<<<<<<<<<
  *         self.v_dirichlet.init_cython = get_ux_dirichlet_cython(1)
  *         self.w_dirichlet.init_cython = get_ux_dirichlet_cython(2)
  */
-  __pyx_t_2 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_get_ux_dirichlet_cython(__pyx_v_get_ux_dirichlet_cython, __pyx_int_0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_2 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_get_ux_dirichlet_cython(__pyx_v_get_ux_dirichlet_cython, __pyx_int_0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_u_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_u_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_t_2) < 0) __PYX_ERR(0, 316, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_t_2) < 0) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":317
+  /* "mprans/BoundaryConditions.pyx":318
  * 
  *         self.u_dirichlet.init_cython = get_ux_dirichlet_cython(0)
  *         self.v_dirichlet.init_cython = get_ux_dirichlet_cython(1)             # <<<<<<<<<<<<<<
  *         self.w_dirichlet.init_cython = get_ux_dirichlet_cython(2)
  *         self.vof_dirichlet.init_cython = vof_dirichlet_cython
  */
-  __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_get_ux_dirichlet_cython(__pyx_v_get_ux_dirichlet_cython, __pyx_int_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_get_ux_dirichlet_cython(__pyx_v_get_ux_dirichlet_cython, __pyx_int_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_v_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_v_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_init_cython, __pyx_t_1) < 0) __PYX_ERR(0, 317, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_init_cython, __pyx_t_1) < 0) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":318
+  /* "mprans/BoundaryConditions.pyx":319
  *         self.u_dirichlet.init_cython = get_ux_dirichlet_cython(0)
  *         self.v_dirichlet.init_cython = get_ux_dirichlet_cython(1)
  *         self.w_dirichlet.init_cython = get_ux_dirichlet_cython(2)             # <<<<<<<<<<<<<<
  *         self.vof_dirichlet.init_cython = vof_dirichlet_cython
  *         self.p_advective.init_cython = p_advective_cython
  */
-  __pyx_t_2 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_get_ux_dirichlet_cython(__pyx_v_get_ux_dirichlet_cython, __pyx_int_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_2 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_32setUnsteadyTwoPhaseVelocityInlet_get_ux_dirichlet_cython(__pyx_v_get_ux_dirichlet_cython, __pyx_int_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_w_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_w_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_t_2) < 0) __PYX_ERR(0, 318, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_t_2) < 0) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":319
+  /* "mprans/BoundaryConditions.pyx":320
  *         self.v_dirichlet.init_cython = get_ux_dirichlet_cython(1)
  *         self.w_dirichlet.init_cython = get_ux_dirichlet_cython(2)
  *         self.vof_dirichlet.init_cython = vof_dirichlet_cython             # <<<<<<<<<<<<<<
  *         self.p_advective.init_cython = p_advective_cython
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 319, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 320, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_v_vof_dirichlet_cython) < 0) __PYX_ERR(0, 319, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_v_vof_dirichlet_cython) < 0) __PYX_ERR(0, 320, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":320
+  /* "mprans/BoundaryConditions.pyx":321
  *         self.w_dirichlet.init_cython = get_ux_dirichlet_cython(2)
  *         self.vof_dirichlet.init_cython = vof_dirichlet_cython
  *         self.p_advective.init_cython = p_advective_cython             # <<<<<<<<<<<<<<
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_p_advective); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 320, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_p_advective); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_v_p_advective_cython) < 0) __PYX_ERR(0, 320, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_v_p_advective_cython) < 0) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "mprans/BoundaryConditions.pyx":220
@@ -7927,7 +7927,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_18setUnsteadyTwo
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":323
+/* "mprans/BoundaryConditions.pyx":324
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setTwoPhaseVelocityInlet(self, U, waterLevel, vert_axis=None, air=1.,             # <<<<<<<<<<<<<<
@@ -7976,12 +7976,12 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_21setTwoPhaseVel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_U)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setTwoPhaseVelocityInlet", 0, 3, 6, 1); __PYX_ERR(0, 323, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setTwoPhaseVelocityInlet", 0, 3, 6, 1); __PYX_ERR(0, 324, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_waterLevel)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setTwoPhaseVelocityInlet", 0, 3, 6, 2); __PYX_ERR(0, 323, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setTwoPhaseVelocityInlet", 0, 3, 6, 2); __PYX_ERR(0, 324, __pyx_L3_error)
         }
         case  3:
         if (kw_args > 0) {
@@ -8000,7 +8000,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_21setTwoPhaseVel
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "setTwoPhaseVelocityInlet") < 0)) __PYX_ERR(0, 323, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "setTwoPhaseVelocityInlet") < 0)) __PYX_ERR(0, 324, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -8023,7 +8023,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_21setTwoPhaseVel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("setTwoPhaseVelocityInlet", 0, 3, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 323, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("setTwoPhaseVelocityInlet", 0, 3, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 324, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setTwoPhaseVelocityInlet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8036,7 +8036,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_21setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":349
+/* "mprans/BoundaryConditions.pyx":350
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def get_inlet_ux_dirichlet_cython(i):             # <<<<<<<<<<<<<<
@@ -8058,7 +8058,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":350
+/* "mprans/BoundaryConditions.pyx":351
  * 
  *         def get_inlet_ux_dirichlet_cython(i):
  *             def get_inlet_ux_dirichlet():             # <<<<<<<<<<<<<<
@@ -8080,7 +8080,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":351
+/* "mprans/BoundaryConditions.pyx":352
  *         def get_inlet_ux_dirichlet_cython(i):
  *             def get_inlet_ux_dirichlet():
  *                 def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -8117,11 +8117,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("ux_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 351, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("ux_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 352, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ux_dirichlet") < 0)) __PYX_ERR(0, 351, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ux_dirichlet") < 0)) __PYX_ERR(0, 352, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -8134,7 +8134,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ux_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 351, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ux_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 352, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setTwoPhaseVelocityInlet.get_inlet_ux_dirichlet_cython.get_inlet_ux_dirichlet.ux_dirichlet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8160,24 +8160,24 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_9_get_inlet_ux_dirichlet_cython *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":352
+  /* "mprans/BoundaryConditions.pyx":353
  *             def get_inlet_ux_dirichlet():
  *                 def ux_dirichlet(x, t):
  *                     if x[vert_axis] < waterLevel:             # <<<<<<<<<<<<<<
  *                         return U[i]
  *                     elif x[vert_axis] >= waterLevel and U[i] == 0:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 352, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 352, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 353, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 352, __pyx_L1_error) }
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_waterLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 352, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 353, __pyx_L1_error) }
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_waterLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 352, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "mprans/BoundaryConditions.pyx":353
+    /* "mprans/BoundaryConditions.pyx":354
  *                 def ux_dirichlet(x, t):
  *                     if x[vert_axis] < waterLevel:
  *                         return U[i]             # <<<<<<<<<<<<<<
@@ -8185,15 +8185,15 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
  *                         return 0.
  */
     __Pyx_XDECREF(__pyx_r);
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_U)) { __Pyx_RaiseClosureNameError("U"); __PYX_ERR(0, 353, __pyx_L1_error) }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 353, __pyx_L1_error) }
-    __pyx_t_2 = PyObject_GetItem(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_U, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 353, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_U)) { __Pyx_RaiseClosureNameError("U"); __PYX_ERR(0, 354, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 354, __pyx_L1_error) }
+    __pyx_t_2 = PyObject_GetItem(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_U, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "mprans/BoundaryConditions.pyx":352
+    /* "mprans/BoundaryConditions.pyx":353
  *             def get_inlet_ux_dirichlet():
  *                 def ux_dirichlet(x, t):
  *                     if x[vert_axis] < waterLevel:             # <<<<<<<<<<<<<<
@@ -8202,40 +8202,40 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":354
+  /* "mprans/BoundaryConditions.pyx":355
  *                     if x[vert_axis] < waterLevel:
  *                         return U[i]
  *                     elif x[vert_axis] >= waterLevel and U[i] == 0:             # <<<<<<<<<<<<<<
  *                         return 0.
  *                 return ux_dirichlet
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 354, __pyx_L1_error) }
-  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 355, __pyx_L1_error) }
+  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 354, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_waterLevel, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 355, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_waterLevel, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 355, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 355, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
   } else {
     __pyx_t_3 = __pyx_t_4;
     goto __pyx_L4_bool_binop_done;
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_U)) { __Pyx_RaiseClosureNameError("U"); __PYX_ERR(0, 354, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 354, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_U, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_U)) { __Pyx_RaiseClosureNameError("U"); __PYX_ERR(0, 355, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 355, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_U, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 355, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_EqObjC(__pyx_t_1, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_EqObjC(__pyx_t_1, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 355, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_3 = __pyx_t_4;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_3) {
 
-    /* "mprans/BoundaryConditions.pyx":355
+    /* "mprans/BoundaryConditions.pyx":356
  *                         return U[i]
  *                     elif x[vert_axis] >= waterLevel and U[i] == 0:
  *                         return 0.             # <<<<<<<<<<<<<<
@@ -8247,7 +8247,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
     __pyx_r = __pyx_float_0_;
     goto __pyx_L0;
 
-    /* "mprans/BoundaryConditions.pyx":354
+    /* "mprans/BoundaryConditions.pyx":355
  *                     if x[vert_axis] < waterLevel:
  *                         return U[i]
  *                     elif x[vert_axis] >= waterLevel and U[i] == 0:             # <<<<<<<<<<<<<<
@@ -8256,7 +8256,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":351
+  /* "mprans/BoundaryConditions.pyx":352
  *         def get_inlet_ux_dirichlet_cython(i):
  *             def get_inlet_ux_dirichlet():
  *                 def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -8278,7 +8278,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":350
+/* "mprans/BoundaryConditions.pyx":351
  * 
  *         def get_inlet_ux_dirichlet_cython(i):
  *             def get_inlet_ux_dirichlet():             # <<<<<<<<<<<<<<
@@ -8297,19 +8297,19 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_9_get_inlet_ux_dirichlet_cython *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":351
+  /* "mprans/BoundaryConditions.pyx":352
  *         def get_inlet_ux_dirichlet_cython(i):
  *             def get_inlet_ux_dirichlet():
  *                 def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *                     if x[vert_axis] < waterLevel:
  *                         return U[i]
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_29get_inlet_ux_dirichlet_cython_22get_inlet_ux_dirichlet_1ux_dirichlet, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 351, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_29get_inlet_ux_dirichlet_cython_22get_inlet_ux_dirichlet_1ux_dirichlet, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 352, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ux_dirichlet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":356
+  /* "mprans/BoundaryConditions.pyx":357
  *                     elif x[vert_axis] >= waterLevel and U[i] == 0:
  *                         return 0.
  *                 return ux_dirichlet             # <<<<<<<<<<<<<<
@@ -8321,7 +8321,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_r = __pyx_v_ux_dirichlet;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":350
+  /* "mprans/BoundaryConditions.pyx":351
  * 
  *         def get_inlet_ux_dirichlet_cython(i):
  *             def get_inlet_ux_dirichlet():             # <<<<<<<<<<<<<<
@@ -8341,7 +8341,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":349
+/* "mprans/BoundaryConditions.pyx":350
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def get_inlet_ux_dirichlet_cython(i):             # <<<<<<<<<<<<<<
@@ -8369,19 +8369,19 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_i);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_i);
 
-  /* "mprans/BoundaryConditions.pyx":350
+  /* "mprans/BoundaryConditions.pyx":351
  * 
  *         def get_inlet_ux_dirichlet_cython(i):
  *             def get_inlet_ux_dirichlet():             # <<<<<<<<<<<<<<
  *                 def ux_dirichlet(x, t):
  *                     if x[vert_axis] < waterLevel:
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_29get_inlet_ux_dirichlet_cython_1get_inlet_ux_dirichlet, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_29get_inlet_ux_dirichlet_cython_1get_inlet_ux_dirichlet, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 351, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_get_inlet_ux_dirichlet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":357
+  /* "mprans/BoundaryConditions.pyx":358
  *                         return 0.
  *                 return ux_dirichlet
  *             return get_inlet_ux_dirichlet             # <<<<<<<<<<<<<<
@@ -8393,7 +8393,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_r = __pyx_v_get_inlet_ux_dirichlet;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":349
+  /* "mprans/BoundaryConditions.pyx":350
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def get_inlet_ux_dirichlet_cython(i):             # <<<<<<<<<<<<<<
@@ -8414,7 +8414,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":359
+/* "mprans/BoundaryConditions.pyx":360
  *             return get_inlet_ux_dirichlet
  * 
  *         def inlet_vof_dirichlet_cython():             # <<<<<<<<<<<<<<
@@ -8436,7 +8436,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":360
+/* "mprans/BoundaryConditions.pyx":361
  * 
  *         def inlet_vof_dirichlet_cython():
  *             def inlet_vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -8473,11 +8473,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("inlet_vof_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 360, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("inlet_vof_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 361, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "inlet_vof_dirichlet") < 0)) __PYX_ERR(0, 360, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "inlet_vof_dirichlet") < 0)) __PYX_ERR(0, 361, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -8490,7 +8490,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("inlet_vof_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 360, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("inlet_vof_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 361, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setTwoPhaseVelocityInlet.inlet_vof_dirichlet_cython.inlet_vof_dirichlet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8515,24 +8515,24 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVelocityInlet *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":361
+  /* "mprans/BoundaryConditions.pyx":362
  *         def inlet_vof_dirichlet_cython():
  *             def inlet_vof_dirichlet(x, t):
  *                 if x[vert_axis] < waterLevel:             # <<<<<<<<<<<<<<
  *                     return water
  *                 elif x[vert_axis] >= waterLevel:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 361, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 361, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 362, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 362, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 361, __pyx_L1_error) }
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_v_waterLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 361, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 362, __pyx_L1_error) }
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_v_waterLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 361, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 362, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "mprans/BoundaryConditions.pyx":362
+    /* "mprans/BoundaryConditions.pyx":363
  *             def inlet_vof_dirichlet(x, t):
  *                 if x[vert_axis] < waterLevel:
  *                     return water             # <<<<<<<<<<<<<<
@@ -8540,12 +8540,12 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
  *                     return air
  */
     __Pyx_XDECREF(__pyx_r);
-    if (unlikely(!__pyx_cur_scope->__pyx_v_water)) { __Pyx_RaiseClosureNameError("water"); __PYX_ERR(0, 362, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_water)) { __Pyx_RaiseClosureNameError("water"); __PYX_ERR(0, 363, __pyx_L1_error) }
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_water);
     __pyx_r = __pyx_cur_scope->__pyx_v_water;
     goto __pyx_L0;
 
-    /* "mprans/BoundaryConditions.pyx":361
+    /* "mprans/BoundaryConditions.pyx":362
  *         def inlet_vof_dirichlet_cython():
  *             def inlet_vof_dirichlet(x, t):
  *                 if x[vert_axis] < waterLevel:             # <<<<<<<<<<<<<<
@@ -8554,24 +8554,24 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":363
+  /* "mprans/BoundaryConditions.pyx":364
  *                 if x[vert_axis] < waterLevel:
  *                     return water
  *                 elif x[vert_axis] >= waterLevel:             # <<<<<<<<<<<<<<
  *                     return air
  *             return inlet_vof_dirichlet
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 363, __pyx_L1_error) }
-  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 363, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 364, __pyx_L1_error) }
+  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 364, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 363, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_cur_scope->__pyx_v_waterLevel, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 363, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 364, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_cur_scope->__pyx_v_waterLevel, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 364, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 363, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 364, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "mprans/BoundaryConditions.pyx":364
+    /* "mprans/BoundaryConditions.pyx":365
  *                     return water
  *                 elif x[vert_axis] >= waterLevel:
  *                     return air             # <<<<<<<<<<<<<<
@@ -8579,12 +8579,12 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    if (unlikely(!__pyx_cur_scope->__pyx_v_air)) { __Pyx_RaiseClosureNameError("air"); __PYX_ERR(0, 364, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_air)) { __Pyx_RaiseClosureNameError("air"); __PYX_ERR(0, 365, __pyx_L1_error) }
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_air);
     __pyx_r = __pyx_cur_scope->__pyx_v_air;
     goto __pyx_L0;
 
-    /* "mprans/BoundaryConditions.pyx":363
+    /* "mprans/BoundaryConditions.pyx":364
  *                 if x[vert_axis] < waterLevel:
  *                     return water
  *                 elif x[vert_axis] >= waterLevel:             # <<<<<<<<<<<<<<
@@ -8593,7 +8593,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":360
+  /* "mprans/BoundaryConditions.pyx":361
  * 
  *         def inlet_vof_dirichlet_cython():
  *             def inlet_vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -8615,7 +8615,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":359
+/* "mprans/BoundaryConditions.pyx":360
  *             return get_inlet_ux_dirichlet
  * 
  *         def inlet_vof_dirichlet_cython():             # <<<<<<<<<<<<<<
@@ -8634,19 +8634,19 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVelocityInlet *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":360
+  /* "mprans/BoundaryConditions.pyx":361
  * 
  *         def inlet_vof_dirichlet_cython():
  *             def inlet_vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *                 if x[vert_axis] < waterLevel:
  *                     return water
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_26inlet_vof_dirichlet_cython_1inlet_vof_dirichlet, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 360, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_26inlet_vof_dirichlet_cython_1inlet_vof_dirichlet, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_inlet_vof_dirichlet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":365
+  /* "mprans/BoundaryConditions.pyx":366
  *                 elif x[vert_axis] >= waterLevel:
  *                     return air
  *             return inlet_vof_dirichlet             # <<<<<<<<<<<<<<
@@ -8658,7 +8658,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_r = __pyx_v_inlet_vof_dirichlet;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":359
+  /* "mprans/BoundaryConditions.pyx":360
  *             return get_inlet_ux_dirichlet
  * 
  *         def inlet_vof_dirichlet_cython():             # <<<<<<<<<<<<<<
@@ -8678,7 +8678,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":367
+/* "mprans/BoundaryConditions.pyx":368
  *             return inlet_vof_dirichlet
  * 
  *         def inlet_p_advective_cython():             # <<<<<<<<<<<<<<
@@ -8700,7 +8700,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":368
+/* "mprans/BoundaryConditions.pyx":369
  * 
  *         def inlet_p_advective_cython():
  *             def inlet_p_advective(x, t):             # <<<<<<<<<<<<<<
@@ -8737,11 +8737,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("inlet_p_advective", 1, 2, 2, 1); __PYX_ERR(0, 368, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("inlet_p_advective", 1, 2, 2, 1); __PYX_ERR(0, 369, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "inlet_p_advective") < 0)) __PYX_ERR(0, 368, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "inlet_p_advective") < 0)) __PYX_ERR(0, 369, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -8754,7 +8754,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("inlet_p_advective", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 368, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("inlet_p_advective", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 369, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setTwoPhaseVelocityInlet.inlet_p_advective_cython.inlet_p_advective", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8784,40 +8784,40 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVelocityInlet *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":369
+  /* "mprans/BoundaryConditions.pyx":370
  *         def inlet_p_advective_cython():
  *             def inlet_p_advective(x, t):
  *                 b_or = self._b_or[self._b_i]             # <<<<<<<<<<<<<<
  *                 u_p = np.sum(U * b_or)
  *                 # This is the normal velocity, based on the inwards boundary
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 369, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_b_or_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 370, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_b_or_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 369, __pyx_L1_error) }
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_b_i_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 370, __pyx_L1_error) }
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_b_i_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_GetItem(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 369, __pyx_L1_error)
+  __pyx_t_3 = PyObject_GetItem(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_b_or = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":370
+  /* "mprans/BoundaryConditions.pyx":371
  *             def inlet_p_advective(x, t):
  *                 b_or = self._b_or[self._b_i]
  *                 u_p = np.sum(U * b_or)             # <<<<<<<<<<<<<<
  *                 # This is the normal velocity, based on the inwards boundary
  *                 # orientation -b_or
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_sum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_sum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_v_U)) { __Pyx_RaiseClosureNameError("U"); __PYX_ERR(0, 370, __pyx_L1_error) }
-  __pyx_t_2 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_U, __pyx_v_b_or); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 370, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_U)) { __Pyx_RaiseClosureNameError("U"); __PYX_ERR(0, 371, __pyx_L1_error) }
+  __pyx_t_2 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_U, __pyx_v_b_or); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_1))) {
@@ -8830,17 +8830,17 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 370, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else {
-    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 370, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 370, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 371, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -8848,36 +8848,36 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_v_u_p = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":373
+  /* "mprans/BoundaryConditions.pyx":374
  *                 # This is the normal velocity, based on the inwards boundary
  *                 # orientation -b_or
  *                 u_p = -u_p             # <<<<<<<<<<<<<<
  *                 if x[vert_axis] < waterLevel:
  *                     return u_p
  */
-  __pyx_t_3 = PyNumber_Negative(__pyx_v_u_p); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 373, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Negative(__pyx_v_u_p); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 374, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF_SET(__pyx_v_u_p, __pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":374
+  /* "mprans/BoundaryConditions.pyx":375
  *                 # orientation -b_or
  *                 u_p = -u_p
  *                 if x[vert_axis] < waterLevel:             # <<<<<<<<<<<<<<
  *                     return u_p
  *                 elif x[vert_axis] >= waterLevel:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 374, __pyx_L1_error) }
-  __pyx_t_3 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 374, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 375, __pyx_L1_error) }
+  __pyx_t_3 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 375, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 374, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_cur_scope->__pyx_v_waterLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 375, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_RichCompare(__pyx_t_3, __pyx_cur_scope->__pyx_v_waterLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 375, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 374, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 375, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":375
+    /* "mprans/BoundaryConditions.pyx":376
  *                 u_p = -u_p
  *                 if x[vert_axis] < waterLevel:
  *                     return u_p             # <<<<<<<<<<<<<<
@@ -8889,7 +8889,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
     __pyx_r = __pyx_v_u_p;
     goto __pyx_L0;
 
-    /* "mprans/BoundaryConditions.pyx":374
+    /* "mprans/BoundaryConditions.pyx":375
  *                 # orientation -b_or
  *                 u_p = -u_p
  *                 if x[vert_axis] < waterLevel:             # <<<<<<<<<<<<<<
@@ -8898,24 +8898,24 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":376
+  /* "mprans/BoundaryConditions.pyx":377
  *                 if x[vert_axis] < waterLevel:
  *                     return u_p
  *                 elif x[vert_axis] >= waterLevel:             # <<<<<<<<<<<<<<
  *                     return None
  *             return inlet_p_advective
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 376, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 377, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 377, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 376, __pyx_L1_error) }
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_v_waterLevel, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 376, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_waterLevel)) { __Pyx_RaiseClosureNameError("waterLevel"); __PYX_ERR(0, 377, __pyx_L1_error) }
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_v_waterLevel, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 377, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 376, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 377, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":377
+    /* "mprans/BoundaryConditions.pyx":378
  *                     return u_p
  *                 elif x[vert_axis] >= waterLevel:
  *                     return None             # <<<<<<<<<<<<<<
@@ -8927,7 +8927,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
     __pyx_r = Py_None;
     goto __pyx_L0;
 
-    /* "mprans/BoundaryConditions.pyx":376
+    /* "mprans/BoundaryConditions.pyx":377
  *                 if x[vert_axis] < waterLevel:
  *                     return u_p
  *                 elif x[vert_axis] >= waterLevel:             # <<<<<<<<<<<<<<
@@ -8936,7 +8936,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":368
+  /* "mprans/BoundaryConditions.pyx":369
  * 
  *         def inlet_p_advective_cython():
  *             def inlet_p_advective(x, t):             # <<<<<<<<<<<<<<
@@ -8963,7 +8963,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":367
+/* "mprans/BoundaryConditions.pyx":368
  *             return inlet_vof_dirichlet
  * 
  *         def inlet_p_advective_cython():             # <<<<<<<<<<<<<<
@@ -8982,19 +8982,19 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVelocityInlet *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":368
+  /* "mprans/BoundaryConditions.pyx":369
  * 
  *         def inlet_p_advective_cython():
  *             def inlet_p_advective(x, t):             # <<<<<<<<<<<<<<
  *                 b_or = self._b_or[self._b_i]
  *                 u_p = np.sum(U * b_or)
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_24inlet_p_advective_cython_1inlet_p_advective, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__64)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_24inlet_p_advective_cython_1inlet_p_advective, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__64)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_inlet_p_advective = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":378
+  /* "mprans/BoundaryConditions.pyx":379
  *                 elif x[vert_axis] >= waterLevel:
  *                     return None
  *             return inlet_p_advective             # <<<<<<<<<<<<<<
@@ -9006,7 +9006,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   __pyx_r = __pyx_v_inlet_p_advective;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":367
+  /* "mprans/BoundaryConditions.pyx":368
  *             return inlet_vof_dirichlet
  * 
  *         def inlet_p_advective_cython():             # <<<<<<<<<<<<<<
@@ -9026,7 +9026,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":323
+/* "mprans/BoundaryConditions.pyx":324
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setTwoPhaseVelocityInlet(self, U, waterLevel, vert_axis=None, air=1.,             # <<<<<<<<<<<<<<
@@ -9074,14 +9074,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_water);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_water);
 
-  /* "mprans/BoundaryConditions.pyx":342
+  /* "mprans/BoundaryConditions.pyx":343
  *             one of the main axes.
  *         """
  *         self.reset()             # <<<<<<<<<<<<<<
  *         self.BC_type = 'TwoPhaseVelocityInlet'
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -9094,34 +9094,34 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":343
+  /* "mprans/BoundaryConditions.pyx":344
  *         """
  *         self.reset()
  *         self.BC_type = 'TwoPhaseVelocityInlet'             # <<<<<<<<<<<<<<
  * 
  *         U = np.array(U)
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_BC_type, __pyx_n_s_TwoPhaseVelocityInlet) < 0) __PYX_ERR(0, 343, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_BC_type, __pyx_n_s_TwoPhaseVelocityInlet) < 0) __PYX_ERR(0, 344, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":345
+  /* "mprans/BoundaryConditions.pyx":346
  *         self.BC_type = 'TwoPhaseVelocityInlet'
  * 
  *         U = np.array(U)             # <<<<<<<<<<<<<<
  *         if vert_axis is None:
  *             vert_axis = self.Shape.Domain.nd - 1
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_array); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -9135,16 +9135,16 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
     }
   }
   if (!__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_cur_scope->__pyx_v_U); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_cur_scope->__pyx_v_U); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2); __pyx_t_2 = NULL;
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_U);
     __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_U);
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_cur_scope->__pyx_v_U);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -9154,7 +9154,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":346
+  /* "mprans/BoundaryConditions.pyx":347
  * 
  *         U = np.array(U)
  *         if vert_axis is None:             # <<<<<<<<<<<<<<
@@ -9165,22 +9165,22 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
   __pyx_t_6 = (__pyx_t_5 != 0);
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":347
+    /* "mprans/BoundaryConditions.pyx":348
  *         U = np.array(U)
  *         if vert_axis is None:
  *             vert_axis = self.Shape.Domain.nd - 1             # <<<<<<<<<<<<<<
  * 
  *         def get_inlet_ux_dirichlet_cython(i):
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_Shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_Shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Domain); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Domain); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_nd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_nd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyInt_SubtractObjC(__pyx_t_1, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_SubtractObjC(__pyx_t_1, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_vert_axis);
@@ -9188,7 +9188,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":346
+    /* "mprans/BoundaryConditions.pyx":347
  * 
  *         U = np.array(U)
  *         if vert_axis is None:             # <<<<<<<<<<<<<<
@@ -9197,73 +9197,73 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":349
+  /* "mprans/BoundaryConditions.pyx":350
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def get_inlet_ux_dirichlet_cython(i):             # <<<<<<<<<<<<<<
  *             def get_inlet_ux_dirichlet():
  *                 def ux_dirichlet(x, t):
  */
-  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_1get_inlet_ux_dirichlet_cython, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_5, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__66)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_1get_inlet_ux_dirichlet_cython, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_5, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__66)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_get_inlet_ux_dirichlet_cython = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":359
+  /* "mprans/BoundaryConditions.pyx":360
  *             return get_inlet_ux_dirichlet
  * 
  *         def inlet_vof_dirichlet_cython():             # <<<<<<<<<<<<<<
  *             def inlet_vof_dirichlet(x, t):
  *                 if x[vert_axis] < waterLevel:
  */
-  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_3inlet_vof_dirichlet_cython, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_6, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__68)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 359, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_3inlet_vof_dirichlet_cython, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_6, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__68)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 360, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_inlet_vof_dirichlet_cython = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":367
+  /* "mprans/BoundaryConditions.pyx":368
  *             return inlet_vof_dirichlet
  * 
  *         def inlet_p_advective_cython():             # <<<<<<<<<<<<<<
  *             def inlet_p_advective(x, t):
  *                 b_or = self._b_or[self._b_i]
  */
-  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_5inlet_p_advective_cython, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_7, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__70)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_5inlet_p_advective_cython, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_7, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__70)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_inlet_p_advective_cython = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":380
+  /* "mprans/BoundaryConditions.pyx":381
  *             return inlet_p_advective
  * 
  *         self.u_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(0)             # <<<<<<<<<<<<<<
  *         self.v_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(1)
  *         if len(U) == 3:
  */
-  __pyx_t_3 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_get_inlet_ux_dirichlet_cython(__pyx_v_get_inlet_ux_dirichlet_cython, __pyx_int_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_3 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_get_inlet_ux_dirichlet_cython(__pyx_v_get_inlet_ux_dirichlet_cython, __pyx_int_0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_u_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_u_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_t_3) < 0) __PYX_ERR(0, 380, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_t_3) < 0) __PYX_ERR(0, 381, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":381
+  /* "mprans/BoundaryConditions.pyx":382
  * 
  *         self.u_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(0)
  *         self.v_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(1)             # <<<<<<<<<<<<<<
  *         if len(U) == 3:
  *                 self.w_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(2)
  */
-  __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_get_inlet_ux_dirichlet_cython(__pyx_v_get_inlet_ux_dirichlet_cython, __pyx_int_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 381, __pyx_L1_error)
+  __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_get_inlet_ux_dirichlet_cython(__pyx_v_get_inlet_ux_dirichlet_cython, __pyx_int_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_v_dirichlet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 381, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_v_dirichlet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_init_cython, __pyx_t_1) < 0) __PYX_ERR(0, 381, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_n_s_init_cython, __pyx_t_1) < 0) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":382
+  /* "mprans/BoundaryConditions.pyx":383
  *         self.u_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(0)
  *         self.v_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(1)
  *         if len(U) == 3:             # <<<<<<<<<<<<<<
@@ -9272,27 +9272,27 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
  */
   __pyx_t_3 = __pyx_cur_scope->__pyx_v_U;
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_7 = PyObject_Length(__pyx_t_3); if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 382, __pyx_L1_error)
+  __pyx_t_7 = PyObject_Length(__pyx_t_3); if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_6 = ((__pyx_t_7 == 3) != 0);
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":383
+    /* "mprans/BoundaryConditions.pyx":384
  *         self.v_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(1)
  *         if len(U) == 3:
  *                 self.w_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(2)             # <<<<<<<<<<<<<<
  *         self.vof_dirichlet.init_cython = inlet_vof_dirichlet_cython
  *         self.p_advective.init_cython = inlet_p_advective_cython
  */
-    __pyx_t_3 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_get_inlet_ux_dirichlet_cython(__pyx_v_get_inlet_ux_dirichlet_cython, __pyx_int_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 383, __pyx_L1_error)
+    __pyx_t_3 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setTwoPhaseVelocityInlet_get_inlet_ux_dirichlet_cython(__pyx_v_get_inlet_ux_dirichlet_cython, __pyx_int_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 384, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_w_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 383, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_w_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_t_3) < 0) __PYX_ERR(0, 383, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_t_3) < 0) __PYX_ERR(0, 384, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":382
+    /* "mprans/BoundaryConditions.pyx":383
  *         self.u_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(0)
  *         self.v_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(1)
  *         if len(U) == 3:             # <<<<<<<<<<<<<<
@@ -9301,31 +9301,31 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":384
+  /* "mprans/BoundaryConditions.pyx":385
  *         if len(U) == 3:
  *                 self.w_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(2)
  *         self.vof_dirichlet.init_cython = inlet_vof_dirichlet_cython             # <<<<<<<<<<<<<<
  *         self.p_advective.init_cython = inlet_p_advective_cython
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_v_inlet_vof_dirichlet_cython) < 0) __PYX_ERR(0, 384, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_v_inlet_vof_dirichlet_cython) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":385
+  /* "mprans/BoundaryConditions.pyx":386
  *                 self.w_dirichlet.init_cython = get_inlet_ux_dirichlet_cython(2)
  *         self.vof_dirichlet.init_cython = inlet_vof_dirichlet_cython
  *         self.p_advective.init_cython = inlet_p_advective_cython             # <<<<<<<<<<<<<<
  * 
  *     def setHydrostaticPressureOutlet(self, rho, g, refLevel, vof, pRef=0.0,
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_p_advective); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 385, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_p_advective); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_v_inlet_p_advective_cython) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_init_cython, __pyx_v_inlet_p_advective_cython) < 0) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":323
+  /* "mprans/BoundaryConditions.pyx":324
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setTwoPhaseVelocityInlet(self, U, waterLevel, vert_axis=None, air=1.,             # <<<<<<<<<<<<<<
@@ -9353,7 +9353,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_20setTwoPhaseVel
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":387
+/* "mprans/BoundaryConditions.pyx":388
  *         self.p_advective.init_cython = inlet_p_advective_cython
  * 
  *     def setHydrostaticPressureOutlet(self, rho, g, refLevel, vof, pRef=0.0,             # <<<<<<<<<<<<<<
@@ -9402,22 +9402,22 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_23setHydrostatic
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_rho)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, 1); __PYX_ERR(0, 387, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, 1); __PYX_ERR(0, 388, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, 2); __PYX_ERR(0, 387, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, 2); __PYX_ERR(0, 388, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_refLevel)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, 3); __PYX_ERR(0, 387, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, 3); __PYX_ERR(0, 388, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_vof)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, 4); __PYX_ERR(0, 387, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, 4); __PYX_ERR(0, 388, __pyx_L3_error)
         }
         case  5:
         if (kw_args > 0) {
@@ -9431,7 +9431,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_23setHydrostatic
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "setHydrostaticPressureOutlet") < 0)) __PYX_ERR(0, 387, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "setHydrostaticPressureOutlet") < 0)) __PYX_ERR(0, 388, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -9456,7 +9456,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_23setHydrostatic
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 387, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutlet", 0, 5, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 388, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setHydrostaticPressureOutlet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -9469,7 +9469,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_23setHydrostatic
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":394
+/* "mprans/BoundaryConditions.pyx":395
  *        # This is the normal velocity, based on the boundary orientation
  * 
  *         def get_outlet_ux_dirichlet(i):             # <<<<<<<<<<<<<<
@@ -9491,7 +9491,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":395
+/* "mprans/BoundaryConditions.pyx":396
  * 
  *         def get_outlet_ux_dirichlet(i):
  *             def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -9528,11 +9528,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("ux_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 395, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("ux_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 396, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ux_dirichlet") < 0)) __PYX_ERR(0, 395, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "ux_dirichlet") < 0)) __PYX_ERR(0, 396, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -9545,7 +9545,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("ux_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 395, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("ux_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 396, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setHydrostaticPressureOutlet.get_outlet_ux_dirichlet.ux_dirichlet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -9572,44 +9572,44 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_11_get_outlet_ux_dirichlet *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":396
+  /* "mprans/BoundaryConditions.pyx":397
  *         def get_outlet_ux_dirichlet(i):
  *             def ux_dirichlet(x, t):
  *                 b_or = self._b_or[self._b_i]             # <<<<<<<<<<<<<<
  *                 if b_or[i] == 0:
  *                     return 0.
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 396, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_b_or_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 397, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_b_or_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 396, __pyx_L1_error) }
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_b_i_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 396, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 397, __pyx_L1_error) }
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self, __pyx_n_s_b_i_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_GetItem(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_3 = PyObject_GetItem(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_b_or = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":397
+  /* "mprans/BoundaryConditions.pyx":398
  *             def ux_dirichlet(x, t):
  *                 b_or = self._b_or[self._b_i]
  *                 if b_or[i] == 0:             # <<<<<<<<<<<<<<
  *                     return 0.
  *             return ux_dirichlet
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 397, __pyx_L1_error) }
-  __pyx_t_3 = PyObject_GetItem(__pyx_v_b_or, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 398, __pyx_L1_error) }
+  __pyx_t_3 = PyObject_GetItem(__pyx_v_b_or, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 398, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyInt_EqObjC(__pyx_t_3, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_EqObjC(__pyx_t_3, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 398, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 398, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_4) {
 
-    /* "mprans/BoundaryConditions.pyx":398
+    /* "mprans/BoundaryConditions.pyx":399
  *                 b_or = self._b_or[self._b_i]
  *                 if b_or[i] == 0:
  *                     return 0.             # <<<<<<<<<<<<<<
@@ -9621,7 +9621,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
     __pyx_r = __pyx_float_0_;
     goto __pyx_L0;
 
-    /* "mprans/BoundaryConditions.pyx":397
+    /* "mprans/BoundaryConditions.pyx":398
  *             def ux_dirichlet(x, t):
  *                 b_or = self._b_or[self._b_i]
  *                 if b_or[i] == 0:             # <<<<<<<<<<<<<<
@@ -9630,7 +9630,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":395
+  /* "mprans/BoundaryConditions.pyx":396
  * 
  *         def get_outlet_ux_dirichlet(i):
  *             def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -9654,7 +9654,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":394
+/* "mprans/BoundaryConditions.pyx":395
  *        # This is the normal velocity, based on the boundary orientation
  * 
  *         def get_outlet_ux_dirichlet(i):             # <<<<<<<<<<<<<<
@@ -9682,19 +9682,19 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_i);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_i);
 
-  /* "mprans/BoundaryConditions.pyx":395
+  /* "mprans/BoundaryConditions.pyx":396
  * 
  *         def get_outlet_ux_dirichlet(i):
  *             def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *                 b_or = self._b_or[self._b_i]
  *                 if b_or[i] == 0:
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_23get_outlet_ux_dirichlet_1ux_dirichlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__72)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 395, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_23get_outlet_ux_dirichlet_1ux_dirichlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__72)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ux_dirichlet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":399
+  /* "mprans/BoundaryConditions.pyx":400
  *                 if b_or[i] == 0:
  *                     return 0.
  *             return ux_dirichlet             # <<<<<<<<<<<<<<
@@ -9706,7 +9706,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
   __pyx_r = __pyx_v_ux_dirichlet;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":394
+  /* "mprans/BoundaryConditions.pyx":395
  *        # This is the normal velocity, based on the boundary orientation
  * 
  *         def get_outlet_ux_dirichlet(i):             # <<<<<<<<<<<<<<
@@ -9727,7 +9727,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostatic
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":387
+/* "mprans/BoundaryConditions.pyx":388
  *         self.p_advective.init_cython = inlet_p_advective_cython
  * 
  *     def setHydrostaticPressureOutlet(self, rho, g, refLevel, vof, pRef=0.0,             # <<<<<<<<<<<<<<
@@ -9759,14 +9759,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_22setHydrostatic
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
 
-  /* "mprans/BoundaryConditions.pyx":389
+  /* "mprans/BoundaryConditions.pyx":390
  *     def setHydrostaticPressureOutlet(self, rho, g, refLevel, vof, pRef=0.0,
  *                                     vert_axis=-1):
  *         self.reset()             # <<<<<<<<<<<<<<
  *         a0 = pRef - rho*g[vert_axis]*refLevel
  *         a1 = rho*g[vert_axis]
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 389, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -9779,120 +9779,120 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_22setHydrostatic
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 389, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 390, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 389, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 390, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":390
+  /* "mprans/BoundaryConditions.pyx":391
  *                                     vert_axis=-1):
  *         self.reset()
  *         a0 = pRef - rho*g[vert_axis]*refLevel             # <<<<<<<<<<<<<<
  *         a1 = rho*g[vert_axis]
  *        # This is the normal velocity, based on the boundary orientation
  */
-  __pyx_t_1 = PyObject_GetItem(__pyx_v_g, __pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_t_1 = PyObject_GetItem(__pyx_v_g, __pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Multiply(__pyx_v_rho, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_v_rho, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Multiply(__pyx_t_2, __pyx_v_refLevel); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Multiply(__pyx_t_2, __pyx_v_refLevel); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Subtract(__pyx_v_pRef, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 390, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Subtract(__pyx_v_pRef, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_a0 = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":391
+  /* "mprans/BoundaryConditions.pyx":392
  *         self.reset()
  *         a0 = pRef - rho*g[vert_axis]*refLevel
  *         a1 = rho*g[vert_axis]             # <<<<<<<<<<<<<<
  *        # This is the normal velocity, based on the boundary orientation
  * 
  */
-  __pyx_t_2 = PyObject_GetItem(__pyx_v_g, __pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 391, __pyx_L1_error)
+  __pyx_t_2 = PyObject_GetItem(__pyx_v_g, __pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 392, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyNumber_Multiply(__pyx_v_rho, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 391, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Multiply(__pyx_v_rho, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 392, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_a1 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":394
+  /* "mprans/BoundaryConditions.pyx":395
  *        # This is the normal velocity, based on the boundary orientation
  * 
  *         def get_outlet_ux_dirichlet(i):             # <<<<<<<<<<<<<<
  *             def ux_dirichlet(x, t):
  *                 b_or = self._b_or[self._b_i]
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_1get_outlet_ux_dirichlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__74)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_1get_outlet_ux_dirichlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__74)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_get_outlet_ux_dirichlet = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":400
+  /* "mprans/BoundaryConditions.pyx":401
  *                     return 0.
  *             return ux_dirichlet
  *         self.u_dirichlet.uOfXT = get_outlet_ux_dirichlet(0)             # <<<<<<<<<<<<<<
  *         self.v_dirichlet.uOfXT = get_outlet_ux_dirichlet(1)
  *         if len(g) == 3:
  */
-  __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_get_outlet_ux_dirichlet(__pyx_v_get_outlet_ux_dirichlet, __pyx_int_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 400, __pyx_L1_error)
+  __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_get_outlet_ux_dirichlet(__pyx_v_get_outlet_ux_dirichlet, __pyx_int_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_u_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 400, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_u_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_uOfXT, __pyx_t_1) < 0) __PYX_ERR(0, 400, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_uOfXT, __pyx_t_1) < 0) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":401
+  /* "mprans/BoundaryConditions.pyx":402
  *             return ux_dirichlet
  *         self.u_dirichlet.uOfXT = get_outlet_ux_dirichlet(0)
  *         self.v_dirichlet.uOfXT = get_outlet_ux_dirichlet(1)             # <<<<<<<<<<<<<<
  *         if len(g) == 3:
  *             self.w_dirichlet.uOfXT = get_outlet_ux_dirichlet(2)
  */
-  __pyx_t_2 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_get_outlet_ux_dirichlet(__pyx_v_get_outlet_ux_dirichlet, __pyx_int_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_2 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_get_outlet_ux_dirichlet(__pyx_v_get_outlet_ux_dirichlet, __pyx_int_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 402, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_v_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_v_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 402, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_uOfXT, __pyx_t_2) < 0) __PYX_ERR(0, 401, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_n_s_uOfXT, __pyx_t_2) < 0) __PYX_ERR(0, 402, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":402
+  /* "mprans/BoundaryConditions.pyx":403
  *         self.u_dirichlet.uOfXT = get_outlet_ux_dirichlet(0)
  *         self.v_dirichlet.uOfXT = get_outlet_ux_dirichlet(1)
  *         if len(g) == 3:             # <<<<<<<<<<<<<<
  *             self.w_dirichlet.uOfXT = get_outlet_ux_dirichlet(2)
  *         self.p_dirichlet.setLinearBC(a0, a1, vert_axis)
  */
-  __pyx_t_4 = PyObject_Length(__pyx_v_g); if (unlikely(__pyx_t_4 == -1)) __PYX_ERR(0, 402, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_v_g); if (unlikely(__pyx_t_4 == -1)) __PYX_ERR(0, 403, __pyx_L1_error)
   __pyx_t_5 = ((__pyx_t_4 == 3) != 0);
   if (__pyx_t_5) {
 
-    /* "mprans/BoundaryConditions.pyx":403
+    /* "mprans/BoundaryConditions.pyx":404
  *         self.v_dirichlet.uOfXT = get_outlet_ux_dirichlet(1)
  *         if len(g) == 3:
  *             self.w_dirichlet.uOfXT = get_outlet_ux_dirichlet(2)             # <<<<<<<<<<<<<<
  *         self.p_dirichlet.setLinearBC(a0, a1, vert_axis)
  *         self.vof_dirichlet.setConstantBC(vof)
  */
-    __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_get_outlet_ux_dirichlet(__pyx_v_get_outlet_ux_dirichlet, __pyx_int_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 403, __pyx_L1_error)
+    __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_28setHydrostaticPressureOutlet_get_outlet_ux_dirichlet(__pyx_v_get_outlet_ux_dirichlet, __pyx_int_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 404, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_w_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 403, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_w_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 404, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_uOfXT, __pyx_t_1) < 0) __PYX_ERR(0, 403, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_uOfXT, __pyx_t_1) < 0) __PYX_ERR(0, 404, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":402
+    /* "mprans/BoundaryConditions.pyx":403
  *         self.u_dirichlet.uOfXT = get_outlet_ux_dirichlet(0)
  *         self.v_dirichlet.uOfXT = get_outlet_ux_dirichlet(1)
  *         if len(g) == 3:             # <<<<<<<<<<<<<<
@@ -9901,16 +9901,16 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_22setHydrostatic
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":404
+  /* "mprans/BoundaryConditions.pyx":405
  *         if len(g) == 3:
  *             self.w_dirichlet.uOfXT = get_outlet_ux_dirichlet(2)
  *         self.p_dirichlet.setLinearBC(a0, a1, vert_axis)             # <<<<<<<<<<<<<<
  *         self.vof_dirichlet.setConstantBC(vof)
  *         self.u_diffusive.setConstantBC(0.)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_p_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 404, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_p_dirichlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 405, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_setLinearBC); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 404, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_setLinearBC); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 405, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -9925,7 +9925,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_22setHydrostatic
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 404, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 405, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   if (__pyx_t_1) {
     __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -9939,22 +9939,22 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_22setHydrostatic
   __Pyx_INCREF(__pyx_v_vert_axis);
   __Pyx_GIVEREF(__pyx_v_vert_axis);
   PyTuple_SET_ITEM(__pyx_t_6, 2+__pyx_t_4, __pyx_v_vert_axis);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 404, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 405, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":405
+  /* "mprans/BoundaryConditions.pyx":406
  *             self.w_dirichlet.uOfXT = get_outlet_ux_dirichlet(2)
  *         self.p_dirichlet.setLinearBC(a0, a1, vert_axis)
  *         self.vof_dirichlet.setConstantBC(vof)             # <<<<<<<<<<<<<<
  *         self.u_diffusive.setConstantBC(0.)
  *         self.v_diffusive.setConstantBC(0.)
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 405, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 406, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_setConstantBC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 405, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_setConstantBC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 406, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -9968,74 +9968,74 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_22setHydrostatic
     }
   }
   if (!__pyx_t_3) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_vof); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 405, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_v_vof); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 406, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   } else {
-    __pyx_t_1 = PyTuple_New(1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 405, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 406, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3); __pyx_t_3 = NULL;
     __Pyx_INCREF(__pyx_v_vof);
     __Pyx_GIVEREF(__pyx_v_vof);
     PyTuple_SET_ITEM(__pyx_t_1, 0+1, __pyx_v_vof);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 405, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 406, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":406
+  /* "mprans/BoundaryConditions.pyx":407
  *         self.p_dirichlet.setLinearBC(a0, a1, vert_axis)
  *         self.vof_dirichlet.setConstantBC(vof)
  *         self.u_diffusive.setConstantBC(0.)             # <<<<<<<<<<<<<<
  *         self.v_diffusive.setConstantBC(0.)
  *         self.w_diffusive.setConstantBC(0.)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_u_diffusive); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 406, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_u_diffusive); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_setConstantBC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 406, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_setConstantBC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 407, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__75, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 406, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__75, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":407
+  /* "mprans/BoundaryConditions.pyx":408
  *         self.vof_dirichlet.setConstantBC(vof)
  *         self.u_diffusive.setConstantBC(0.)
  *         self.v_diffusive.setConstantBC(0.)             # <<<<<<<<<<<<<<
  *         self.w_diffusive.setConstantBC(0.)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_v_diffusive); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_v_diffusive); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_setConstantBC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_setConstantBC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__76, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__76, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":408
+  /* "mprans/BoundaryConditions.pyx":409
  *         self.u_diffusive.setConstantBC(0.)
  *         self.v_diffusive.setConstantBC(0.)
  *         self.w_diffusive.setConstantBC(0.)             # <<<<<<<<<<<<<<
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_w_diffusive); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_w_diffusive); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 409, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_setConstantBC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_setConstantBC); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 409, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__77, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__77, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 409, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":387
+  /* "mprans/BoundaryConditions.pyx":388
  *         self.p_advective.init_cython = inlet_p_advective_cython
  * 
  *     def setHydrostaticPressureOutlet(self, rho, g, refLevel, vof, pRef=0.0,             # <<<<<<<<<<<<<<
@@ -10063,7 +10063,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_22setHydrostatic
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":411
+/* "mprans/BoundaryConditions.pyx":412
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setHydrostaticPressureOutletWithDepth(self, seaLevel, rhoUp, rhoDown, g,             # <<<<<<<<<<<<<<
@@ -10094,7 +10094,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_25setHydrostatic
     PyObject* values[10] = {0,0,0,0,0,0,0,0,0,0};
     values[6] = ((PyObject *)((PyObject*)__pyx_float_0_0));
 
-    /* "mprans/BoundaryConditions.pyx":412
+    /* "mprans/BoundaryConditions.pyx":413
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setHydrostaticPressureOutletWithDepth(self, seaLevel, rhoUp, rhoDown, g,
  *                                           refLevel, pRef=0.0, vert_axis=None,             # <<<<<<<<<<<<<<
@@ -10129,27 +10129,27 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_25setHydrostatic
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_seaLevel)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 1); __PYX_ERR(0, 411, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 1); __PYX_ERR(0, 412, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_rhoUp)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 2); __PYX_ERR(0, 411, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 2); __PYX_ERR(0, 412, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_rhoDown)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 3); __PYX_ERR(0, 411, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 3); __PYX_ERR(0, 412, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 4); __PYX_ERR(0, 411, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 4); __PYX_ERR(0, 412, __pyx_L3_error)
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_refLevel)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 5); __PYX_ERR(0, 411, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, 5); __PYX_ERR(0, 412, __pyx_L3_error)
         }
         case  6:
         if (kw_args > 0) {
@@ -10173,7 +10173,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_25setHydrostatic
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "setHydrostaticPressureOutletWithDepth") < 0)) __PYX_ERR(0, 411, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "setHydrostaticPressureOutletWithDepth") < 0)) __PYX_ERR(0, 412, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -10204,7 +10204,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_25setHydrostatic
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 411, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("setHydrostaticPressureOutletWithDepth", 0, 6, 10, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 412, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setHydrostaticPressureOutletWithDepth", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -10212,7 +10212,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_25setHydrostatic
   __pyx_L4_argument_unpacking_done:;
   __pyx_r = __pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setHydrostaticPressureOutletWithDepth(__pyx_self, __pyx_v_self, __pyx_v_seaLevel, __pyx_v_rhoUp, __pyx_v_rhoDown, __pyx_v_g, __pyx_v_refLevel, __pyx_v_pRef, __pyx_v_vert_axis, __pyx_v_air, __pyx_v_water);
 
-  /* "mprans/BoundaryConditions.pyx":411
+  /* "mprans/BoundaryConditions.pyx":412
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setHydrostaticPressureOutletWithDepth(self, seaLevel, rhoUp, rhoDown, g,             # <<<<<<<<<<<<<<
@@ -10225,7 +10225,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_25setHydrostatic
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":437
+/* "mprans/BoundaryConditions.pyx":438
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def hydrostaticPressureOutletWithDepth_p_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -10262,11 +10262,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hydrostaticPressureOutletWithDepth_p_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 437, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hydrostaticPressureOutletWithDepth_p_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 438, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hydrostaticPressureOutletWithDepth_p_dirichlet") < 0)) __PYX_ERR(0, 437, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hydrostaticPressureOutletWithDepth_p_dirichlet") < 0)) __PYX_ERR(0, 438, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -10279,7 +10279,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hydrostaticPressureOutletWithDepth_p_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 437, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hydrostaticPressureOutletWithDepth_p_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 438, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setHydrostaticPressureOutletWithDepth.hydrostaticPressureOutletWithDepth_p_dirichlet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -10307,88 +10307,88 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_12_setHydrostaticPressureOutletWithDepth *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":438
+  /* "mprans/BoundaryConditions.pyx":439
  * 
  *         def hydrostaticPressureOutletWithDepth_p_dirichlet(x, t):
  *             if x[vert_axis] < seaLevel:             # <<<<<<<<<<<<<<
  *                 a0 = pRef-rhoUp*g[vert_axis]*(refLevel-seaLevel)-rhoDown*g[vert_axis]*seaLevel
  *                 a1 = rhoDown*g[vert_axis]
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 438, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 438, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 439, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 439, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_seaLevel)) { __Pyx_RaiseClosureNameError("seaLevel"); __PYX_ERR(0, 438, __pyx_L1_error) }
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_v_seaLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 438, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_seaLevel)) { __Pyx_RaiseClosureNameError("seaLevel"); __PYX_ERR(0, 439, __pyx_L1_error) }
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_v_seaLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 438, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 439, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "mprans/BoundaryConditions.pyx":439
+    /* "mprans/BoundaryConditions.pyx":440
  *         def hydrostaticPressureOutletWithDepth_p_dirichlet(x, t):
  *             if x[vert_axis] < seaLevel:
  *                 a0 = pRef-rhoUp*g[vert_axis]*(refLevel-seaLevel)-rhoDown*g[vert_axis]*seaLevel             # <<<<<<<<<<<<<<
  *                 a1 = rhoDown*g[vert_axis]
  *                 return a0 + a1*x[vert_axis]
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_pRef)) { __Pyx_RaiseClosureNameError("pRef"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_rhoUp)) { __Pyx_RaiseClosureNameError("rhoUp"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_g)) { __Pyx_RaiseClosureNameError("g"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    __pyx_t_2 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_g, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_pRef)) { __Pyx_RaiseClosureNameError("pRef"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_rhoUp)) { __Pyx_RaiseClosureNameError("rhoUp"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_g)) { __Pyx_RaiseClosureNameError("g"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    __pyx_t_2 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_g, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_rhoUp, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_rhoUp, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_cur_scope->__pyx_v_refLevel)) { __Pyx_RaiseClosureNameError("refLevel"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_seaLevel)) { __Pyx_RaiseClosureNameError("seaLevel"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    __pyx_t_2 = PyNumber_Subtract(__pyx_cur_scope->__pyx_v_refLevel, __pyx_cur_scope->__pyx_v_seaLevel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_refLevel)) { __Pyx_RaiseClosureNameError("refLevel"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_seaLevel)) { __Pyx_RaiseClosureNameError("seaLevel"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    __pyx_t_2 = PyNumber_Subtract(__pyx_cur_scope->__pyx_v_refLevel, __pyx_cur_scope->__pyx_v_seaLevel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = PyNumber_Multiply(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Multiply(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyNumber_Subtract(__pyx_cur_scope->__pyx_v_pRef, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_Subtract(__pyx_cur_scope->__pyx_v_pRef, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_cur_scope->__pyx_v_rhoDown)) { __Pyx_RaiseClosureNameError("rhoDown"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_g)) { __Pyx_RaiseClosureNameError("g"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_g, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 439, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_rhoDown)) { __Pyx_RaiseClosureNameError("rhoDown"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_g)) { __Pyx_RaiseClosureNameError("g"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    __pyx_t_4 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_g, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_rhoDown, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_rhoDown, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_cur_scope->__pyx_v_seaLevel)) { __Pyx_RaiseClosureNameError("seaLevel"); __PYX_ERR(0, 439, __pyx_L1_error) }
-    __pyx_t_4 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_v_seaLevel); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 439, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_seaLevel)) { __Pyx_RaiseClosureNameError("seaLevel"); __PYX_ERR(0, 440, __pyx_L1_error) }
+    __pyx_t_4 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_v_seaLevel); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 439, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_a0 = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":440
+    /* "mprans/BoundaryConditions.pyx":441
  *             if x[vert_axis] < seaLevel:
  *                 a0 = pRef-rhoUp*g[vert_axis]*(refLevel-seaLevel)-rhoDown*g[vert_axis]*seaLevel
  *                 a1 = rhoDown*g[vert_axis]             # <<<<<<<<<<<<<<
  *                 return a0 + a1*x[vert_axis]
  * 
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_rhoDown)) { __Pyx_RaiseClosureNameError("rhoDown"); __PYX_ERR(0, 440, __pyx_L1_error) }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_g)) { __Pyx_RaiseClosureNameError("g"); __PYX_ERR(0, 440, __pyx_L1_error) }
-    if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 440, __pyx_L1_error) }
-    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_g, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 440, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_rhoDown)) { __Pyx_RaiseClosureNameError("rhoDown"); __PYX_ERR(0, 441, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_g)) { __Pyx_RaiseClosureNameError("g"); __PYX_ERR(0, 441, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 441, __pyx_L1_error) }
+    __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_v_g, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 441, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_rhoDown, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 440, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Multiply(__pyx_cur_scope->__pyx_v_rhoDown, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 441, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_a1 = __pyx_t_4;
     __pyx_t_4 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":441
+    /* "mprans/BoundaryConditions.pyx":442
  *                 a0 = pRef-rhoUp*g[vert_axis]*(refLevel-seaLevel)-rhoDown*g[vert_axis]*seaLevel
  *                 a1 = rhoDown*g[vert_axis]
  *                 return a0 + a1*x[vert_axis]             # <<<<<<<<<<<<<<
@@ -10396,20 +10396,20 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
  *         def hydrostaticPressureOutletWithDepth_vof_dirichlet(x, t):
  */
     __Pyx_XDECREF(__pyx_r);
-    if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 441, __pyx_L1_error) }
-    __pyx_t_4 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 441, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 442, __pyx_L1_error) }
+    __pyx_t_4 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 442, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = PyNumber_Multiply(__pyx_v_a1, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 441, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Multiply(__pyx_v_a1, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = PyNumber_Add(__pyx_v_a0, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 441, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Add(__pyx_v_a0, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 442, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "mprans/BoundaryConditions.pyx":438
+    /* "mprans/BoundaryConditions.pyx":439
  * 
  *         def hydrostaticPressureOutletWithDepth_p_dirichlet(x, t):
  *             if x[vert_axis] < seaLevel:             # <<<<<<<<<<<<<<
@@ -10418,7 +10418,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":437
+  /* "mprans/BoundaryConditions.pyx":438
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def hydrostaticPressureOutletWithDepth_p_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -10443,7 +10443,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":443
+/* "mprans/BoundaryConditions.pyx":444
  *                 return a0 + a1*x[vert_axis]
  * 
  *         def hydrostaticPressureOutletWithDepth_vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -10480,11 +10480,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hydrostaticPressureOutletWithDepth_vof_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 443, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hydrostaticPressureOutletWithDepth_vof_dirichlet", 1, 2, 2, 1); __PYX_ERR(0, 444, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hydrostaticPressureOutletWithDepth_vof_dirichlet") < 0)) __PYX_ERR(0, 443, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hydrostaticPressureOutletWithDepth_vof_dirichlet") < 0)) __PYX_ERR(0, 444, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -10497,7 +10497,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hydrostaticPressureOutletWithDepth_vof_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 443, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hydrostaticPressureOutletWithDepth_vof_dirichlet", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 444, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.BC_RANS.setHydrostaticPressureOutletWithDepth.hydrostaticPressureOutletWithDepth_vof_dirichlet", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -10522,24 +10522,24 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_12_setHydrostaticPressureOutletWithDepth *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":444
+  /* "mprans/BoundaryConditions.pyx":445
  * 
  *         def hydrostaticPressureOutletWithDepth_vof_dirichlet(x, t):
  *             if x[vert_axis] < seaLevel:             # <<<<<<<<<<<<<<
  *                 return water
  * 
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 444, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 444, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 445, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 445, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_seaLevel)) { __Pyx_RaiseClosureNameError("seaLevel"); __PYX_ERR(0, 444, __pyx_L1_error) }
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_v_seaLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 444, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_seaLevel)) { __Pyx_RaiseClosureNameError("seaLevel"); __PYX_ERR(0, 445, __pyx_L1_error) }
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_cur_scope->__pyx_v_seaLevel, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 445, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 444, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 445, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "mprans/BoundaryConditions.pyx":445
+    /* "mprans/BoundaryConditions.pyx":446
  *         def hydrostaticPressureOutletWithDepth_vof_dirichlet(x, t):
  *             if x[vert_axis] < seaLevel:
  *                 return water             # <<<<<<<<<<<<<<
@@ -10547,12 +10547,12 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
  *         self.setHydrostaticPressureOutlet(rhoUp, g, refLevel, pRef, vert_axis)
  */
     __Pyx_XDECREF(__pyx_r);
-    if (unlikely(!__pyx_cur_scope->__pyx_v_water)) { __Pyx_RaiseClosureNameError("water"); __PYX_ERR(0, 445, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_v_water)) { __Pyx_RaiseClosureNameError("water"); __PYX_ERR(0, 446, __pyx_L1_error) }
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_water);
     __pyx_r = __pyx_cur_scope->__pyx_v_water;
     goto __pyx_L0;
 
-    /* "mprans/BoundaryConditions.pyx":444
+    /* "mprans/BoundaryConditions.pyx":445
  * 
  *         def hydrostaticPressureOutletWithDepth_vof_dirichlet(x, t):
  *             if x[vert_axis] < seaLevel:             # <<<<<<<<<<<<<<
@@ -10561,7 +10561,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":443
+  /* "mprans/BoundaryConditions.pyx":444
  *                 return a0 + a1*x[vert_axis]
  * 
  *         def hydrostaticPressureOutletWithDepth_vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
@@ -10583,7 +10583,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostatic
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":411
+/* "mprans/BoundaryConditions.pyx":412
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setHydrostaticPressureOutletWithDepth(self, seaLevel, rhoUp, rhoDown, g,             # <<<<<<<<<<<<<<
@@ -10636,14 +10636,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setHydrostatic
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_water);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_water);
 
-  /* "mprans/BoundaryConditions.pyx":432
+  /* "mprans/BoundaryConditions.pyx":433
  *            one of the main axes.
  *        """
  *         self.reset()             # <<<<<<<<<<<<<<
  * 
  *         if vert_axis is None:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 432, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 433, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -10656,16 +10656,16 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setHydrostatic
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 432, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 433, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 432, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 433, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":434
+  /* "mprans/BoundaryConditions.pyx":435
  *         self.reset()
  * 
  *         if vert_axis is None:             # <<<<<<<<<<<<<<
@@ -10676,22 +10676,22 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setHydrostatic
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "mprans/BoundaryConditions.pyx":435
+    /* "mprans/BoundaryConditions.pyx":436
  * 
  *         if vert_axis is None:
  *             vert_axis = self.Shape.Domain.nd - 1             # <<<<<<<<<<<<<<
  * 
  *         def hydrostaticPressureOutletWithDepth_p_dirichlet(x, t):
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 435, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_Shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Domain); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 435, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Domain); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_nd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 435, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_nd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_t_1, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 435, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_t_1, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_vert_axis);
@@ -10699,7 +10699,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setHydrostatic
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":434
+    /* "mprans/BoundaryConditions.pyx":435
  *         self.reset()
  * 
  *         if vert_axis is None:             # <<<<<<<<<<<<<<
@@ -10708,38 +10708,38 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setHydrostatic
  */
   }
 
-  /* "mprans/BoundaryConditions.pyx":437
+  /* "mprans/BoundaryConditions.pyx":438
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def hydrostaticPressureOutletWithDepth_p_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *             if x[vert_axis] < seaLevel:
  *                 a0 = pRef-rhoUp*g[vert_axis]*(refLevel-seaLevel)-rhoDown*g[vert_axis]*seaLevel
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostaticPressureOutletWithDepth_1hydrostaticPressureOutletWithDepth_p_dirichlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__79)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 437, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostaticPressureOutletWithDepth_1hydrostaticPressureOutletWithDepth_p_dirichlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__79)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_hydrostaticPressureOutletWithDepth_p_dirichlet = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":443
+  /* "mprans/BoundaryConditions.pyx":444
  *                 return a0 + a1*x[vert_axis]
  * 
  *         def hydrostaticPressureOutletWithDepth_vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *             if x[vert_axis] < seaLevel:
  *                 return water
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostaticPressureOutletWithDepth_3hydrostaticPressureOutletWithDepth_vof_dirichlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__81)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 443, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_37setHydrostaticPressureOutletWithDepth_3hydrostaticPressureOutletWithDepth_vof_dirichlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__81)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 444, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_hydrostaticPressureOutletWithDepth_vof_dirichlet = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":447
+  /* "mprans/BoundaryConditions.pyx":448
  *                 return water
  * 
  *         self.setHydrostaticPressureOutlet(rhoUp, g, refLevel, pRef, vert_axis)             # <<<<<<<<<<<<<<
  *         self.p_dirichlet.uOfXT = hydrostaticPressureOutletWithDepth_p_dirichlet
  *         self.vof_dirichlet.uOfXT = hydrostaticPressureOutletWithDepth_vof_dirichlet
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setHydrostaticPressureOutlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 447, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_setHydrostaticPressureOutlet); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 448, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
   __pyx_t_6 = 0;
@@ -10753,7 +10753,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setHydrostatic
       __pyx_t_6 = 1;
     }
   }
-  __pyx_t_7 = PyTuple_New(5+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 447, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(5+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 448, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__pyx_t_3) {
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -10773,37 +10773,37 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setHydrostatic
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_vert_axis);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_vert_axis);
   PyTuple_SET_ITEM(__pyx_t_7, 4+__pyx_t_6, __pyx_cur_scope->__pyx_v_vert_axis);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 447, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 448, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":448
+  /* "mprans/BoundaryConditions.pyx":449
  * 
  *         self.setHydrostaticPressureOutlet(rhoUp, g, refLevel, pRef, vert_axis)
  *         self.p_dirichlet.uOfXT = hydrostaticPressureOutletWithDepth_p_dirichlet             # <<<<<<<<<<<<<<
  *         self.vof_dirichlet.uOfXT = hydrostaticPressureOutletWithDepth_vof_dirichlet
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_p_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 448, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_p_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 449, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_uOfXT, __pyx_v_hydrostaticPressureOutletWithDepth_p_dirichlet) < 0) __PYX_ERR(0, 448, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_uOfXT, __pyx_v_hydrostaticPressureOutletWithDepth_p_dirichlet) < 0) __PYX_ERR(0, 449, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":449
+  /* "mprans/BoundaryConditions.pyx":450
  *         self.setHydrostaticPressureOutlet(rhoUp, g, refLevel, pRef, vert_axis)
  *         self.p_dirichlet.uOfXT = hydrostaticPressureOutletWithDepth_p_dirichlet
  *         self.vof_dirichlet.uOfXT = hydrostaticPressureOutletWithDepth_vof_dirichlet             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 449, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 450, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_uOfXT, __pyx_v_hydrostaticPressureOutletWithDepth_vof_dirichlet) < 0) __PYX_ERR(0, 449, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_n_s_uOfXT, __pyx_v_hydrostaticPressureOutletWithDepth_vof_dirichlet) < 0) __PYX_ERR(0, 450, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":411
+  /* "mprans/BoundaryConditions.pyx":412
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setHydrostaticPressureOutletWithDepth(self, seaLevel, rhoUp, rhoDown, g,             # <<<<<<<<<<<<<<
@@ -10830,7 +10830,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_7BC_RANS_24setHydrostatic
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":482
+/* "mprans/BoundaryConditions.pyx":483
  *         parameter for porous zone (default: 1.)
  *     """
  *     def __init__(self, zone_type, center, orientation, epsFact_solid,             # <<<<<<<<<<<<<<
@@ -10846,14 +10846,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_14RelaxationZone_2__defau
   __Pyx_RefNannySetupContext("__defaults__", 0);
   __Pyx_XDECREF(__pyx_r);
 
-  /* "mprans/BoundaryConditions.pyx":483
+  /* "mprans/BoundaryConditions.pyx":484
  *     """
  *     def __init__(self, zone_type, center, orientation, epsFact_solid,
  *                  waves=None, shape=None, wind_speed=(0.,0.,0.),             # <<<<<<<<<<<<<<
  *                  dragAlpha=0.5/1.005e-6, dragBeta=0., porosity=1.):
  *         self.Shape = shape
  */
-  __pyx_t_1 = PyTuple_New(6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 483, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)Py_None));
   __Pyx_GIVEREF(((PyObject *)Py_None));
@@ -10874,14 +10874,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_14RelaxationZone_2__defau
   __Pyx_GIVEREF(((PyObject*)__pyx_float_1_));
   PyTuple_SET_ITEM(__pyx_t_1, 5, ((PyObject*)__pyx_float_1_));
 
-  /* "mprans/BoundaryConditions.pyx":482
+  /* "mprans/BoundaryConditions.pyx":483
  *         parameter for porous zone (default: 1.)
  *     """
  *     def __init__(self, zone_type, center, orientation, epsFact_solid,             # <<<<<<<<<<<<<<
  *                  waves=None, shape=None, wind_speed=(0.,0.,0.),
  *                  dragAlpha=0.5/1.005e-6, dragBeta=0., porosity=1.):
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 483, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
@@ -10959,22 +10959,22 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_14RelaxationZone_1__init_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_zone_type)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, 1); __PYX_ERR(0, 482, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, 1); __PYX_ERR(0, 483, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_center)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, 2); __PYX_ERR(0, 482, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, 2); __PYX_ERR(0, 483, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_orientation)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, 3); __PYX_ERR(0, 482, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, 3); __PYX_ERR(0, 483, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_epsFact_solid)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, 4); __PYX_ERR(0, 482, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, 4); __PYX_ERR(0, 483, __pyx_L3_error)
         }
         case  5:
         if (kw_args > 0) {
@@ -11008,7 +11008,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_14RelaxationZone_1__init_
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 482, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 483, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -11041,7 +11041,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_14RelaxationZone_1__init_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 482, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 5, 11, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 483, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.RelaxationZone.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -11059,97 +11059,97 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_14RelaxationZone___init__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "mprans/BoundaryConditions.pyx":485
+  /* "mprans/BoundaryConditions.pyx":486
  *                  waves=None, shape=None, wind_speed=(0.,0.,0.),
  *                  dragAlpha=0.5/1.005e-6, dragBeta=0., porosity=1.):
  *         self.Shape = shape             # <<<<<<<<<<<<<<
  *         self.zone_type = zone_type
  *         self.center = center
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_Shape, __pyx_v_shape) < 0) __PYX_ERR(0, 485, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_Shape, __pyx_v_shape) < 0) __PYX_ERR(0, 486, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":486
+  /* "mprans/BoundaryConditions.pyx":487
  *                  dragAlpha=0.5/1.005e-6, dragBeta=0., porosity=1.):
  *         self.Shape = shape
  *         self.zone_type = zone_type             # <<<<<<<<<<<<<<
  *         self.center = center
  *         self.orientation = orientation
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_zone_type, __pyx_v_zone_type) < 0) __PYX_ERR(0, 486, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_zone_type, __pyx_v_zone_type) < 0) __PYX_ERR(0, 487, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":487
+  /* "mprans/BoundaryConditions.pyx":488
  *         self.Shape = shape
  *         self.zone_type = zone_type
  *         self.center = center             # <<<<<<<<<<<<<<
  *         self.orientation = orientation
  *         self.waves = waves
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_center, __pyx_v_center) < 0) __PYX_ERR(0, 487, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_center, __pyx_v_center) < 0) __PYX_ERR(0, 488, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":488
+  /* "mprans/BoundaryConditions.pyx":489
  *         self.zone_type = zone_type
  *         self.center = center
  *         self.orientation = orientation             # <<<<<<<<<<<<<<
  *         self.waves = waves
  *         self.wind_speed = wind_speed
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_orientation, __pyx_v_orientation) < 0) __PYX_ERR(0, 488, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_orientation, __pyx_v_orientation) < 0) __PYX_ERR(0, 489, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":489
+  /* "mprans/BoundaryConditions.pyx":490
  *         self.center = center
  *         self.orientation = orientation
  *         self.waves = waves             # <<<<<<<<<<<<<<
  *         self.wind_speed = wind_speed
  *         self.epsFact_solid = epsFact_solid
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_waves, __pyx_v_waves) < 0) __PYX_ERR(0, 489, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_waves, __pyx_v_waves) < 0) __PYX_ERR(0, 490, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":490
+  /* "mprans/BoundaryConditions.pyx":491
  *         self.orientation = orientation
  *         self.waves = waves
  *         self.wind_speed = wind_speed             # <<<<<<<<<<<<<<
  *         self.epsFact_solid = epsFact_solid
  *         self.dragAlpha = dragAlpha
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_wind_speed, __pyx_v_wind_speed) < 0) __PYX_ERR(0, 490, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_wind_speed, __pyx_v_wind_speed) < 0) __PYX_ERR(0, 491, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":491
+  /* "mprans/BoundaryConditions.pyx":492
  *         self.waves = waves
  *         self.wind_speed = wind_speed
  *         self.epsFact_solid = epsFact_solid             # <<<<<<<<<<<<<<
  *         self.dragAlpha = dragAlpha
  *         self.dragBeta = dragBeta
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_epsFact_solid, __pyx_v_epsFact_solid) < 0) __PYX_ERR(0, 491, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_epsFact_solid, __pyx_v_epsFact_solid) < 0) __PYX_ERR(0, 492, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":492
+  /* "mprans/BoundaryConditions.pyx":493
  *         self.wind_speed = wind_speed
  *         self.epsFact_solid = epsFact_solid
  *         self.dragAlpha = dragAlpha             # <<<<<<<<<<<<<<
  *         self.dragBeta = dragBeta
  *         self.porosity = porosity
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_dragAlpha, __pyx_v_dragAlpha) < 0) __PYX_ERR(0, 492, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_dragAlpha, __pyx_v_dragAlpha) < 0) __PYX_ERR(0, 493, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":493
+  /* "mprans/BoundaryConditions.pyx":494
  *         self.epsFact_solid = epsFact_solid
  *         self.dragAlpha = dragAlpha
  *         self.dragBeta = dragBeta             # <<<<<<<<<<<<<<
  *         self.porosity = porosity
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_dragBeta, __pyx_v_dragBeta) < 0) __PYX_ERR(0, 493, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_dragBeta, __pyx_v_dragBeta) < 0) __PYX_ERR(0, 494, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":494
+  /* "mprans/BoundaryConditions.pyx":495
  *         self.dragAlpha = dragAlpha
  *         self.dragBeta = dragBeta
  *         self.porosity = porosity             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_porosity, __pyx_v_porosity) < 0) __PYX_ERR(0, 494, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_porosity, __pyx_v_porosity) < 0) __PYX_ERR(0, 495, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":482
+  /* "mprans/BoundaryConditions.pyx":483
  *         parameter for porous zone (default: 1.)
  *     """
  *     def __init__(self, zone_type, center, orientation, epsFact_solid,             # <<<<<<<<<<<<<<
@@ -11169,7 +11169,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_14RelaxationZone___init__
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":510
+/* "mprans/BoundaryConditions.pyx":511
  *         number of dimensions of domain
  *     """
  *     def __init__(self, zones, nd):             # <<<<<<<<<<<<<<
@@ -11208,16 +11208,16 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_zones)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 510, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 511, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nd)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 510, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 511, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 510, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 511, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -11232,7 +11232,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 510, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 511, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.RelaxationZoneWaveGenerator.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -11251,7 +11251,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "mprans/BoundaryConditions.pyx":511
+  /* "mprans/BoundaryConditions.pyx":512
  *     """
  *     def __init__(self, zones, nd):
  *         assert isinstance(zones, dict)             # <<<<<<<<<<<<<<
@@ -11263,30 +11263,30 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
     __pyx_t_1 = PyDict_Check(__pyx_v_zones); 
     if (unlikely(!(__pyx_t_1 != 0))) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 511, __pyx_L1_error)
+      __PYX_ERR(0, 512, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "mprans/BoundaryConditions.pyx":512
+  /* "mprans/BoundaryConditions.pyx":513
  *     def __init__(self, zones, nd):
  *         assert isinstance(zones, dict)
  *         self.zones = zones             # <<<<<<<<<<<<<<
  *         self.nd = nd
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_zones, __pyx_v_zones) < 0) __PYX_ERR(0, 512, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_zones, __pyx_v_zones) < 0) __PYX_ERR(0, 513, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":513
+  /* "mprans/BoundaryConditions.pyx":514
  *         assert isinstance(zones, dict)
  *         self.zones = zones
  *         self.nd = nd             # <<<<<<<<<<<<<<
  * 
  *     def calculate_init(self):
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_nd, __pyx_v_nd) < 0) __PYX_ERR(0, 513, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_nd, __pyx_v_nd) < 0) __PYX_ERR(0, 514, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":510
+  /* "mprans/BoundaryConditions.pyx":511
  *         number of dimensions of domain
  *     """
  *     def __init__(self, zones, nd):             # <<<<<<<<<<<<<<
@@ -11306,7 +11306,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":515
+/* "mprans/BoundaryConditions.pyx":516
  *         self.nd = nd
  * 
  *     def calculate_init(self):             # <<<<<<<<<<<<<<
@@ -11328,7 +11328,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":530
+/* "mprans/BoundaryConditions.pyx":531
  *                 ecH = ct.ecH
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):             # <<<<<<<<<<<<<<
@@ -11350,7 +11350,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":531
+/* "mprans/BoundaryConditions.pyx":532
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):
  *                     def twp_flowVelocity(x, t):             # <<<<<<<<<<<<<<
@@ -11387,11 +11387,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("twp_flowVelocity", 1, 2, 2, 1); __PYX_ERR(0, 531, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("twp_flowVelocity", 1, 2, 2, 1); __PYX_ERR(0, 532, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "twp_flowVelocity") < 0)) __PYX_ERR(0, 531, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "twp_flowVelocity") < 0)) __PYX_ERR(0, 532, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -11404,7 +11404,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("twp_flowVelocity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 531, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("twp_flowVelocity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 532, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.RelaxationZoneWaveGenerator.calculate_init.get_twp_flowVelocity.twp_flowVelocity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -11440,15 +11440,15 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_14_get_twp_flowVelocity *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":532
+  /* "mprans/BoundaryConditions.pyx":533
  *                 def get_twp_flowVelocity(i):
  *                     def twp_flowVelocity(x, t):
  *                         waveHeight = waves_mwl+waves_eta(x, t)             # <<<<<<<<<<<<<<
  *                         wavePhi = x[vert_axis]-waveHeight
  *                         if wavePhi <= 0:
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_mwl)) { __Pyx_RaiseClosureNameError("waves_mwl"); __PYX_ERR(0, 532, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_eta)) { __Pyx_RaiseClosureNameError("waves_eta"); __PYX_ERR(0, 532, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_mwl)) { __Pyx_RaiseClosureNameError("waves_mwl"); __PYX_ERR(0, 533, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_eta)) { __Pyx_RaiseClosureNameError("waves_eta"); __PYX_ERR(0, 533, __pyx_L1_error) }
   __Pyx_INCREF(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_eta);
   __pyx_t_2 = __pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_eta; __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -11462,7 +11462,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 532, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 533, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (__pyx_t_3) {
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -11473,52 +11473,52 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   __Pyx_INCREF(__pyx_v_t);
   __Pyx_GIVEREF(__pyx_v_t);
   PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_t);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 532, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 533, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Add(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_mwl, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 532, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_mwl, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 533, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_waveHeight = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":533
+  /* "mprans/BoundaryConditions.pyx":534
  *                     def twp_flowVelocity(x, t):
  *                         waveHeight = waves_mwl+waves_eta(x, t)
  *                         wavePhi = x[vert_axis]-waveHeight             # <<<<<<<<<<<<<<
  *                         if wavePhi <= 0:
  *                             waterSpeed = waves_u(x, t)
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 533, __pyx_L1_error) }
-  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 533, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 534, __pyx_L1_error) }
+  __pyx_t_2 = PyObject_GetItem(__pyx_v_x, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 534, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_v_waveHeight); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 533, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_v_waveHeight); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 534, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_wavePhi = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":534
+  /* "mprans/BoundaryConditions.pyx":535
  *                         waveHeight = waves_mwl+waves_eta(x, t)
  *                         wavePhi = x[vert_axis]-waveHeight
  *                         if wavePhi <= 0:             # <<<<<<<<<<<<<<
  *                             waterSpeed = waves_u(x, t)
  *                             H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 534, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 534, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 535, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 535, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":535
+    /* "mprans/BoundaryConditions.pyx":536
  *                         wavePhi = x[vert_axis]-waveHeight
  *                         if wavePhi <= 0:
  *                             waterSpeed = waves_u(x, t)             # <<<<<<<<<<<<<<
  *                             H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                         elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_u)) { __Pyx_RaiseClosureNameError("waves_u"); __PYX_ERR(0, 535, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_u)) { __Pyx_RaiseClosureNameError("waves_u"); __PYX_ERR(0, 536, __pyx_L1_error) }
     __Pyx_INCREF(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_u);
     __pyx_t_2 = __pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_u; __pyx_t_5 = NULL;
     __pyx_t_4 = 0;
@@ -11532,7 +11532,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         __pyx_t_4 = 1;
       }
     }
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 535, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 536, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -11543,37 +11543,37 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
     __Pyx_INCREF(__pyx_v_t);
     __Pyx_GIVEREF(__pyx_v_t);
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_4, __pyx_v_t);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 535, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 536, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_waterSpeed = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":536
+    /* "mprans/BoundaryConditions.pyx":537
  *                         if wavePhi <= 0:
  *                             waterSpeed = waves_u(x, t)
  *                             H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)             # <<<<<<<<<<<<<<
  *                         elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  *                             x_max = np.copy(x)
  */
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 536, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 536, __pyx_L1_error) }
-    __pyx_t_3 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 536, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 537, __pyx_L1_error) }
+    __pyx_t_3 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 536, __pyx_L1_error) }
-    __pyx_t_5 = PyNumber_Multiply(__pyx_t_3, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 536, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 537, __pyx_L1_error) }
+    __pyx_t_5 = PyNumber_Multiply(__pyx_t_3, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 536, __pyx_L1_error) }
-    __pyx_t_3 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 536, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 537, __pyx_L1_error) }
+    __pyx_t_3 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 536, __pyx_L1_error) }
-    __pyx_t_7 = PyNumber_Multiply(__pyx_t_3, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 536, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 537, __pyx_L1_error) }
+    __pyx_t_7 = PyNumber_Multiply(__pyx_t_3, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyNumber_Subtract(__pyx_v_wavePhi, __pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 536, __pyx_L1_error)
+    __pyx_t_3 = PyNumber_Subtract(__pyx_v_wavePhi, __pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_7 = NULL;
@@ -11588,7 +11588,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         __pyx_t_4 = 1;
       }
     }
-    __pyx_t_8 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 536, __pyx_L1_error)
+    __pyx_t_8 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (__pyx_t_7) {
       __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -11599,14 +11599,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
     PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_4, __pyx_t_3);
     __pyx_t_5 = 0;
     __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 536, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 537, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_H = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":534
+    /* "mprans/BoundaryConditions.pyx":535
  *                         waveHeight = waves_mwl+waves_eta(x, t)
  *                         wavePhi = x[vert_axis]-waveHeight
  *                         if wavePhi <= 0:             # <<<<<<<<<<<<<<
@@ -11616,46 +11616,46 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
     goto __pyx_L3;
   }
 
-  /* "mprans/BoundaryConditions.pyx":537
+  /* "mprans/BoundaryConditions.pyx":538
  *                             waterSpeed = waves_u(x, t)
  *                             H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                         elif wavePhi > 0 and wavePhi < 0.5*ecH*he:             # <<<<<<<<<<<<<<
  *                             x_max = np.copy(x)
  *                             x_max[vert_axis] = waveHeight
  */
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 537, __pyx_L1_error)
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 537, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 538, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 538, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_9) {
   } else {
     __pyx_t_6 = __pyx_t_9;
     goto __pyx_L4_bool_binop_done;
   }
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 537, __pyx_L1_error) }
-  __pyx_t_1 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 537, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 538, __pyx_L1_error) }
+  __pyx_t_1 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 538, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 537, __pyx_L1_error) }
-  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 537, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 538, __pyx_L1_error) }
+  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 538, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_t_2, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 537, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_v_wavePhi, __pyx_t_2, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 538, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 537, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 538, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = __pyx_t_9;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_6) {
 
-    /* "mprans/BoundaryConditions.pyx":538
+    /* "mprans/BoundaryConditions.pyx":539
  *                             H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                         elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  *                             x_max = np.copy(x)             # <<<<<<<<<<<<<<
  *                             x_max[vert_axis] = waveHeight
  *                             waterSpeed = waves_u(x_max, t)
  */
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 538, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 539, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_copy); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 538, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_copy); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 539, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = NULL;
@@ -11669,16 +11669,16 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
       }
     }
     if (!__pyx_t_2) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 538, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 539, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     } else {
-      __pyx_t_3 = PyTuple_New(1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 538, __pyx_L1_error)
+      __pyx_t_3 = PyTuple_New(1+1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 539, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2); __pyx_t_2 = NULL;
       __Pyx_INCREF(__pyx_v_x);
       __Pyx_GIVEREF(__pyx_v_x);
       PyTuple_SET_ITEM(__pyx_t_3, 0+1, __pyx_v_x);
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 538, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 539, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
@@ -11686,24 +11686,24 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
     __pyx_v_x_max = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":539
+    /* "mprans/BoundaryConditions.pyx":540
  *                         elif wavePhi > 0 and wavePhi < 0.5*ecH*he:
  *                             x_max = np.copy(x)
  *                             x_max[vert_axis] = waveHeight             # <<<<<<<<<<<<<<
  *                             waterSpeed = waves_u(x_max, t)
  *                         else:
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 539, __pyx_L1_error) }
-    if (unlikely(PyObject_SetItem(__pyx_v_x_max, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis, __pyx_v_waveHeight) < 0)) __PYX_ERR(0, 539, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis)) { __Pyx_RaiseClosureNameError("vert_axis"); __PYX_ERR(0, 540, __pyx_L1_error) }
+    if (unlikely(PyObject_SetItem(__pyx_v_x_max, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_vert_axis, __pyx_v_waveHeight) < 0)) __PYX_ERR(0, 540, __pyx_L1_error)
 
-    /* "mprans/BoundaryConditions.pyx":540
+    /* "mprans/BoundaryConditions.pyx":541
  *                             x_max = np.copy(x)
  *                             x_max[vert_axis] = waveHeight
  *                             waterSpeed = waves_u(x_max, t)             # <<<<<<<<<<<<<<
  *                         else:
  *                             waterSpeed = (0., 0., 0.)
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_u)) { __Pyx_RaiseClosureNameError("waves_u"); __PYX_ERR(0, 540, __pyx_L1_error) }
+    if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_u)) { __Pyx_RaiseClosureNameError("waves_u"); __PYX_ERR(0, 541, __pyx_L1_error) }
     __Pyx_INCREF(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_u);
     __pyx_t_8 = __pyx_cur_scope->__pyx_outer_scope->__pyx_v_waves_u; __pyx_t_3 = NULL;
     __pyx_t_4 = 0;
@@ -11717,7 +11717,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         __pyx_t_4 = 1;
       }
     }
-    __pyx_t_2 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 540, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 541, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -11728,14 +11728,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
     __Pyx_INCREF(__pyx_v_t);
     __Pyx_GIVEREF(__pyx_v_t);
     PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_4, __pyx_v_t);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 540, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 541, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_v_waterSpeed = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":537
+    /* "mprans/BoundaryConditions.pyx":538
  *                             waterSpeed = waves_u(x, t)
  *                             H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                         elif wavePhi > 0 and wavePhi < 0.5*ecH*he:             # <<<<<<<<<<<<<<
@@ -11745,7 +11745,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
     goto __pyx_L3;
   }
 
-  /* "mprans/BoundaryConditions.pyx":542
+  /* "mprans/BoundaryConditions.pyx":543
  *                             waterSpeed = waves_u(x_max, t)
  *                         else:
  *                             waterSpeed = (0., 0., 0.)             # <<<<<<<<<<<<<<
@@ -11758,30 +11758,30 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   }
   __pyx_L3:;
 
-  /* "mprans/BoundaryConditions.pyx":543
+  /* "mprans/BoundaryConditions.pyx":544
  *                         else:
  *                             waterSpeed = (0., 0., 0.)
  *                         H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)             # <<<<<<<<<<<<<<
  *                         return H*wind_speed[i] + (1-H)*waterSpeed[i]
  *                     return twp_flowVelocity
  */
-  __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 543, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_smoothedHeaviside); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 543, __pyx_L1_error) }
-  __pyx_t_2 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 543, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 544, __pyx_L1_error) }
+  __pyx_t_2 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 543, __pyx_L1_error) }
-  __pyx_t_3 = PyNumber_Multiply(__pyx_t_2, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 543, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 544, __pyx_L1_error) }
+  __pyx_t_3 = PyNumber_Multiply(__pyx_t_2, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 543, __pyx_L1_error) }
-  __pyx_t_2 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 543, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH)) { __Pyx_RaiseClosureNameError("ecH"); __PYX_ERR(0, 544, __pyx_L1_error) }
+  __pyx_t_2 = PyNumber_Multiply(__pyx_float_0_5, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_ecH); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 543, __pyx_L1_error) }
-  __pyx_t_5 = PyNumber_Multiply(__pyx_t_2, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 543, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_he)) { __Pyx_RaiseClosureNameError("he"); __PYX_ERR(0, 544, __pyx_L1_error) }
+  __pyx_t_5 = PyNumber_Multiply(__pyx_t_2, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_he); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Subtract(__pyx_v_wavePhi, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 543, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Subtract(__pyx_v_wavePhi, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -11796,7 +11796,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_7 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 543, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (__pyx_t_5) {
     __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -11807,14 +11807,14 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_4, __pyx_t_2);
   __pyx_t_3 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 543, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 544, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_XDECREF_SET(__pyx_v_H, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":544
+  /* "mprans/BoundaryConditions.pyx":545
  *                             waterSpeed = (0., 0., 0.)
  *                         H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                         return H*wind_speed[i] + (1-H)*waterSpeed[i]             # <<<<<<<<<<<<<<
@@ -11822,23 +11822,23 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
  *                 zone.u = get_twp_flowVelocity(0)
  */
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed)) { __Pyx_RaiseClosureNameError("wind_speed"); __PYX_ERR(0, 544, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 544, __pyx_L1_error) }
-  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 544, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed)) { __Pyx_RaiseClosureNameError("wind_speed"); __PYX_ERR(0, 545, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 545, __pyx_L1_error) }
+  __pyx_t_1 = PyObject_GetItem(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_wind_speed, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = PyNumber_Multiply(__pyx_v_H, __pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 544, __pyx_L1_error)
+  __pyx_t_8 = PyNumber_Multiply(__pyx_v_H, __pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_v_H, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 544, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_SubtractCObj(__pyx_int_1, __pyx_v_H, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 544, __pyx_L1_error) }
-  __pyx_t_7 = PyObject_GetItem(__pyx_v_waterSpeed, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 544, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_i)) { __Pyx_RaiseClosureNameError("i"); __PYX_ERR(0, 545, __pyx_L1_error) }
+  __pyx_t_7 = PyObject_GetItem(__pyx_v_waterSpeed, __pyx_cur_scope->__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 544, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = PyNumber_Add(__pyx_t_8, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 544, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Add(__pyx_t_8, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 545, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -11846,7 +11846,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   __pyx_t_7 = 0;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":531
+  /* "mprans/BoundaryConditions.pyx":532
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):
  *                     def twp_flowVelocity(x, t):             # <<<<<<<<<<<<<<
@@ -11875,7 +11875,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":530
+/* "mprans/BoundaryConditions.pyx":531
  *                 ecH = ct.ecH
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):             # <<<<<<<<<<<<<<
@@ -11903,19 +11903,19 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_i);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_i);
 
-  /* "mprans/BoundaryConditions.pyx":531
+  /* "mprans/BoundaryConditions.pyx":532
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):
  *                     def twp_flowVelocity(x, t):             # <<<<<<<<<<<<<<
  *                         waveHeight = waves_mwl+waves_eta(x, t)
  *                         wavePhi = x[vert_axis]-waveHeight
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_20get_twp_flowVelocity_1twp_flowVelocity, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__85)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_20get_twp_flowVelocity_1twp_flowVelocity, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__85)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 532, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_twp_flowVelocity = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":545
+  /* "mprans/BoundaryConditions.pyx":546
  *                         H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                         return H*wind_speed[i] + (1-H)*waterSpeed[i]
  *                     return twp_flowVelocity             # <<<<<<<<<<<<<<
@@ -11927,7 +11927,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   __pyx_r = __pyx_v_twp_flowVelocity;
   goto __pyx_L0;
 
-  /* "mprans/BoundaryConditions.pyx":530
+  /* "mprans/BoundaryConditions.pyx":531
  *                 ecH = ct.ecH
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):             # <<<<<<<<<<<<<<
@@ -11948,7 +11948,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":521
+/* "mprans/BoundaryConditions.pyx":522
  *             #print zone #[temp] a loose print statement - may be useful, but supressed for now
  *             if zone.zone_type == 'absorption' or zone.zone_type == 'porous':
  *                 zone.u = zone.v = zone.w = lambda x, t: 0.             # <<<<<<<<<<<<<<
@@ -11985,11 +11985,11 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("lambda1", 1, 2, 2, 1); __PYX_ERR(0, 521, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("lambda1", 1, 2, 2, 1); __PYX_ERR(0, 522, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lambda1") < 0)) __PYX_ERR(0, 521, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "lambda1") < 0)) __PYX_ERR(0, 522, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -12002,7 +12002,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lambda1", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 521, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lambda1", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 522, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("mprans.BoundaryConditions.RelaxationZoneWaveGenerator.calculate_init.lambda1", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -12031,7 +12031,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":515
+/* "mprans/BoundaryConditions.pyx":516
  *         self.nd = nd
  * 
  *     def calculate_init(self):             # <<<<<<<<<<<<<<
@@ -12065,36 +12065,36 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   }
   __Pyx_GOTREF(__pyx_cur_scope);
 
-  /* "mprans/BoundaryConditions.pyx":516
+  /* "mprans/BoundaryConditions.pyx":517
  * 
  *     def calculate_init(self):
  *         from proteus import Context             # <<<<<<<<<<<<<<
  *         ct = Context.get()
  *         for key, zone in self.zones.iteritems():
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 516, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_Context);
   __Pyx_GIVEREF(__pyx_n_s_Context);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_Context);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_proteus, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 516, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_proteus, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Context); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 516, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Context); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_t_1);
   __pyx_v_Context = __pyx_t_1;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":517
+  /* "mprans/BoundaryConditions.pyx":518
  *     def calculate_init(self):
  *         from proteus import Context
  *         ct = Context.get()             # <<<<<<<<<<<<<<
  *         for key, zone in self.zones.iteritems():
  *             #print zone #[temp] a loose print statement - may be useful, but supressed for now
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_Context, __pyx_n_s_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 517, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_Context, __pyx_n_s_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 518, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_1))) {
@@ -12107,17 +12107,17 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 517, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 518, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 517, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 518, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_ct = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":518
+  /* "mprans/BoundaryConditions.pyx":519
  *         from proteus import Context
  *         ct = Context.get()
  *         for key, zone in self.zones.iteritems():             # <<<<<<<<<<<<<<
@@ -12125,13 +12125,13 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
  *             if zone.zone_type == 'absorption' or zone.zone_type == 'porous':
  */
   __pyx_t_4 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_zones); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 518, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_zones); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 519, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "iteritems");
-    __PYX_ERR(0, 518, __pyx_L1_error)
+    __PYX_ERR(0, 519, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_dict_iterator(__pyx_t_1, 0, __pyx_n_s_iteritems, (&__pyx_t_5), (&__pyx_t_6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 518, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_dict_iterator(__pyx_t_1, 0, __pyx_n_s_iteritems, (&__pyx_t_5), (&__pyx_t_6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 519, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_XDECREF(__pyx_t_2);
@@ -12140,7 +12140,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_2, __pyx_t_5, &__pyx_t_4, &__pyx_t_3, &__pyx_t_1, NULL, __pyx_t_6);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 518, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 519, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_key, __pyx_t_3);
@@ -12148,45 +12148,45 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
     __Pyx_XDECREF_SET(__pyx_v_zone, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":520
+    /* "mprans/BoundaryConditions.pyx":521
  *         for key, zone in self.zones.iteritems():
  *             #print zone #[temp] a loose print statement - may be useful, but supressed for now
  *             if zone.zone_type == 'absorption' or zone.zone_type == 'porous':             # <<<<<<<<<<<<<<
  *                 zone.u = zone.v = zone.w = lambda x, t: 0.
  *             elif zone.zone_type == 'generation':
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_zone_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 520, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_zone_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 521, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_absorption, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 520, __pyx_L1_error)
+    __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_absorption, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 521, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (!__pyx_t_9) {
     } else {
       __pyx_t_8 = __pyx_t_9;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_zone_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 520, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_zone_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 521, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_porous, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 520, __pyx_L1_error)
+    __pyx_t_9 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_porous, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 521, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_8 = __pyx_t_9;
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_8) {
 
-      /* "mprans/BoundaryConditions.pyx":521
+      /* "mprans/BoundaryConditions.pyx":522
  *             #print zone #[temp] a loose print statement - may be useful, but supressed for now
  *             if zone.zone_type == 'absorption' or zone.zone_type == 'porous':
  *                 zone.u = zone.v = zone.w = lambda x, t: 0.             # <<<<<<<<<<<<<<
  *             elif zone.zone_type == 'generation':
  *                 waves_u = zone.waves.u
  */
-      __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_2lambda1, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_2, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 521, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_2lambda1, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_2, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 522, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_u, __pyx_t_1) < 0) __PYX_ERR(0, 521, __pyx_L1_error)
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_v, __pyx_t_1) < 0) __PYX_ERR(0, 521, __pyx_L1_error)
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_w, __pyx_t_1) < 0) __PYX_ERR(0, 521, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_u, __pyx_t_1) < 0) __PYX_ERR(0, 522, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_v, __pyx_t_1) < 0) __PYX_ERR(0, 522, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_w, __pyx_t_1) < 0) __PYX_ERR(0, 522, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":520
+      /* "mprans/BoundaryConditions.pyx":521
  *         for key, zone in self.zones.iteritems():
  *             #print zone #[temp] a loose print statement - may be useful, but supressed for now
  *             if zone.zone_type == 'absorption' or zone.zone_type == 'porous':             # <<<<<<<<<<<<<<
@@ -12196,29 +12196,29 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
       goto __pyx_L5;
     }
 
-    /* "mprans/BoundaryConditions.pyx":522
+    /* "mprans/BoundaryConditions.pyx":523
  *             if zone.zone_type == 'absorption' or zone.zone_type == 'porous':
  *                 zone.u = zone.v = zone.w = lambda x, t: 0.
  *             elif zone.zone_type == 'generation':             # <<<<<<<<<<<<<<
  *                 waves_u = zone.waves.u
  *                 waves_mwl = zone.waves.mwl
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_zone_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 522, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_zone_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 523, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_8 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_generation, Py_EQ)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 522, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyString_Equals(__pyx_t_1, __pyx_n_s_generation, Py_EQ)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 523, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_8) {
 
-      /* "mprans/BoundaryConditions.pyx":523
+      /* "mprans/BoundaryConditions.pyx":524
  *                 zone.u = zone.v = zone.w = lambda x, t: 0.
  *             elif zone.zone_type == 'generation':
  *                 waves_u = zone.waves.u             # <<<<<<<<<<<<<<
  *                 waves_mwl = zone.waves.mwl
  *                 waves_eta = zone.waves.eta
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_waves); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 523, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_waves); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 524, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_u); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 523, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_u); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 524, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_waves_u);
@@ -12226,16 +12226,16 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
       __Pyx_GIVEREF(__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":524
+      /* "mprans/BoundaryConditions.pyx":525
  *             elif zone.zone_type == 'generation':
  *                 waves_u = zone.waves.u
  *                 waves_mwl = zone.waves.mwl             # <<<<<<<<<<<<<<
  *                 waves_eta = zone.waves.eta
  *                 wind_speed = zone.wind_speed
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_waves); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 524, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_waves); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 525, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_mwl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 524, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_mwl); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 525, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_waves_mwl);
@@ -12243,16 +12243,16 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
       __Pyx_GIVEREF(__pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":525
+      /* "mprans/BoundaryConditions.pyx":526
  *                 waves_u = zone.waves.u
  *                 waves_mwl = zone.waves.mwl
  *                 waves_eta = zone.waves.eta             # <<<<<<<<<<<<<<
  *                 wind_speed = zone.wind_speed
  *                 he = ct.he
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_waves); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 525, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_waves); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 526, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_eta); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 525, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_eta); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 526, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_waves_eta);
@@ -12260,64 +12260,64 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
       __Pyx_GIVEREF(__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":526
+      /* "mprans/BoundaryConditions.pyx":527
  *                 waves_mwl = zone.waves.mwl
  *                 waves_eta = zone.waves.eta
  *                 wind_speed = zone.wind_speed             # <<<<<<<<<<<<<<
  *                 he = ct.he
  *                 ecH = ct.ecH
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_wind_speed); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 526, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_wind_speed); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 527, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_wind_speed);
       __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_wind_speed, __pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":527
+      /* "mprans/BoundaryConditions.pyx":528
  *                 waves_eta = zone.waves.eta
  *                 wind_speed = zone.wind_speed
  *                 he = ct.he             # <<<<<<<<<<<<<<
  *                 ecH = ct.ecH
  *                 vert_axis = zone.Shape.Domain.nd-1
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ct, __pyx_n_s_he); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 527, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ct, __pyx_n_s_he); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 528, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_he);
       __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_he, __pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":528
+      /* "mprans/BoundaryConditions.pyx":529
  *                 wind_speed = zone.wind_speed
  *                 he = ct.he
  *                 ecH = ct.ecH             # <<<<<<<<<<<<<<
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ct, __pyx_n_s_ecH); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 528, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ct, __pyx_n_s_ecH); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 529, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_ecH);
       __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_ecH, __pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":529
+      /* "mprans/BoundaryConditions.pyx":530
  *                 he = ct.he
  *                 ecH = ct.ecH
  *                 vert_axis = zone.Shape.Domain.nd-1             # <<<<<<<<<<<<<<
  *                 def get_twp_flowVelocity(i):
  *                     def twp_flowVelocity(x, t):
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_Shape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 529, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_Shape); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 530, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_Domain); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 529, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_Domain); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_nd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 529, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_nd); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 530, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_t_3, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 529, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_t_3, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_vert_axis);
@@ -12325,55 +12325,55 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
       __Pyx_GIVEREF(__pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":530
+      /* "mprans/BoundaryConditions.pyx":531
  *                 ecH = ct.ecH
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):             # <<<<<<<<<<<<<<
  *                     def twp_flowVelocity(x, t):
  *                         waveHeight = waves_mwl+waves_eta(x, t)
  */
-      __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_1get_twp_flowVelocity, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__87)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_1get_twp_flowVelocity, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__87)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_XDECREF_SET(__pyx_v_get_twp_flowVelocity, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":546
+      /* "mprans/BoundaryConditions.pyx":547
  *                         return H*wind_speed[i] + (1-H)*waterSpeed[i]
  *                     return twp_flowVelocity
  *                 zone.u = get_twp_flowVelocity(0)             # <<<<<<<<<<<<<<
  *                 zone.v = get_twp_flowVelocity(1)
  *                 zone.w = get_twp_flowVelocity(2)
  */
-      __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_get_twp_flowVelocity(__pyx_v_get_twp_flowVelocity, __pyx_int_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 546, __pyx_L1_error)
+      __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_get_twp_flowVelocity(__pyx_v_get_twp_flowVelocity, __pyx_int_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 547, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_u, __pyx_t_1) < 0) __PYX_ERR(0, 546, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_u, __pyx_t_1) < 0) __PYX_ERR(0, 547, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":547
+      /* "mprans/BoundaryConditions.pyx":548
  *                     return twp_flowVelocity
  *                 zone.u = get_twp_flowVelocity(0)
  *                 zone.v = get_twp_flowVelocity(1)             # <<<<<<<<<<<<<<
  *                 zone.w = get_twp_flowVelocity(2)
  * 
  */
-      __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_get_twp_flowVelocity(__pyx_v_get_twp_flowVelocity, __pyx_int_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 547, __pyx_L1_error)
+      __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_get_twp_flowVelocity(__pyx_v_get_twp_flowVelocity, __pyx_int_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 548, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_v, __pyx_t_1) < 0) __PYX_ERR(0, 547, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_v, __pyx_t_1) < 0) __PYX_ERR(0, 548, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":548
+      /* "mprans/BoundaryConditions.pyx":549
  *                 zone.u = get_twp_flowVelocity(0)
  *                 zone.v = get_twp_flowVelocity(1)
  *                 zone.w = get_twp_flowVelocity(2)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-      __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_get_twp_flowVelocity(__pyx_v_get_twp_flowVelocity, __pyx_int_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 548, __pyx_L1_error)
+      __pyx_t_1 = __pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_14calculate_init_get_twp_flowVelocity(__pyx_v_get_twp_flowVelocity, __pyx_int_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 549, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_w, __pyx_t_1) < 0) __PYX_ERR(0, 548, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_zone, __pyx_n_s_w, __pyx_t_1) < 0) __PYX_ERR(0, 549, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "mprans/BoundaryConditions.pyx":522
+      /* "mprans/BoundaryConditions.pyx":523
  *             if zone.zone_type == 'absorption' or zone.zone_type == 'porous':
  *                 zone.u = zone.v = zone.w = lambda x, t: 0.
  *             elif zone.zone_type == 'generation':             # <<<<<<<<<<<<<<
@@ -12385,7 +12385,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":515
+  /* "mprans/BoundaryConditions.pyx":516
  *         self.nd = nd
  * 
  *     def calculate_init(self):             # <<<<<<<<<<<<<<
@@ -12414,7 +12414,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":552
+/* "mprans/BoundaryConditions.pyx":553
  * 
  * 
  *     def calculate(self):             # <<<<<<<<<<<<<<
@@ -12436,7 +12436,7 @@ static PyObject *__pyx_pw_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":554
+/* "mprans/BoundaryConditions.pyx":555
  *     def calculate(self):
  *         cdef int nl = len(self.model.levelModelList)
  *         def iterate():             # <<<<<<<<<<<<<<
@@ -12491,70 +12491,70 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   __pyx_outer_scope = (struct __pyx_obj_6mprans_18BoundaryConditions___pyx_scope_struct_15_calculate *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "mprans/BoundaryConditions.pyx":555
+  /* "mprans/BoundaryConditions.pyx":556
  *         cdef int nl = len(self.model.levelModelList)
  *         def iterate():
  *             m = self.model.levelModelList[l]             # <<<<<<<<<<<<<<
  *             cdef int nE = m.coefficients.q_phi.shape[0]
  *             cdef int nk = m.coefficients.q_phi.shape[1]
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 555, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_model); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 555, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 556, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_model); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 556, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_levelModelList); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 555, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_levelModelList); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 556, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, __pyx_cur_scope->__pyx_v_l, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 555, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, __pyx_cur_scope->__pyx_v_l, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 556, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_m = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":556
+  /* "mprans/BoundaryConditions.pyx":557
  *         def iterate():
  *             m = self.model.levelModelList[l]
  *             cdef int nE = m.coefficients.q_phi.shape[0]             # <<<<<<<<<<<<<<
  *             cdef int nk = m.coefficients.q_phi.shape[1]
  *             for eN in range(nE):
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 556, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 557, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_q_phi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 556, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_q_phi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 557, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 556, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 557, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 556, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 557, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 556, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 557, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_nE = __pyx_t_3;
 
-  /* "mprans/BoundaryConditions.pyx":557
+  /* "mprans/BoundaryConditions.pyx":558
  *             m = self.model.levelModelList[l]
  *             cdef int nE = m.coefficients.q_phi.shape[0]
  *             cdef int nk = m.coefficients.q_phi.shape[1]             # <<<<<<<<<<<<<<
  *             for eN in range(nE):
  *                 mType = m.mesh.elementMaterialTypes[eN]
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 557, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 558, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_q_phi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 557, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_q_phi); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 558, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 557, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_shape); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 558, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 557, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 558, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 557, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_nk = __pyx_t_3;
 
-  /* "mprans/BoundaryConditions.pyx":558
+  /* "mprans/BoundaryConditions.pyx":559
  *             cdef int nE = m.coefficients.q_phi.shape[0]
  *             cdef int nk = m.coefficients.q_phi.shape[1]
  *             for eN in range(nE):             # <<<<<<<<<<<<<<
@@ -12565,40 +12565,40 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_eN = __pyx_t_4;
 
-    /* "mprans/BoundaryConditions.pyx":559
+    /* "mprans/BoundaryConditions.pyx":560
  *             cdef int nk = m.coefficients.q_phi.shape[1]
  *             for eN in range(nE):
  *                 mType = m.mesh.elementMaterialTypes[eN]             # <<<<<<<<<<<<<<
  *                 if mType in self.zones:
  *                     for k in range(nk):
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_mesh); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 559, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_mesh); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 560, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_elementMaterialTypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 559, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_elementMaterialTypes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 560, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_eN, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 559, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_2, __pyx_v_eN, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 560, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_XDECREF_SET(__pyx_v_mType, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":560
+    /* "mprans/BoundaryConditions.pyx":561
  *             for eN in range(nE):
  *                 mType = m.mesh.elementMaterialTypes[eN]
  *                 if mType in self.zones:             # <<<<<<<<<<<<<<
  *                     for k in range(nk):
  *                         t = m.timeIntegration.t
  */
-    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 560, __pyx_L1_error) }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_zones); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 560, __pyx_L1_error)
+    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 561, __pyx_L1_error) }
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_zones); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 561, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = (__Pyx_PySequence_ContainsTF(__pyx_v_mType, __pyx_t_1, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 560, __pyx_L1_error)
+    __pyx_t_5 = (__Pyx_PySequence_ContainsTF(__pyx_v_mType, __pyx_t_1, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 561, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = (__pyx_t_5 != 0);
     if (__pyx_t_6) {
 
-      /* "mprans/BoundaryConditions.pyx":561
+      /* "mprans/BoundaryConditions.pyx":562
  *                 mType = m.mesh.elementMaterialTypes[eN]
  *                 if mType in self.zones:
  *                     for k in range(nk):             # <<<<<<<<<<<<<<
@@ -12609,38 +12609,38 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
       for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_k = __pyx_t_8;
 
-        /* "mprans/BoundaryConditions.pyx":562
+        /* "mprans/BoundaryConditions.pyx":563
  *                 if mType in self.zones:
  *                     for k in range(nk):
  *                         t = m.timeIntegration.t             # <<<<<<<<<<<<<<
  *                         x = m.q['x'][eN, k]
  *                         zone = self.zones[mType]
  */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_timeIntegration); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 562, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_timeIntegration); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 563, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_t); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 562, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_t); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 563, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_XDECREF_SET(__pyx_v_t, __pyx_t_2);
         __pyx_t_2 = 0;
 
-        /* "mprans/BoundaryConditions.pyx":563
+        /* "mprans/BoundaryConditions.pyx":564
  *                     for k in range(nk):
  *                         t = m.timeIntegration.t
  *                         x = m.q['x'][eN, k]             # <<<<<<<<<<<<<<
  *                         zone = self.zones[mType]
  *                         coeff = m.coefficients
  */
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_q); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 563, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_q); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 564, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_1 = PyObject_GetItem(__pyx_t_2, __pyx_n_s_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 563, __pyx_L1_error)
+        __pyx_t_1 = PyObject_GetItem(__pyx_t_2, __pyx_n_s_x); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 564, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 563, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 564, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 563, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 564, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 563, __pyx_L1_error)
+        __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 564, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_GIVEREF(__pyx_t_2);
         PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_2);
@@ -12648,100 +12648,100 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_9);
         __pyx_t_2 = 0;
         __pyx_t_9 = 0;
-        __pyx_t_9 = PyObject_GetItem(__pyx_t_1, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 563, __pyx_L1_error)
+        __pyx_t_9 = PyObject_GetItem(__pyx_t_1, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 564, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_9);
         __pyx_t_9 = 0;
 
-        /* "mprans/BoundaryConditions.pyx":564
+        /* "mprans/BoundaryConditions.pyx":565
  *                         t = m.timeIntegration.t
  *                         x = m.q['x'][eN, k]
  *                         zone = self.zones[mType]             # <<<<<<<<<<<<<<
  *                         coeff = m.coefficients
  *                         ori = zone.orientation
  */
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 564, __pyx_L1_error) }
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_zones); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 564, __pyx_L1_error)
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 565, __pyx_L1_error) }
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_zones); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 565, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_10 = PyObject_GetItem(__pyx_t_9, __pyx_v_mType); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 564, __pyx_L1_error)
+        __pyx_t_10 = PyObject_GetItem(__pyx_t_9, __pyx_v_mType); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 565, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_XDECREF_SET(__pyx_v_zone, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "mprans/BoundaryConditions.pyx":565
+        /* "mprans/BoundaryConditions.pyx":566
  *                         x = m.q['x'][eN, k]
  *                         zone = self.zones[mType]
  *                         coeff = m.coefficients             # <<<<<<<<<<<<<<
  *                         ori = zone.orientation
  *                         nd = zone.Shape.Domain.nd
  */
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 565, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 566, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_XDECREF_SET(__pyx_v_coeff, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "mprans/BoundaryConditions.pyx":566
+        /* "mprans/BoundaryConditions.pyx":567
  *                         zone = self.zones[mType]
  *                         coeff = m.coefficients
  *                         ori = zone.orientation             # <<<<<<<<<<<<<<
  *                         nd = zone.Shape.Domain.nd
  *                         if zone.zone_type == 'porous':
  */
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_orientation); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 566, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_orientation); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 567, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_XDECREF_SET(__pyx_v_ori, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "mprans/BoundaryConditions.pyx":567
+        /* "mprans/BoundaryConditions.pyx":568
  *                         coeff = m.coefficients
  *                         ori = zone.orientation
  *                         nd = zone.Shape.Domain.nd             # <<<<<<<<<<<<<<
  *                         if zone.zone_type == 'porous':
  *                             coeff.q_phi_solid[eN, k] = zone.epsFact_solid
  */
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_Shape); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 567, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_Shape); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 568, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_Domain); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 567, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_Domain); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 568, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_nd); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 567, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_nd); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 568, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_XDECREF_SET(__pyx_v_nd, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "mprans/BoundaryConditions.pyx":568
+        /* "mprans/BoundaryConditions.pyx":569
  *                         ori = zone.orientation
  *                         nd = zone.Shape.Domain.nd
  *                         if zone.zone_type == 'porous':             # <<<<<<<<<<<<<<
  *                             coeff.q_phi_solid[eN, k] = zone.epsFact_solid
  *                         else:
  */
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_zone_type); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 568, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_zone_type); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 569, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_6 = (__Pyx_PyString_Equals(__pyx_t_10, __pyx_n_s_porous, Py_EQ)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 568, __pyx_L1_error)
+        __pyx_t_6 = (__Pyx_PyString_Equals(__pyx_t_10, __pyx_n_s_porous, Py_EQ)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 569, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         if (__pyx_t_6) {
 
-          /* "mprans/BoundaryConditions.pyx":569
+          /* "mprans/BoundaryConditions.pyx":570
  *                         nd = zone.Shape.Domain.nd
  *                         if zone.zone_type == 'porous':
  *                             coeff.q_phi_solid[eN, k] = zone.epsFact_solid             # <<<<<<<<<<<<<<
  *                         else:
  *                             coeff.q_phi_solid[eN, k] = np.dot(ori, zone.center[:nd]-x[:nd])
  */
-          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_epsFact_solid); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 569, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_epsFact_solid); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 570, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_phi_solid); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 569, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_phi_solid); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 570, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 569, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 570, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 569, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 570, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 569, __pyx_L1_error)
+          __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 570, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_GIVEREF(__pyx_t_1);
           PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_1);
@@ -12749,12 +12749,12 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
           PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_t_2);
           __pyx_t_1 = 0;
           __pyx_t_2 = 0;
-          if (unlikely(PyObject_SetItem(__pyx_t_9, __pyx_t_11, __pyx_t_10) < 0)) __PYX_ERR(0, 569, __pyx_L1_error)
+          if (unlikely(PyObject_SetItem(__pyx_t_9, __pyx_t_11, __pyx_t_10) < 0)) __PYX_ERR(0, 570, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-          /* "mprans/BoundaryConditions.pyx":568
+          /* "mprans/BoundaryConditions.pyx":569
  *                         ori = zone.orientation
  *                         nd = zone.Shape.Domain.nd
  *                         if zone.zone_type == 'porous':             # <<<<<<<<<<<<<<
@@ -12764,7 +12764,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
           goto __pyx_L8;
         }
 
-        /* "mprans/BoundaryConditions.pyx":571
+        /* "mprans/BoundaryConditions.pyx":572
  *                             coeff.q_phi_solid[eN, k] = zone.epsFact_solid
  *                         else:
  *                             coeff.q_phi_solid[eN, k] = np.dot(ori, zone.center[:nd]-x[:nd])             # <<<<<<<<<<<<<<
@@ -12772,19 +12772,19 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
  *                         coeff.q_velocity_solid[eN, k, 1] = zone.v(x, t)
  */
         /*else*/ {
-          __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_dot); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_dot); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_center); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_center); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
-          __pyx_t_2 = __Pyx_PyObject_GetSlice(__pyx_t_11, 0, 0, NULL, &__pyx_v_nd, NULL, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_GetSlice(__pyx_t_11, 0, 0, NULL, &__pyx_v_nd, NULL, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          __pyx_t_11 = __Pyx_PyObject_GetSlice(__pyx_v_x, 0, 0, NULL, &__pyx_v_nd, NULL, 0, 0, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyObject_GetSlice(__pyx_v_x, 0, 0, NULL, &__pyx_v_nd, NULL, 0, 0, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
-          __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_1 = PyNumber_Subtract(__pyx_t_2, __pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
@@ -12800,7 +12800,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
               __pyx_t_12 = 1;
             }
           }
-          __pyx_t_2 = PyTuple_New(2+__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_2 = PyTuple_New(2+__pyx_t_12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           if (__pyx_t_11) {
             __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_11); __pyx_t_11 = NULL;
@@ -12811,17 +12811,17 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
           __Pyx_GIVEREF(__pyx_t_1);
           PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_12, __pyx_t_1);
           __pyx_t_1 = 0;
-          __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_2, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_2, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_phi_solid); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_phi_solid); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 571, __pyx_L1_error)
+          __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_GIVEREF(__pyx_t_2);
           PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_2);
@@ -12829,21 +12829,21 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
           PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_t_1);
           __pyx_t_2 = 0;
           __pyx_t_1 = 0;
-          if (unlikely(PyObject_SetItem(__pyx_t_9, __pyx_t_11, __pyx_t_10) < 0)) __PYX_ERR(0, 571, __pyx_L1_error)
+          if (unlikely(PyObject_SetItem(__pyx_t_9, __pyx_t_11, __pyx_t_10) < 0)) __PYX_ERR(0, 572, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         }
         __pyx_L8:;
 
-        /* "mprans/BoundaryConditions.pyx":572
+        /* "mprans/BoundaryConditions.pyx":573
  *                         else:
  *                             coeff.q_phi_solid[eN, k] = np.dot(ori, zone.center[:nd]-x[:nd])
  *                         coeff.q_velocity_solid[eN, k, 0] = zone.u(x, t)             # <<<<<<<<<<<<<<
  *                         coeff.q_velocity_solid[eN, k, 1] = zone.v(x, t)
  *                         if self.nd > 2:
  */
-        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_u); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 572, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_u); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 573, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_9 = NULL;
         __pyx_t_12 = 0;
@@ -12857,7 +12857,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
             __pyx_t_12 = 1;
           }
         }
-        __pyx_t_1 = PyTuple_New(2+__pyx_t_12); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 572, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_New(2+__pyx_t_12); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 573, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         if (__pyx_t_9) {
           __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -12868,17 +12868,17 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         __Pyx_INCREF(__pyx_v_t);
         __Pyx_GIVEREF(__pyx_v_t);
         PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_12, __pyx_v_t);
-        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_1, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 572, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_1, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 573, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_velocity_solid); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 572, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_velocity_solid); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 573, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 572, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 573, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 572, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 573, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 572, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 573, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_GIVEREF(__pyx_t_1);
         PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
@@ -12889,19 +12889,19 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_int_0);
         __pyx_t_1 = 0;
         __pyx_t_9 = 0;
-        if (unlikely(PyObject_SetItem(__pyx_t_11, __pyx_t_2, __pyx_t_10) < 0)) __PYX_ERR(0, 572, __pyx_L1_error)
+        if (unlikely(PyObject_SetItem(__pyx_t_11, __pyx_t_2, __pyx_t_10) < 0)) __PYX_ERR(0, 573, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-        /* "mprans/BoundaryConditions.pyx":573
+        /* "mprans/BoundaryConditions.pyx":574
  *                             coeff.q_phi_solid[eN, k] = np.dot(ori, zone.center[:nd]-x[:nd])
  *                         coeff.q_velocity_solid[eN, k, 0] = zone.u(x, t)
  *                         coeff.q_velocity_solid[eN, k, 1] = zone.v(x, t)             # <<<<<<<<<<<<<<
  *                         if self.nd > 2:
  *                             coeff.q_velocity_solid[eN, k, 2] = zone.w(x, t)
  */
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_v); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 573, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_v); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 574, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __pyx_t_11 = NULL;
         __pyx_t_12 = 0;
@@ -12915,7 +12915,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
             __pyx_t_12 = 1;
           }
         }
-        __pyx_t_9 = PyTuple_New(2+__pyx_t_12); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 573, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(2+__pyx_t_12); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 574, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         if (__pyx_t_11) {
           __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_11); __pyx_t_11 = NULL;
@@ -12926,17 +12926,17 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         __Pyx_INCREF(__pyx_v_t);
         __Pyx_GIVEREF(__pyx_v_t);
         PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_12, __pyx_v_t);
-        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 573, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 574, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_velocity_solid); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 573, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_velocity_solid); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 574, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
-        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 573, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 574, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 573, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 574, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 573, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 574, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_GIVEREF(__pyx_t_9);
         PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_9);
@@ -12947,35 +12947,35 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_int_1);
         __pyx_t_9 = 0;
         __pyx_t_11 = 0;
-        if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_t_1, __pyx_t_10) < 0)) __PYX_ERR(0, 573, __pyx_L1_error)
+        if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_t_1, __pyx_t_10) < 0)) __PYX_ERR(0, 574, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-        /* "mprans/BoundaryConditions.pyx":574
+        /* "mprans/BoundaryConditions.pyx":575
  *                         coeff.q_velocity_solid[eN, k, 0] = zone.u(x, t)
  *                         coeff.q_velocity_solid[eN, k, 1] = zone.v(x, t)
  *                         if self.nd > 2:             # <<<<<<<<<<<<<<
  *                             coeff.q_velocity_solid[eN, k, 2] = zone.w(x, t)
  *                 m.q['phi_solid'] = m.coefficients.q_phi_solid
  */
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 574, __pyx_L1_error) }
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_nd); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 574, __pyx_L1_error)
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 575, __pyx_L1_error) }
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_nd); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 575, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_1 = PyObject_RichCompare(__pyx_t_10, __pyx_int_2, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 574, __pyx_L1_error)
+        __pyx_t_1 = PyObject_RichCompare(__pyx_t_10, __pyx_int_2, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 575, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 574, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 575, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         if (__pyx_t_6) {
 
-          /* "mprans/BoundaryConditions.pyx":575
+          /* "mprans/BoundaryConditions.pyx":576
  *                         coeff.q_velocity_solid[eN, k, 1] = zone.v(x, t)
  *                         if self.nd > 2:
  *                             coeff.q_velocity_solid[eN, k, 2] = zone.w(x, t)             # <<<<<<<<<<<<<<
  *                 m.q['phi_solid'] = m.coefficients.q_phi_solid
  *                 m.q['velocity_solid'] = m.coefficients.q_velocity_solid
  */
-          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_w); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 575, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_zone, __pyx_n_s_w); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 576, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __pyx_t_2 = NULL;
           __pyx_t_12 = 0;
@@ -12989,7 +12989,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
               __pyx_t_12 = 1;
             }
           }
-          __pyx_t_11 = PyTuple_New(2+__pyx_t_12); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 575, __pyx_L1_error)
+          __pyx_t_11 = PyTuple_New(2+__pyx_t_12); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 576, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           if (__pyx_t_2) {
             __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -13000,17 +13000,17 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
           __Pyx_INCREF(__pyx_v_t);
           __Pyx_GIVEREF(__pyx_v_t);
           PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_12, __pyx_v_t);
-          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 575, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 576, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_velocity_solid); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 575, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_coeff, __pyx_n_s_q_velocity_solid); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 576, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 575, __pyx_L1_error)
+          __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_eN); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 576, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
-          __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 575, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 576, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 575, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 576, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_GIVEREF(__pyx_t_11);
           PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_11);
@@ -13021,12 +13021,12 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
           PyTuple_SET_ITEM(__pyx_t_9, 2, __pyx_int_2);
           __pyx_t_11 = 0;
           __pyx_t_2 = 0;
-          if (unlikely(PyObject_SetItem(__pyx_t_10, __pyx_t_9, __pyx_t_1) < 0)) __PYX_ERR(0, 575, __pyx_L1_error)
+          if (unlikely(PyObject_SetItem(__pyx_t_10, __pyx_t_9, __pyx_t_1) < 0)) __PYX_ERR(0, 576, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-          /* "mprans/BoundaryConditions.pyx":574
+          /* "mprans/BoundaryConditions.pyx":575
  *                         coeff.q_velocity_solid[eN, k, 0] = zone.u(x, t)
  *                         coeff.q_velocity_solid[eN, k, 1] = zone.v(x, t)
  *                         if self.nd > 2:             # <<<<<<<<<<<<<<
@@ -13036,7 +13036,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
         }
       }
 
-      /* "mprans/BoundaryConditions.pyx":560
+      /* "mprans/BoundaryConditions.pyx":561
  *             for eN in range(nE):
  *                 mType = m.mesh.elementMaterialTypes[eN]
  *                 if mType in self.zones:             # <<<<<<<<<<<<<<
@@ -13045,44 +13045,44 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
  */
     }
 
-    /* "mprans/BoundaryConditions.pyx":576
+    /* "mprans/BoundaryConditions.pyx":577
  *                         if self.nd > 2:
  *                             coeff.q_velocity_solid[eN, k, 2] = zone.w(x, t)
  *                 m.q['phi_solid'] = m.coefficients.q_phi_solid             # <<<<<<<<<<<<<<
  *                 m.q['velocity_solid'] = m.coefficients.q_velocity_solid
  *         for l in range(nl):
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 576, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 577, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_q_phi_solid); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 576, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_q_phi_solid); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 577, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_q); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 576, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_q); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 577, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_n_s_phi_solid, __pyx_t_9) < 0)) __PYX_ERR(0, 576, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_n_s_phi_solid, __pyx_t_9) < 0)) __PYX_ERR(0, 577, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-    /* "mprans/BoundaryConditions.pyx":577
+    /* "mprans/BoundaryConditions.pyx":578
  *                             coeff.q_velocity_solid[eN, k, 2] = zone.w(x, t)
  *                 m.q['phi_solid'] = m.coefficients.q_phi_solid
  *                 m.q['velocity_solid'] = m.coefficients.q_velocity_solid             # <<<<<<<<<<<<<<
  *         for l in range(nl):
  *             iterate()
  */
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 577, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_coefficients); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 578, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_q_velocity_solid); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 577, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_q_velocity_solid); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 578, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_q); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 577, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_m, __pyx_n_s_q); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 578, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    if (unlikely(PyObject_SetItem(__pyx_t_9, __pyx_n_s_velocity_solid, __pyx_t_1) < 0)) __PYX_ERR(0, 577, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_t_9, __pyx_n_s_velocity_solid, __pyx_t_1) < 0)) __PYX_ERR(0, 578, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "mprans/BoundaryConditions.pyx":554
+  /* "mprans/BoundaryConditions.pyx":555
  *     def calculate(self):
  *         cdef int nl = len(self.model.levelModelList)
  *         def iterate():             # <<<<<<<<<<<<<<
@@ -13115,7 +13115,7 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   return __pyx_r;
 }
 
-/* "mprans/BoundaryConditions.pyx":552
+/* "mprans/BoundaryConditions.pyx":553
  * 
  * 
  *     def calculate(self):             # <<<<<<<<<<<<<<
@@ -13145,35 +13145,35 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
 
-  /* "mprans/BoundaryConditions.pyx":553
+  /* "mprans/BoundaryConditions.pyx":554
  * 
  *     def calculate(self):
  *         cdef int nl = len(self.model.levelModelList)             # <<<<<<<<<<<<<<
  *         def iterate():
  *             m = self.model.levelModelList[l]
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_model); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_model); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_levelModelList); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_levelModelList); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 553, __pyx_L1_error)
+  __pyx_t_3 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_nl = __pyx_t_3;
 
-  /* "mprans/BoundaryConditions.pyx":554
+  /* "mprans/BoundaryConditions.pyx":555
  *     def calculate(self):
  *         cdef int nl = len(self.model.levelModelList)
  *         def iterate():             # <<<<<<<<<<<<<<
  *             m = self.model.levelModelList[l]
  *             cdef int nE = m.coefficients.q_phi.shape[0]
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_9calculate_1iterate, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__89)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 554, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_9calculate_1iterate, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__89)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 555, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_iterate = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":578
+  /* "mprans/BoundaryConditions.pyx":579
  *                 m.q['phi_solid'] = m.coefficients.q_phi_solid
  *                 m.q['velocity_solid'] = m.coefficients.q_velocity_solid
  *         for l in range(nl):             # <<<<<<<<<<<<<<
@@ -13184,18 +13184,18 @@ static PyObject *__pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGener
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_cur_scope->__pyx_v_l = __pyx_t_5;
 
-    /* "mprans/BoundaryConditions.pyx":579
+    /* "mprans/BoundaryConditions.pyx":580
  *                 m.q['velocity_solid'] = m.coefficients.q_velocity_solid
  *         for l in range(nl):
  *             iterate()             # <<<<<<<<<<<<<<
  * 
  */
-    __pyx_t_2 = __pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_9calculate_iterate(__pyx_v_iterate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 579, __pyx_L1_error)
+    __pyx_t_2 = __pyx_pf_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_9calculate_iterate(__pyx_v_iterate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 580, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
 
-  /* "mprans/BoundaryConditions.pyx":552
+  /* "mprans/BoundaryConditions.pyx":553
  * 
  * 
  *     def calculate(self):             # <<<<<<<<<<<<<<
@@ -15491,7 +15491,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 static int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 21, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 173, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 578, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 579, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -15937,8 +15937,8 @@ static int __Pyx_InitCachedConstants(void) {
  *                 he = self.ct.he
  *                 ecH = self.ct.ecH
  *                 def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
+ * 					#print x,t
  *                     waveHeight = wave_mwl+wave_eta(x, t)
- *                     wavePhi = x[vert_axis]-waveHeight
  */
   __pyx_tuple__43 = PyTuple_Pack(8, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_waveHeight, __pyx_n_s_wavePhi, __pyx_n_s_water_speed, __pyx_n_s_x_max, __pyx_n_s_H, __pyx_n_s_ux); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 258, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__43);
@@ -15957,29 +15957,29 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__45);
   __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(0, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_ux_dirichlet_cython, 251, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 251, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":281
+  /* "mprans/BoundaryConditions.pyx":282
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  *             def vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *                 level = wave_mwl + wave_eta(x,t)
  *                 H = smoothedHeaviside(ecH*he,x[vert_axis]-level)
  */
-  __pyx_tuple__47 = PyTuple_Pack(4, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_level, __pyx_n_s_H); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_tuple__47 = PyTuple_Pack(4, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_level, __pyx_n_s_H); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__47);
   __Pyx_GIVEREF(__pyx_tuple__47);
-  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_vof_dirichlet, 281, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_vof_dirichlet, 282, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 282, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":299
+  /* "mprans/BoundaryConditions.pyx":300
  *             he = self.ct.he
  *             ecH = self.ct.ecH
  *             def p_advective(x, t):             # <<<<<<<<<<<<<<
  *                 waveHeight = wave_mwl+wave_eta(x, t)
  *                 wavePhi = x[vert_axis]-waveHeight
  */
-  __pyx_tuple__49 = PyTuple_Pack(9, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_waveHeight, __pyx_n_s_wavePhi, __pyx_n_s_water_speed, __pyx_n_s_x_max, __pyx_n_s_H, __pyx_n_s_U, __pyx_n_s_u_p); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_tuple__49 = PyTuple_Pack(9, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_waveHeight, __pyx_n_s_wavePhi, __pyx_n_s_water_speed, __pyx_n_s_x_max, __pyx_n_s_H, __pyx_n_s_U, __pyx_n_s_u_p); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__49);
   __Pyx_GIVEREF(__pyx_tuple__49);
-  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(2, 0, 9, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_p_advective, 299, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(2, 0, 9, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_p_advective, 300, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 300, __pyx_L1_error)
 
   /* "mprans/BoundaryConditions.pyx":250
  *             vert_axis = self.Shape.Domain.nd-1
@@ -15993,252 +15993,252 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__51);
   __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_get_ux_dirichlet_cython, 250, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 250, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":276
+  /* "mprans/BoundaryConditions.pyx":277
  *             return ux_dirichlet_cython
  * 
  *         def vof_dirichlet_cython():             # <<<<<<<<<<<<<<
  *             wave_mwl = wave.mwl
  *             wave_eta = wave.eta
  */
-  __pyx_tuple__53 = PyTuple_Pack(6, __pyx_n_s_wave_mwl, __pyx_n_s_wave_eta, __pyx_n_s_he, __pyx_n_s_ecH, __pyx_n_s_vof_dirichlet, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 276, __pyx_L1_error)
+  __pyx_tuple__53 = PyTuple_Pack(6, __pyx_n_s_wave_mwl, __pyx_n_s_wave_eta, __pyx_n_s_he, __pyx_n_s_ecH, __pyx_n_s_vof_dirichlet, __pyx_n_s_vof_dirichlet); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__53);
   __Pyx_GIVEREF(__pyx_tuple__53);
-  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(0, 0, 6, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_vof_dirichlet_cython, 276, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 276, __pyx_L1_error)
+  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(0, 0, 6, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_vof_dirichlet_cython, 277, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 277, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":287
+  /* "mprans/BoundaryConditions.pyx":288
  *             return vof_dirichlet
  * 
  *         def p_advective_cython():             # <<<<<<<<<<<<<<
  *             # This is the normal velocity, based on the outwards boundary
  *             # orientation b_or
  */
-  __pyx_tuple__55 = PyTuple_Pack(10, __pyx_n_s_b_or, __pyx_n_s_nd, __pyx_n_s_wave_mwl, __pyx_n_s_wave_eta, __pyx_n_s_wave_u, __pyx_n_s_wind_speed_arr, __pyx_n_s_he, __pyx_n_s_ecH, __pyx_n_s_p_advective, __pyx_n_s_p_advective); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __pyx_tuple__55 = PyTuple_Pack(10, __pyx_n_s_b_or, __pyx_n_s_nd, __pyx_n_s_wave_mwl, __pyx_n_s_wave_eta, __pyx_n_s_wave_u, __pyx_n_s_wind_speed_arr, __pyx_n_s_he, __pyx_n_s_ecH, __pyx_n_s_p_advective, __pyx_n_s_p_advective); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__55);
   __Pyx_GIVEREF(__pyx_tuple__55);
-  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(0, 0, 10, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_p_advective_cython, 287, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(0, 0, 10, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_p_advective_cython, 288, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 288, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":351
+  /* "mprans/BoundaryConditions.pyx":352
  *         def get_inlet_ux_dirichlet_cython(i):
  *             def get_inlet_ux_dirichlet():
  *                 def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *                     if x[vert_axis] < waterLevel:
  *                         return U[i]
  */
-  __pyx_tuple__57 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_t); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 351, __pyx_L1_error)
+  __pyx_tuple__57 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_t); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 352, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__57);
   __Pyx_GIVEREF(__pyx_tuple__57);
-  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_ux_dirichlet, 351, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 351, __pyx_L1_error)
+  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_ux_dirichlet, 352, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 352, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":350
+  /* "mprans/BoundaryConditions.pyx":351
  * 
  *         def get_inlet_ux_dirichlet_cython(i):
  *             def get_inlet_ux_dirichlet():             # <<<<<<<<<<<<<<
  *                 def ux_dirichlet(x, t):
  *                     if x[vert_axis] < waterLevel:
  */
-  __pyx_tuple__59 = PyTuple_Pack(2, __pyx_n_s_ux_dirichlet, __pyx_n_s_ux_dirichlet); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_tuple__59 = PyTuple_Pack(2, __pyx_n_s_ux_dirichlet, __pyx_n_s_ux_dirichlet); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 351, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__59);
   __Pyx_GIVEREF(__pyx_tuple__59);
-  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_get_inlet_ux_dirichlet, 350, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_get_inlet_ux_dirichlet, 351, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 351, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":360
+  /* "mprans/BoundaryConditions.pyx":361
  * 
  *         def inlet_vof_dirichlet_cython():
  *             def inlet_vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *                 if x[vert_axis] < waterLevel:
  *                     return water
  */
-  __pyx_tuple__61 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_t); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 360, __pyx_L1_error)
+  __pyx_tuple__61 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_t); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__61);
   __Pyx_GIVEREF(__pyx_tuple__61);
-  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_inlet_vof_dirichlet, 360, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 360, __pyx_L1_error)
+  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_inlet_vof_dirichlet, 361, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 361, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":368
+  /* "mprans/BoundaryConditions.pyx":369
  * 
  *         def inlet_p_advective_cython():
  *             def inlet_p_advective(x, t):             # <<<<<<<<<<<<<<
  *                 b_or = self._b_or[self._b_i]
  *                 u_p = np.sum(U * b_or)
  */
-  __pyx_tuple__63 = PyTuple_Pack(4, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_b_or, __pyx_n_s_u_p); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(0, 368, __pyx_L1_error)
+  __pyx_tuple__63 = PyTuple_Pack(4, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_b_or, __pyx_n_s_u_p); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__63);
   __Pyx_GIVEREF(__pyx_tuple__63);
-  __pyx_codeobj__64 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__63, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_inlet_p_advective, 368, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__64)) __PYX_ERR(0, 368, __pyx_L1_error)
+  __pyx_codeobj__64 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__63, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_inlet_p_advective, 369, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__64)) __PYX_ERR(0, 369, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":349
+  /* "mprans/BoundaryConditions.pyx":350
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def get_inlet_ux_dirichlet_cython(i):             # <<<<<<<<<<<<<<
  *             def get_inlet_ux_dirichlet():
  *                 def ux_dirichlet(x, t):
  */
-  __pyx_tuple__65 = PyTuple_Pack(3, __pyx_n_s_i, __pyx_n_s_get_inlet_ux_dirichlet, __pyx_n_s_get_inlet_ux_dirichlet); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(0, 349, __pyx_L1_error)
+  __pyx_tuple__65 = PyTuple_Pack(3, __pyx_n_s_i, __pyx_n_s_get_inlet_ux_dirichlet, __pyx_n_s_get_inlet_ux_dirichlet); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__65);
   __Pyx_GIVEREF(__pyx_tuple__65);
-  __pyx_codeobj__66 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__65, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_get_inlet_ux_dirichlet_cython, 349, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__66)) __PYX_ERR(0, 349, __pyx_L1_error)
+  __pyx_codeobj__66 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__65, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_get_inlet_ux_dirichlet_cython, 350, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__66)) __PYX_ERR(0, 350, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":359
+  /* "mprans/BoundaryConditions.pyx":360
  *             return get_inlet_ux_dirichlet
  * 
  *         def inlet_vof_dirichlet_cython():             # <<<<<<<<<<<<<<
  *             def inlet_vof_dirichlet(x, t):
  *                 if x[vert_axis] < waterLevel:
  */
-  __pyx_tuple__67 = PyTuple_Pack(2, __pyx_n_s_inlet_vof_dirichlet, __pyx_n_s_inlet_vof_dirichlet); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(0, 359, __pyx_L1_error)
+  __pyx_tuple__67 = PyTuple_Pack(2, __pyx_n_s_inlet_vof_dirichlet, __pyx_n_s_inlet_vof_dirichlet); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(0, 360, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__67);
   __Pyx_GIVEREF(__pyx_tuple__67);
-  __pyx_codeobj__68 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__67, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_inlet_vof_dirichlet_cython, 359, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__68)) __PYX_ERR(0, 359, __pyx_L1_error)
+  __pyx_codeobj__68 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__67, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_inlet_vof_dirichlet_cython, 360, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__68)) __PYX_ERR(0, 360, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":367
+  /* "mprans/BoundaryConditions.pyx":368
  *             return inlet_vof_dirichlet
  * 
  *         def inlet_p_advective_cython():             # <<<<<<<<<<<<<<
  *             def inlet_p_advective(x, t):
  *                 b_or = self._b_or[self._b_i]
  */
-  __pyx_tuple__69 = PyTuple_Pack(2, __pyx_n_s_inlet_p_advective, __pyx_n_s_inlet_p_advective); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_tuple__69 = PyTuple_Pack(2, __pyx_n_s_inlet_p_advective, __pyx_n_s_inlet_p_advective); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__69);
   __Pyx_GIVEREF(__pyx_tuple__69);
-  __pyx_codeobj__70 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__69, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_inlet_p_advective_cython, 367, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__70)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_codeobj__70 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__69, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_inlet_p_advective_cython, 368, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__70)) __PYX_ERR(0, 368, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":395
+  /* "mprans/BoundaryConditions.pyx":396
  * 
  *         def get_outlet_ux_dirichlet(i):
  *             def ux_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *                 b_or = self._b_or[self._b_i]
  *                 if b_or[i] == 0:
  */
-  __pyx_tuple__71 = PyTuple_Pack(3, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_b_or); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 395, __pyx_L1_error)
+  __pyx_tuple__71 = PyTuple_Pack(3, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_b_or); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__71);
   __Pyx_GIVEREF(__pyx_tuple__71);
-  __pyx_codeobj__72 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__71, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_ux_dirichlet, 395, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__72)) __PYX_ERR(0, 395, __pyx_L1_error)
+  __pyx_codeobj__72 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__71, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_ux_dirichlet, 396, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__72)) __PYX_ERR(0, 396, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":394
+  /* "mprans/BoundaryConditions.pyx":395
  *        # This is the normal velocity, based on the boundary orientation
  * 
  *         def get_outlet_ux_dirichlet(i):             # <<<<<<<<<<<<<<
  *             def ux_dirichlet(x, t):
  *                 b_or = self._b_or[self._b_i]
  */
-  __pyx_tuple__73 = PyTuple_Pack(3, __pyx_n_s_i, __pyx_n_s_ux_dirichlet, __pyx_n_s_ux_dirichlet); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_tuple__73 = PyTuple_Pack(3, __pyx_n_s_i, __pyx_n_s_ux_dirichlet, __pyx_n_s_ux_dirichlet); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__73);
   __Pyx_GIVEREF(__pyx_tuple__73);
-  __pyx_codeobj__74 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_get_outlet_ux_dirichlet, 394, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__74)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_codeobj__74 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_get_outlet_ux_dirichlet, 395, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__74)) __PYX_ERR(0, 395, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":406
+  /* "mprans/BoundaryConditions.pyx":407
  *         self.p_dirichlet.setLinearBC(a0, a1, vert_axis)
  *         self.vof_dirichlet.setConstantBC(vof)
  *         self.u_diffusive.setConstantBC(0.)             # <<<<<<<<<<<<<<
  *         self.v_diffusive.setConstantBC(0.)
  *         self.w_diffusive.setConstantBC(0.)
  */
-  __pyx_tuple__75 = PyTuple_Pack(1, __pyx_float_0_); if (unlikely(!__pyx_tuple__75)) __PYX_ERR(0, 406, __pyx_L1_error)
+  __pyx_tuple__75 = PyTuple_Pack(1, __pyx_float_0_); if (unlikely(!__pyx_tuple__75)) __PYX_ERR(0, 407, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__75);
   __Pyx_GIVEREF(__pyx_tuple__75);
 
-  /* "mprans/BoundaryConditions.pyx":407
+  /* "mprans/BoundaryConditions.pyx":408
  *         self.vof_dirichlet.setConstantBC(vof)
  *         self.u_diffusive.setConstantBC(0.)
  *         self.v_diffusive.setConstantBC(0.)             # <<<<<<<<<<<<<<
  *         self.w_diffusive.setConstantBC(0.)
  * 
  */
-  __pyx_tuple__76 = PyTuple_Pack(1, __pyx_float_0_); if (unlikely(!__pyx_tuple__76)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __pyx_tuple__76 = PyTuple_Pack(1, __pyx_float_0_); if (unlikely(!__pyx_tuple__76)) __PYX_ERR(0, 408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__76);
   __Pyx_GIVEREF(__pyx_tuple__76);
 
-  /* "mprans/BoundaryConditions.pyx":408
+  /* "mprans/BoundaryConditions.pyx":409
  *         self.u_diffusive.setConstantBC(0.)
  *         self.v_diffusive.setConstantBC(0.)
  *         self.w_diffusive.setConstantBC(0.)             # <<<<<<<<<<<<<<
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  */
-  __pyx_tuple__77 = PyTuple_Pack(1, __pyx_float_0_); if (unlikely(!__pyx_tuple__77)) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_tuple__77 = PyTuple_Pack(1, __pyx_float_0_); if (unlikely(!__pyx_tuple__77)) __PYX_ERR(0, 409, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__77);
   __Pyx_GIVEREF(__pyx_tuple__77);
 
-  /* "mprans/BoundaryConditions.pyx":437
+  /* "mprans/BoundaryConditions.pyx":438
  *             vert_axis = self.Shape.Domain.nd - 1
  * 
  *         def hydrostaticPressureOutletWithDepth_p_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *             if x[vert_axis] < seaLevel:
  *                 a0 = pRef-rhoUp*g[vert_axis]*(refLevel-seaLevel)-rhoDown*g[vert_axis]*seaLevel
  */
-  __pyx_tuple__78 = PyTuple_Pack(4, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_a0, __pyx_n_s_a1); if (unlikely(!__pyx_tuple__78)) __PYX_ERR(0, 437, __pyx_L1_error)
+  __pyx_tuple__78 = PyTuple_Pack(4, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_a0, __pyx_n_s_a1); if (unlikely(!__pyx_tuple__78)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__78);
   __Pyx_GIVEREF(__pyx_tuple__78);
-  __pyx_codeobj__79 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__78, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_hydrostaticPressureOutletWithDep, 437, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__79)) __PYX_ERR(0, 437, __pyx_L1_error)
+  __pyx_codeobj__79 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__78, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_hydrostaticPressureOutletWithDep, 438, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__79)) __PYX_ERR(0, 438, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":443
+  /* "mprans/BoundaryConditions.pyx":444
  *                 return a0 + a1*x[vert_axis]
  * 
  *         def hydrostaticPressureOutletWithDepth_vof_dirichlet(x, t):             # <<<<<<<<<<<<<<
  *             if x[vert_axis] < seaLevel:
  *                 return water
  */
-  __pyx_tuple__80 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_t); if (unlikely(!__pyx_tuple__80)) __PYX_ERR(0, 443, __pyx_L1_error)
+  __pyx_tuple__80 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_t); if (unlikely(!__pyx_tuple__80)) __PYX_ERR(0, 444, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__80);
   __Pyx_GIVEREF(__pyx_tuple__80);
-  __pyx_codeobj__81 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__80, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_hydrostaticPressureOutletWithDep_2, 443, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__81)) __PYX_ERR(0, 443, __pyx_L1_error)
+  __pyx_codeobj__81 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__80, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_hydrostaticPressureOutletWithDep_2, 444, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__81)) __PYX_ERR(0, 444, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":483
+  /* "mprans/BoundaryConditions.pyx":484
  *     """
  *     def __init__(self, zone_type, center, orientation, epsFact_solid,
  *                  waves=None, shape=None, wind_speed=(0.,0.,0.),             # <<<<<<<<<<<<<<
  *                  dragAlpha=0.5/1.005e-6, dragBeta=0., porosity=1.):
  *         self.Shape = shape
  */
-  __pyx_tuple__82 = PyTuple_Pack(3, __pyx_float_0_, __pyx_float_0_, __pyx_float_0_); if (unlikely(!__pyx_tuple__82)) __PYX_ERR(0, 483, __pyx_L1_error)
+  __pyx_tuple__82 = PyTuple_Pack(3, __pyx_float_0_, __pyx_float_0_, __pyx_float_0_); if (unlikely(!__pyx_tuple__82)) __PYX_ERR(0, 484, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__82);
   __Pyx_GIVEREF(__pyx_tuple__82);
 
-  /* "mprans/BoundaryConditions.pyx":542
+  /* "mprans/BoundaryConditions.pyx":543
  *                             waterSpeed = waves_u(x_max, t)
  *                         else:
  *                             waterSpeed = (0., 0., 0.)             # <<<<<<<<<<<<<<
  *                         H = smoothedHeaviside(0.5*ecH*he, wavePhi-0.5*ecH*he)
  *                         return H*wind_speed[i] + (1-H)*waterSpeed[i]
  */
-  __pyx_tuple__83 = PyTuple_Pack(3, __pyx_float_0_, __pyx_float_0_, __pyx_float_0_); if (unlikely(!__pyx_tuple__83)) __PYX_ERR(0, 542, __pyx_L1_error)
+  __pyx_tuple__83 = PyTuple_Pack(3, __pyx_float_0_, __pyx_float_0_, __pyx_float_0_); if (unlikely(!__pyx_tuple__83)) __PYX_ERR(0, 543, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__83);
   __Pyx_GIVEREF(__pyx_tuple__83);
 
-  /* "mprans/BoundaryConditions.pyx":531
+  /* "mprans/BoundaryConditions.pyx":532
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):
  *                     def twp_flowVelocity(x, t):             # <<<<<<<<<<<<<<
  *                         waveHeight = waves_mwl+waves_eta(x, t)
  *                         wavePhi = x[vert_axis]-waveHeight
  */
-  __pyx_tuple__84 = PyTuple_Pack(7, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_waveHeight, __pyx_n_s_wavePhi, __pyx_n_s_waterSpeed, __pyx_n_s_H, __pyx_n_s_x_max); if (unlikely(!__pyx_tuple__84)) __PYX_ERR(0, 531, __pyx_L1_error)
+  __pyx_tuple__84 = PyTuple_Pack(7, __pyx_n_s_x, __pyx_n_s_t, __pyx_n_s_waveHeight, __pyx_n_s_wavePhi, __pyx_n_s_waterSpeed, __pyx_n_s_H, __pyx_n_s_x_max); if (unlikely(!__pyx_tuple__84)) __PYX_ERR(0, 532, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__84);
   __Pyx_GIVEREF(__pyx_tuple__84);
-  __pyx_codeobj__85 = (PyObject*)__Pyx_PyCode_New(2, 0, 7, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__84, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_twp_flowVelocity, 531, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__85)) __PYX_ERR(0, 531, __pyx_L1_error)
+  __pyx_codeobj__85 = (PyObject*)__Pyx_PyCode_New(2, 0, 7, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__84, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_twp_flowVelocity, 532, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__85)) __PYX_ERR(0, 532, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":530
+  /* "mprans/BoundaryConditions.pyx":531
  *                 ecH = ct.ecH
  *                 vert_axis = zone.Shape.Domain.nd-1
  *                 def get_twp_flowVelocity(i):             # <<<<<<<<<<<<<<
  *                     def twp_flowVelocity(x, t):
  *                         waveHeight = waves_mwl+waves_eta(x, t)
  */
-  __pyx_tuple__86 = PyTuple_Pack(3, __pyx_n_s_i, __pyx_n_s_twp_flowVelocity, __pyx_n_s_twp_flowVelocity); if (unlikely(!__pyx_tuple__86)) __PYX_ERR(0, 530, __pyx_L1_error)
+  __pyx_tuple__86 = PyTuple_Pack(3, __pyx_n_s_i, __pyx_n_s_twp_flowVelocity, __pyx_n_s_twp_flowVelocity); if (unlikely(!__pyx_tuple__86)) __PYX_ERR(0, 531, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__86);
   __Pyx_GIVEREF(__pyx_tuple__86);
-  __pyx_codeobj__87 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__86, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_get_twp_flowVelocity, 530, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__87)) __PYX_ERR(0, 530, __pyx_L1_error)
+  __pyx_codeobj__87 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__86, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_get_twp_flowVelocity, 531, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__87)) __PYX_ERR(0, 531, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":554
+  /* "mprans/BoundaryConditions.pyx":555
  *     def calculate(self):
  *         cdef int nl = len(self.model.levelModelList)
  *         def iterate():             # <<<<<<<<<<<<<<
  *             m = self.model.levelModelList[l]
  *             cdef int nE = m.coefficients.q_phi.shape[0]
  */
-  __pyx_tuple__88 = PyTuple_Pack(12, __pyx_n_s_m, __pyx_n_s_nE, __pyx_n_s_nk, __pyx_n_s_eN, __pyx_n_s_mType, __pyx_n_s_k, __pyx_n_s_t, __pyx_n_s_x, __pyx_n_s_zone, __pyx_n_s_coeff, __pyx_n_s_ori, __pyx_n_s_nd); if (unlikely(!__pyx_tuple__88)) __PYX_ERR(0, 554, __pyx_L1_error)
+  __pyx_tuple__88 = PyTuple_Pack(12, __pyx_n_s_m, __pyx_n_s_nE, __pyx_n_s_nk, __pyx_n_s_eN, __pyx_n_s_mType, __pyx_n_s_k, __pyx_n_s_t, __pyx_n_s_x, __pyx_n_s_zone, __pyx_n_s_coeff, __pyx_n_s_ori, __pyx_n_s_nd); if (unlikely(!__pyx_tuple__88)) __PYX_ERR(0, 555, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__88);
   __Pyx_GIVEREF(__pyx_tuple__88);
-  __pyx_codeobj__89 = (PyObject*)__Pyx_PyCode_New(0, 0, 12, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_iterate, 554, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__89)) __PYX_ERR(0, 554, __pyx_L1_error)
+  __pyx_codeobj__89 = (PyObject*)__Pyx_PyCode_New(0, 0, 12, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_iterate, 555, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__89)) __PYX_ERR(0, 555, __pyx_L1_error)
 
   /* "mprans/BoundaryConditions.pyx":20
  *     Class regrouping boundary conditions for two-phase flows
@@ -16372,98 +16372,98 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__113);
   __Pyx_GIVEREF(__pyx_tuple__113);
 
-  /* "mprans/BoundaryConditions.pyx":323
+  /* "mprans/BoundaryConditions.pyx":324
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setTwoPhaseVelocityInlet(self, U, waterLevel, vert_axis=None, air=1.,             # <<<<<<<<<<<<<<
  *                                  water=0.):
  *         """
  */
-  __pyx_tuple__114 = PyTuple_Pack(12, __pyx_n_s_self, __pyx_n_s_U, __pyx_n_s_waterLevel, __pyx_n_s_vert_axis, __pyx_n_s_air, __pyx_n_s_water, __pyx_n_s_get_inlet_ux_dirichlet_cython, __pyx_n_s_get_inlet_ux_dirichlet_cython, __pyx_n_s_inlet_vof_dirichlet_cython, __pyx_n_s_inlet_vof_dirichlet_cython, __pyx_n_s_inlet_p_advective_cython, __pyx_n_s_inlet_p_advective_cython); if (unlikely(!__pyx_tuple__114)) __PYX_ERR(0, 323, __pyx_L1_error)
+  __pyx_tuple__114 = PyTuple_Pack(12, __pyx_n_s_self, __pyx_n_s_U, __pyx_n_s_waterLevel, __pyx_n_s_vert_axis, __pyx_n_s_air, __pyx_n_s_water, __pyx_n_s_get_inlet_ux_dirichlet_cython, __pyx_n_s_get_inlet_ux_dirichlet_cython, __pyx_n_s_inlet_vof_dirichlet_cython, __pyx_n_s_inlet_vof_dirichlet_cython, __pyx_n_s_inlet_p_advective_cython, __pyx_n_s_inlet_p_advective_cython); if (unlikely(!__pyx_tuple__114)) __PYX_ERR(0, 324, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__114);
   __Pyx_GIVEREF(__pyx_tuple__114);
-  __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(6, 0, 12, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__114, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_setTwoPhaseVelocityInlet, 323, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(0, 323, __pyx_L1_error)
-  __pyx_tuple__116 = PyTuple_Pack(3, ((PyObject *)Py_None), ((PyObject*)__pyx_float_1_), ((PyObject*)__pyx_float_0_)); if (unlikely(!__pyx_tuple__116)) __PYX_ERR(0, 323, __pyx_L1_error)
+  __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(6, 0, 12, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__114, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_setTwoPhaseVelocityInlet, 324, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_tuple__116 = PyTuple_Pack(3, ((PyObject *)Py_None), ((PyObject*)__pyx_float_1_), ((PyObject*)__pyx_float_0_)); if (unlikely(!__pyx_tuple__116)) __PYX_ERR(0, 324, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__116);
   __Pyx_GIVEREF(__pyx_tuple__116);
 
-  /* "mprans/BoundaryConditions.pyx":387
+  /* "mprans/BoundaryConditions.pyx":388
  *         self.p_advective.init_cython = inlet_p_advective_cython
  * 
  *     def setHydrostaticPressureOutlet(self, rho, g, refLevel, vof, pRef=0.0,             # <<<<<<<<<<<<<<
  *                                     vert_axis=-1):
  *         self.reset()
  */
-  __pyx_tuple__117 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_rho, __pyx_n_s_g, __pyx_n_s_refLevel, __pyx_n_s_vof, __pyx_n_s_pRef, __pyx_n_s_vert_axis, __pyx_n_s_a0, __pyx_n_s_a1, __pyx_n_s_get_outlet_ux_dirichlet, __pyx_n_s_get_outlet_ux_dirichlet); if (unlikely(!__pyx_tuple__117)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_tuple__117 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_rho, __pyx_n_s_g, __pyx_n_s_refLevel, __pyx_n_s_vof, __pyx_n_s_pRef, __pyx_n_s_vert_axis, __pyx_n_s_a0, __pyx_n_s_a1, __pyx_n_s_get_outlet_ux_dirichlet, __pyx_n_s_get_outlet_ux_dirichlet); if (unlikely(!__pyx_tuple__117)) __PYX_ERR(0, 388, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__117);
   __Pyx_GIVEREF(__pyx_tuple__117);
-  __pyx_codeobj__118 = (PyObject*)__Pyx_PyCode_New(7, 0, 11, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__117, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_setHydrostaticPressureOutlet, 387, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__118)) __PYX_ERR(0, 387, __pyx_L1_error)
-  __pyx_tuple__119 = PyTuple_Pack(2, ((PyObject*)__pyx_float_0_0), ((PyObject *)__pyx_int_neg_1)); if (unlikely(!__pyx_tuple__119)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_codeobj__118 = (PyObject*)__Pyx_PyCode_New(7, 0, 11, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__117, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_setHydrostaticPressureOutlet, 388, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__118)) __PYX_ERR(0, 388, __pyx_L1_error)
+  __pyx_tuple__119 = PyTuple_Pack(2, ((PyObject*)__pyx_float_0_0), ((PyObject *)__pyx_int_neg_1)); if (unlikely(!__pyx_tuple__119)) __PYX_ERR(0, 388, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__119);
   __Pyx_GIVEREF(__pyx_tuple__119);
 
-  /* "mprans/BoundaryConditions.pyx":411
+  /* "mprans/BoundaryConditions.pyx":412
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setHydrostaticPressureOutletWithDepth(self, seaLevel, rhoUp, rhoDown, g,             # <<<<<<<<<<<<<<
  *                                           refLevel, pRef=0.0, vert_axis=None,
  *                                           air=1.0, water=0.0):
  */
-  __pyx_tuple__120 = PyTuple_Pack(14, __pyx_n_s_self, __pyx_n_s_seaLevel, __pyx_n_s_rhoUp, __pyx_n_s_rhoDown, __pyx_n_s_g, __pyx_n_s_refLevel, __pyx_n_s_pRef, __pyx_n_s_vert_axis, __pyx_n_s_air, __pyx_n_s_water, __pyx_n_s_hydrostaticPressureOutletWithDep, __pyx_n_s_hydrostaticPressureOutletWithDep, __pyx_n_s_hydrostaticPressureOutletWithDep_2, __pyx_n_s_hydrostaticPressureOutletWithDep_2); if (unlikely(!__pyx_tuple__120)) __PYX_ERR(0, 411, __pyx_L1_error)
+  __pyx_tuple__120 = PyTuple_Pack(14, __pyx_n_s_self, __pyx_n_s_seaLevel, __pyx_n_s_rhoUp, __pyx_n_s_rhoDown, __pyx_n_s_g, __pyx_n_s_refLevel, __pyx_n_s_pRef, __pyx_n_s_vert_axis, __pyx_n_s_air, __pyx_n_s_water, __pyx_n_s_hydrostaticPressureOutletWithDep, __pyx_n_s_hydrostaticPressureOutletWithDep, __pyx_n_s_hydrostaticPressureOutletWithDep_2, __pyx_n_s_hydrostaticPressureOutletWithDep_2); if (unlikely(!__pyx_tuple__120)) __PYX_ERR(0, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__120);
   __Pyx_GIVEREF(__pyx_tuple__120);
-  __pyx_codeobj__121 = (PyObject*)__Pyx_PyCode_New(10, 0, 14, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__120, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_setHydrostaticPressureOutletWith, 411, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__121)) __PYX_ERR(0, 411, __pyx_L1_error)
-  __pyx_tuple__122 = PyTuple_Pack(4, ((PyObject*)__pyx_float_0_0), ((PyObject *)Py_None), ((PyObject*)__pyx_float_1_0), ((PyObject*)__pyx_float_0_0)); if (unlikely(!__pyx_tuple__122)) __PYX_ERR(0, 411, __pyx_L1_error)
+  __pyx_codeobj__121 = (PyObject*)__Pyx_PyCode_New(10, 0, 14, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__120, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_setHydrostaticPressureOutletWith, 412, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__121)) __PYX_ERR(0, 412, __pyx_L1_error)
+  __pyx_tuple__122 = PyTuple_Pack(4, ((PyObject*)__pyx_float_0_0), ((PyObject *)Py_None), ((PyObject*)__pyx_float_1_0), ((PyObject*)__pyx_float_0_0)); if (unlikely(!__pyx_tuple__122)) __PYX_ERR(0, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__122);
   __Pyx_GIVEREF(__pyx_tuple__122);
 
-  /* "mprans/BoundaryConditions.pyx":482
+  /* "mprans/BoundaryConditions.pyx":483
  *         parameter for porous zone (default: 1.)
  *     """
  *     def __init__(self, zone_type, center, orientation, epsFact_solid,             # <<<<<<<<<<<<<<
  *                  waves=None, shape=None, wind_speed=(0.,0.,0.),
  *                  dragAlpha=0.5/1.005e-6, dragBeta=0., porosity=1.):
  */
-  __pyx_tuple__123 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_zone_type, __pyx_n_s_center, __pyx_n_s_orientation, __pyx_n_s_epsFact_solid, __pyx_n_s_waves, __pyx_n_s_shape, __pyx_n_s_wind_speed, __pyx_n_s_dragAlpha, __pyx_n_s_dragBeta, __pyx_n_s_porosity); if (unlikely(!__pyx_tuple__123)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_tuple__123 = PyTuple_Pack(11, __pyx_n_s_self, __pyx_n_s_zone_type, __pyx_n_s_center, __pyx_n_s_orientation, __pyx_n_s_epsFact_solid, __pyx_n_s_waves, __pyx_n_s_shape, __pyx_n_s_wind_speed, __pyx_n_s_dragAlpha, __pyx_n_s_dragBeta, __pyx_n_s_porosity); if (unlikely(!__pyx_tuple__123)) __PYX_ERR(0, 483, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__123);
   __Pyx_GIVEREF(__pyx_tuple__123);
-  __pyx_codeobj__124 = (PyObject*)__Pyx_PyCode_New(11, 0, 11, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__123, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_init, 482, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__124)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_codeobj__124 = (PyObject*)__Pyx_PyCode_New(11, 0, 11, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__123, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_init, 483, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__124)) __PYX_ERR(0, 483, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":510
+  /* "mprans/BoundaryConditions.pyx":511
  *         number of dimensions of domain
  *     """
  *     def __init__(self, zones, nd):             # <<<<<<<<<<<<<<
  *         assert isinstance(zones, dict)
  *         self.zones = zones
  */
-  __pyx_tuple__125 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_zones, __pyx_n_s_nd); if (unlikely(!__pyx_tuple__125)) __PYX_ERR(0, 510, __pyx_L1_error)
+  __pyx_tuple__125 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_zones, __pyx_n_s_nd); if (unlikely(!__pyx_tuple__125)) __PYX_ERR(0, 511, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__125);
   __Pyx_GIVEREF(__pyx_tuple__125);
-  __pyx_codeobj__126 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__125, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_init, 510, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__126)) __PYX_ERR(0, 510, __pyx_L1_error)
+  __pyx_codeobj__126 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__125, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_init, 511, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__126)) __PYX_ERR(0, 511, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":515
+  /* "mprans/BoundaryConditions.pyx":516
  *         self.nd = nd
  * 
  *     def calculate_init(self):             # <<<<<<<<<<<<<<
  *         from proteus import Context
  *         ct = Context.get()
  */
-  __pyx_tuple__127 = PyTuple_Pack(14, __pyx_n_s_self, __pyx_n_s_Context, __pyx_n_s_ct, __pyx_n_s_key, __pyx_n_s_zone, __pyx_n_s_waves_u, __pyx_n_s_waves_mwl, __pyx_n_s_waves_eta, __pyx_n_s_wind_speed, __pyx_n_s_he, __pyx_n_s_ecH, __pyx_n_s_vert_axis, __pyx_n_s_get_twp_flowVelocity, __pyx_n_s_get_twp_flowVelocity); if (unlikely(!__pyx_tuple__127)) __PYX_ERR(0, 515, __pyx_L1_error)
+  __pyx_tuple__127 = PyTuple_Pack(14, __pyx_n_s_self, __pyx_n_s_Context, __pyx_n_s_ct, __pyx_n_s_key, __pyx_n_s_zone, __pyx_n_s_waves_u, __pyx_n_s_waves_mwl, __pyx_n_s_waves_eta, __pyx_n_s_wind_speed, __pyx_n_s_he, __pyx_n_s_ecH, __pyx_n_s_vert_axis, __pyx_n_s_get_twp_flowVelocity, __pyx_n_s_get_twp_flowVelocity); if (unlikely(!__pyx_tuple__127)) __PYX_ERR(0, 516, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__127);
   __Pyx_GIVEREF(__pyx_tuple__127);
-  __pyx_codeobj__128 = (PyObject*)__Pyx_PyCode_New(1, 0, 14, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__127, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_calculate_init, 515, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__128)) __PYX_ERR(0, 515, __pyx_L1_error)
+  __pyx_codeobj__128 = (PyObject*)__Pyx_PyCode_New(1, 0, 14, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__127, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_calculate_init, 516, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__128)) __PYX_ERR(0, 516, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":552
+  /* "mprans/BoundaryConditions.pyx":553
  * 
  * 
  *     def calculate(self):             # <<<<<<<<<<<<<<
  *         cdef int nl = len(self.model.levelModelList)
  *         def iterate():
  */
-  __pyx_tuple__129 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_nl, __pyx_n_s_iterate, __pyx_n_s_iterate, __pyx_n_s_l); if (unlikely(!__pyx_tuple__129)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_tuple__129 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_nl, __pyx_n_s_iterate, __pyx_n_s_iterate, __pyx_n_s_l); if (unlikely(!__pyx_tuple__129)) __PYX_ERR(0, 553, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__129);
   __Pyx_GIVEREF(__pyx_tuple__129);
-  __pyx_codeobj__130 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__129, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_calculate, 552, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__130)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_codeobj__130 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__129, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_workspace_Yuxiang_proteus_prote, __pyx_n_s_calculate, 553, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__130)) __PYX_ERR(0, 553, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -16593,34 +16593,34 @@ PyMODINIT_FUNC PyInit_BoundaryConditions(void)
   if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_5_ux_dirichlet_cython) < 0) __PYX_ERR(0, 251, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_5_ux_dirichlet_cython.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_5_ux_dirichlet_cython = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_5_ux_dirichlet_cython;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_6_vof_dirichlet_cython) < 0) __PYX_ERR(0, 276, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_6_vof_dirichlet_cython) < 0) __PYX_ERR(0, 277, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_6_vof_dirichlet_cython.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_6_vof_dirichlet_cython = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_6_vof_dirichlet_cython;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_7_p_advective_cython) < 0) __PYX_ERR(0, 287, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_7_p_advective_cython) < 0) __PYX_ERR(0, 288, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_7_p_advective_cython.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_7_p_advective_cython = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_7_p_advective_cython;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVelocityInlet) < 0) __PYX_ERR(0, 323, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVelocityInlet) < 0) __PYX_ERR(0, 324, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVelocityInlet.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVelocityInlet = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_8_setTwoPhaseVelocityInlet;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_9_get_inlet_ux_dirichlet_cython) < 0) __PYX_ERR(0, 349, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_9_get_inlet_ux_dirichlet_cython) < 0) __PYX_ERR(0, 350, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_9_get_inlet_ux_dirichlet_cython.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_9_get_inlet_ux_dirichlet_cython = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_9_get_inlet_ux_dirichlet_cython;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_10_setHydrostaticPressureOutlet) < 0) __PYX_ERR(0, 387, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_10_setHydrostaticPressureOutlet) < 0) __PYX_ERR(0, 388, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_10_setHydrostaticPressureOutlet.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_10_setHydrostaticPressureOutlet = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_10_setHydrostaticPressureOutlet;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_11_get_outlet_ux_dirichlet) < 0) __PYX_ERR(0, 394, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_11_get_outlet_ux_dirichlet) < 0) __PYX_ERR(0, 395, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_11_get_outlet_ux_dirichlet.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_11_get_outlet_ux_dirichlet = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_11_get_outlet_ux_dirichlet;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_12_setHydrostaticPressureOutletWithDepth) < 0) __PYX_ERR(0, 411, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_12_setHydrostaticPressureOutletWithDepth) < 0) __PYX_ERR(0, 412, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_12_setHydrostaticPressureOutletWithDepth.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_12_setHydrostaticPressureOutletWithDepth = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_12_setHydrostaticPressureOutletWithDepth;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_13_calculate_init) < 0) __PYX_ERR(0, 515, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_13_calculate_init) < 0) __PYX_ERR(0, 516, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_13_calculate_init.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_13_calculate_init = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_13_calculate_init;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_14_get_twp_flowVelocity) < 0) __PYX_ERR(0, 530, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_14_get_twp_flowVelocity) < 0) __PYX_ERR(0, 531, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_14_get_twp_flowVelocity.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_14_get_twp_flowVelocity = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_14_get_twp_flowVelocity;
-  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_15_calculate) < 0) __PYX_ERR(0, 552, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_15_calculate) < 0) __PYX_ERR(0, 553, __pyx_L1_error)
   __pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_15_calculate.tp_print = 0;
   __pyx_ptype_6mprans_18BoundaryConditions___pyx_scope_struct_15_calculate = &__pyx_type_6mprans_18BoundaryConditions___pyx_scope_struct_15_calculate;
   /*--- Type import code ---*/
@@ -16875,43 +16875,43 @@ PyMODINIT_FUNC PyInit_BoundaryConditions(void)
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_setUnsteadyTwoPhaseVelocityInlet, __pyx_t_4) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":323
+  /* "mprans/BoundaryConditions.pyx":324
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setTwoPhaseVelocityInlet(self, U, waterLevel, vert_axis=None, air=1.,             # <<<<<<<<<<<<<<
  *                                  water=0.):
  *         """
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_21setTwoPhaseVelocityInlet, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_8, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__115)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 323, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_21setTwoPhaseVelocityInlet, 0, __pyx_n_s_BC_RANS_setTwoPhaseVelocityInlet_8, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__115)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 324, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_tuple__116);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_setTwoPhaseVelocityInlet, __pyx_t_4) < 0) __PYX_ERR(0, 323, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_setTwoPhaseVelocityInlet, __pyx_t_4) < 0) __PYX_ERR(0, 324, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":387
+  /* "mprans/BoundaryConditions.pyx":388
  *         self.p_advective.init_cython = inlet_p_advective_cython
  * 
  *     def setHydrostaticPressureOutlet(self, rho, g, refLevel, vof, pRef=0.0,             # <<<<<<<<<<<<<<
  *                                     vert_axis=-1):
  *         self.reset()
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_23setHydrostaticPressureOutlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_5, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__118)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_23setHydrostaticPressureOutlet, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_5, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__118)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 388, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_tuple__119);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_setHydrostaticPressureOutlet, __pyx_t_4) < 0) __PYX_ERR(0, 387, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_setHydrostaticPressureOutlet, __pyx_t_4) < 0) __PYX_ERR(0, 388, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":411
+  /* "mprans/BoundaryConditions.pyx":412
  * 
  *     # FOLLOWING BOUNDARY CONDITION IS UNTESTED #
  *     def setHydrostaticPressureOutletWithDepth(self, seaLevel, rhoUp, rhoDown, g,             # <<<<<<<<<<<<<<
  *                                           refLevel, pRef=0.0, vert_axis=None,
  *                                           air=1.0, water=0.0):
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_25setHydrostaticPressureOutletWithDepth, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_6, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__121)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 411, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_7BC_RANS_25setHydrostaticPressureOutletWithDepth, 0, __pyx_n_s_BC_RANS_setHydrostaticPressureOu_6, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__121)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_tuple__122);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_setHydrostaticPressureOutletWith, __pyx_t_4) < 0) __PYX_ERR(0, 411, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_setHydrostaticPressureOutletWith, __pyx_t_4) < 0) __PYX_ERR(0, 412, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "mprans/BoundaryConditions.pyx":16
@@ -16929,124 +16929,124 @@ PyMODINIT_FUNC PyInit_BoundaryConditions(void)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":455
+  /* "mprans/BoundaryConditions.pyx":456
  * # for regions
  * 
  * class RelaxationZone:             # <<<<<<<<<<<<<<
  *     """
  *     Holds information about a relaxation zone (wave generation/absorption
  */
-  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_RelaxationZone, __pyx_n_s_RelaxationZone, (PyObject *) NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_kp_s_Holds_information_about_a_relax); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 455, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_RelaxationZone, __pyx_n_s_RelaxationZone, (PyObject *) NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_kp_s_Holds_information_about_a_relax); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 456, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "mprans/BoundaryConditions.pyx":482
+  /* "mprans/BoundaryConditions.pyx":483
  *         parameter for porous zone (default: 1.)
  *     """
  *     def __init__(self, zone_type, center, orientation, epsFact_solid,             # <<<<<<<<<<<<<<
  *                  waves=None, shape=None, wind_speed=(0.,0.,0.),
  *                  dragAlpha=0.5/1.005e-6, dragBeta=0., porosity=1.):
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_14RelaxationZone_1__init__, 0, __pyx_n_s_RelaxationZone___init, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__124)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 482, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_14RelaxationZone_1__init__, 0, __pyx_n_s_RelaxationZone___init, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__124)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 483, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_2, sizeof(__pyx_defaults), 1)) __PYX_ERR(0, 482, __pyx_L1_error)
+  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_2, sizeof(__pyx_defaults), 1)) __PYX_ERR(0, 483, __pyx_L1_error)
 
-  /* "mprans/BoundaryConditions.pyx":484
+  /* "mprans/BoundaryConditions.pyx":485
  *     def __init__(self, zone_type, center, orientation, epsFact_solid,
  *                  waves=None, shape=None, wind_speed=(0.,0.,0.),
  *                  dragAlpha=0.5/1.005e-6, dragBeta=0., porosity=1.):             # <<<<<<<<<<<<<<
  *         self.Shape = shape
  *         self.zone_type = zone_type
  */
-  __pyx_t_3 = PyFloat_FromDouble((0.5 / 1.005e-6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 484, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble((0.5 / 1.005e-6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 485, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_Defaults(__pyx_defaults, __pyx_t_2)->__pyx_arg_dragAlpha = __pyx_t_3;
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
   __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_2, __pyx_pf_6mprans_18BoundaryConditions_14RelaxationZone_2__defaults__);
-  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 482, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 483, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":455
+  /* "mprans/BoundaryConditions.pyx":456
  * # for regions
  * 
  * class RelaxationZone:             # <<<<<<<<<<<<<<
  *     """
  *     Holds information about a relaxation zone (wave generation/absorption
  */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_RelaxationZone, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 455, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_RelaxationZone, __pyx_empty_tuple, __pyx_t_1, NULL, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 456, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_RelaxationZone, __pyx_t_2) < 0) __PYX_ERR(0, 455, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_RelaxationZone, __pyx_t_2) < 0) __PYX_ERR(0, 456, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":497
+  /* "mprans/BoundaryConditions.pyx":498
  * 
  * 
  * class RelaxationZoneWaveGenerator(AuxiliaryVariables.AV_base):             # <<<<<<<<<<<<<<
  *     """
  *     Prescribe a velocity penalty scaling in a material zone via a
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_AuxiliaryVariables); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 497, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_AuxiliaryVariables); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_AV_base); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 497, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_AV_base); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 497, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 497, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_RelaxationZoneWaveGenerator, __pyx_n_s_RelaxationZoneWaveGenerator, (PyObject *) NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_kp_s_Prescribe_a_velocity_penalty_sc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 497, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_RelaxationZoneWaveGenerator, __pyx_n_s_RelaxationZoneWaveGenerator, (PyObject *) NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_kp_s_Prescribe_a_velocity_penalty_sc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "mprans/BoundaryConditions.pyx":510
+  /* "mprans/BoundaryConditions.pyx":511
  *         number of dimensions of domain
  *     """
  *     def __init__(self, zones, nd):             # <<<<<<<<<<<<<<
  *         assert isinstance(zones, dict)
  *         self.zones = zones
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_1__init__, 0, __pyx_n_s_RelaxationZoneWaveGenerator___in, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__126)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 510, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_1__init__, 0, __pyx_n_s_RelaxationZoneWaveGenerator___in, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__126)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 511, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(0, 510, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(0, 511, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":515
+  /* "mprans/BoundaryConditions.pyx":516
  *         self.nd = nd
  * 
  *     def calculate_init(self):             # <<<<<<<<<<<<<<
  *         from proteus import Context
  *         ct = Context.get()
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_3calculate_init, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_5, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__128)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 515, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_3calculate_init, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_5, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__128)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 516, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_calculate_init, __pyx_t_4) < 0) __PYX_ERR(0, 515, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_calculate_init, __pyx_t_4) < 0) __PYX_ERR(0, 516, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":552
+  /* "mprans/BoundaryConditions.pyx":553
  * 
  * 
  *     def calculate(self):             # <<<<<<<<<<<<<<
  *         cdef int nl = len(self.model.levelModelList)
  *         def iterate():
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_5calculate, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_6, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__130)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 552, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_6mprans_18BoundaryConditions_27RelaxationZoneWaveGenerator_5calculate, 0, __pyx_n_s_RelaxationZoneWaveGenerator_calc_6, NULL, __pyx_n_s_mprans_BoundaryConditions, __pyx_d, ((PyObject *)__pyx_codeobj__130)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 553, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_calculate, __pyx_t_4) < 0) __PYX_ERR(0, 552, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_calculate, __pyx_t_4) < 0) __PYX_ERR(0, 553, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "mprans/BoundaryConditions.pyx":497
+  /* "mprans/BoundaryConditions.pyx":498
  * 
  * 
  * class RelaxationZoneWaveGenerator(AuxiliaryVariables.AV_base):             # <<<<<<<<<<<<<<
  *     """
  *     Prescribe a velocity penalty scaling in a material zone via a
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_RelaxationZoneWaveGenerator, __pyx_t_1, __pyx_t_3, NULL, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 497, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_RelaxationZoneWaveGenerator, __pyx_t_1, __pyx_t_3, NULL, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_RelaxationZoneWaveGenerator, __pyx_t_4) < 0) __PYX_ERR(0, 497, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_RelaxationZoneWaveGenerator, __pyx_t_4) < 0) __PYX_ERR(0, 498, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;

@@ -256,6 +256,7 @@ class BC_RANS(BC_Base):
                 he = self.ct.he
                 ecH = self.ct.ecH
                 def ux_dirichlet(x, t):
+					#print x,t
                     waveHeight = wave_mwl+wave_eta(x, t)
                     wavePhi = x[vert_axis]-waveHeight
                     if wavePhi <= 0:

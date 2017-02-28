@@ -45,9 +45,11 @@ __all__ = ['MonochromaticWaves',
            'dispersion',
            'tophat',
            'costap',
-           'decompose_tseries']
+           'decompose_tseries',
+		   'SolitaryWaves']
 
 def loadExistingFunction(funcName, validFunctions):
+
     """Checks if a function name is known function and returns it
 
     Checks if a function name is present in a list of functions.
@@ -570,6 +572,71 @@ def decompose_tseries(time,eta,dt):
     results.append(setup)
     return results
 
+class SolitaryWaves:
+    """
+    This class is used for generating solitary waves
+	Parameters
+    ----------
+    param: Height
+    """
+    def __init__(self,waveHeight,depth,g,waveDir,mwl=1,meanVelocity=np.array([0.,0.,0.])):
+       self.waveHeight = waveHeight
+       self.mwl = mwl
+       self.depth = depth
+       self.g = np.array(g)
+       self.waveDir = setDirVector(np.array(waveDir))
+       self.vDir=setVertDir(g)
+       self.gAbs = sqrt(self.g[0]*self.g[0]+self.g[1]*self.g[1]+self.g[2]*self.g[2])
+       #Checking if g and waveDir are perpendicular
+       dirCheck(self.waveDir,self.vDir)
+       self.amplitude=0.5*self.waveHeight
+       self.meanVelocity=np.array(meanVelocity)
+       self.k=sqrt(3.0*waveHeight/(4.0*depth**3))
+       self.kDir=self.k*self.waveDir
+       self.celerity=sqrt(self.gAbs*(waveHeight+depth))
+
+
+    def eta(self,x,t):
+        """
+    calculate the free surface elevation
+		"""
+        try:
+           a0=cosh(self.k*(self.celerity*t-x[0]))
+        except Exception:
+           a0=1e10
+        #print x,t
+        #print a0
+        return self.waveHeight/a0**2
+	
+    def u(self, x, t):
+        """
+    calculate the wave velocity vector
+        """
+        H_w=self.waveHeight
+        h=self.depth
+        try :
+            a1=cosh(sqrt( 3.0 * H_w / h**3.0) * (self.celerity * t - x[0]))
+        except Exception:
+            a1=1e10
+        try :
+            a2=cosh(self.k*(self.celerity * t - x[0]))
+        except Exception:
+            a2=1e10
+        z = lambda x: np.inner(x,self.vDir)-h
+
+        UH =  1.0 /(4.0 * h**4 ) * sqrt(self.gAbs * h) *  H_w  * (
+				2.0 * h**3 + h**2 * H_w  + 12.0 * h * H_w * z(x) + 6.0 *  H_w * z(x)**2.0 +
+				(2.0 * h**3 - h**2 * H_w - 6.0 * h * H_w * z(x) - 3.0 * H_w * z(x)**2 ) * a1)/(a2)**4
+
+        UV =  1.0 /(4.0 * sqrt(self.gAbs* h)) * sqrt(3.0) * self.gAbs * (H_w / h**3.0)** 1.5  * (h + z(x))*(2.0 * h**3 - 7.0 * h**2.0 * H_w + 10.0 * h * H_w * z(x) + 5.0 * H_w * z(x)**2.0 +(2.0 * h**3.0 + h**2.0 * H_w - 2.0 * h * H_w * z(x) - H_w * z(x)**2.0)*a1)/a2**4.0*(tanh(self.k*(self.celerity * t - x[0])))
+        UV*=-1
+        return np.array([UH*self.waveDir[0]+UV*self.vDir[0],
+			          UH*self.waveDir[1]+UV*self.vDir[1],
+					  UH*self.waveDir[2]+UV*self.vDir[2]])
+
+
+
+
 
 
 
@@ -690,7 +757,7 @@ class MonochromaticWaves:
             Free-surface elevation as a float
 
         """
-
+        print x, t
         if self.waveType == "Linear":
             return eta_mode(x,t,self.kDir,self.omega,self.phi0,self.amplitude)
         elif self.waveType == "Fenton":
