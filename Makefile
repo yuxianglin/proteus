@@ -168,7 +168,7 @@ ${PROTEUS_PREFIX}/artifact.json: stack/default.yaml stack hashdist $(shell find 
 
 	$(call show_info)
 
-	cd stack && ${PROTEUS}/hashdist/bin/hit develop ${HIT_FLAGS} -f -k error default.yaml ${PROTEUS_PREFIX}
+	cd stack && ${PROTEUS}/hashdist/bin/hit develop ${HIT_FLAGS} -f -k error default.yaml ${PROTEUS_PREFIX} -v
 
 	@echo "************************"
 	@echo "Dependency build complete"
@@ -210,6 +210,7 @@ install: profile $(shell find proteus -type f) $(wildcard *.py) proteus
 	@echo "Installing..."
 	@echo "************************"
 	$(call show_info)
+	#@echo ${PROTEUS_ENV}
 	${PROTEUS_ENV} ${PROTEUS_INSTALL_CMD}
 	@echo "************************"
 	@echo "done installing standard extension modules"
