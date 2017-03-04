@@ -39,3 +39,5 @@ cygwin_bootstrap.done
 matlab_setup.done
 air-water-vv/
 dist/
+*.c
+*.cpp
