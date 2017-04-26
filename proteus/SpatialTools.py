@@ -71,6 +71,7 @@ class Shape(object):
         self.facetFlags = None
         self.regions = None
         self.regionFlags = None
+        self.facetHoles = None
         self.holes = None
         self.barycenter = np.zeros(3)
         self.coords = None  # Only used for predefined shapes
@@ -525,7 +526,7 @@ class CustomShape(Shape):
 
     def __init__(self, domain, barycenter=None, vertices=None,
                  vertexFlags=None, segments=None, segmentFlags=None,
-                 facets=None, facetFlags=None, holes=None, regions=None,
+                 facets=None, facetFlags=None, facetHoles=None, holes=None, regions=None,
                  regionFlags=None, boundaryTags=None,
                  boundaryOrientations=None):
         super(CustomShape, self).__init__(domain, nd=len(vertices[0]))
@@ -541,6 +542,8 @@ class CustomShape(Shape):
         if facets:
             self.facets = np.array(facets)
             self.facetFlags = np.array(facetFlags)
+        if facetHoles is not None:
+			self.facetHoles=np.array(facetHoles)
         if holes is not None:
             self.holes = np.array(holes)
         if regions is not None:
@@ -814,7 +817,7 @@ def _assembleGeometry(domain, BC_class):
     domain.segments = []
     domain.segmentFlags = []
     domain.facets = []
-    domain.facetFlags = []
+    domain.facetFlags = [] ########;facetHoles
     domain.holes = []
     domain.regions = []
     domain.regionFlags = []
@@ -843,6 +846,8 @@ def _assembleGeometry(domain, BC_class):
             segments = shape.segments.copy()
         if shape.facets is not None:
             facets = shape.facets.copy()
+        if shape.facetHoles is not None:
+			facetHoles = shape.facetHoles.copy()
         # deleting duplicate vertices and updating segment/facets accordingly
         del_v = 0
         for i_s, vertex in enumerate(shape.vertices):
@@ -873,8 +878,10 @@ def _assembleGeometry(domain, BC_class):
             domain.segments += (segments+start_vertex).tolist()
             domain.segmentFlags += (shape.segmentFlags+start_flag).tolist()
         if shape.facets is not None:
-            domain.facets += (facets+start_vertex).tolist()
+            domain.facets += facets.tolist()
             domain.facetFlags += (shape.facetFlags+start_flag).tolist()
+        if shape.facetHoles is not None:
+			domain.facetHoles += facetHoles.tolist()
         if shape.regions is not None:
             domain.regions += (shape.regions).tolist()
             domain.regionFlags += (shape.regionFlags+start_rflag).tolist()
