@@ -163,7 +163,10 @@ namespace proteus
 				   double* wettedAreas,
 				   double* netForces_p,
 				   double* netForces_v,
-				   double* netMoments)=0;
+				   double* netMoments,
+				   double* forces_x,
+				   double* forces_y,
+				   double* forces_z)=0;
     virtual void calculateJacobian(//element
 				   double* mesh_trial_ref,
 				   double* mesh_grad_trial_ref,
@@ -1726,7 +1729,10 @@ namespace proteus
 			   double* wettedAreas,
 			   double* netForces_p,
 			   double* netForces_v,
-			   double* netMoments)
+			   double* netMoments,
+			   double* forces_x,
+			   double* forces_y,
+			   double* forces_z)
     {
       //
       //loop over elements to compute volume integrals and load them into element and global residual
@@ -2348,6 +2354,7 @@ namespace proteus
 	  for  (int kb=0;kb<nQuadraturePoints_elementBoundary;kb++) 
 	    { 
 	      register int ebNE_kb = ebNE*nQuadraturePoints_elementBoundary+kb,
+        //std::cout<<"nQuadraturePoints_elementBoundary= "<<nQuadraturePoints_elementBoundary
 		ebNE_kb_nSpace = ebNE_kb*nSpace,
 		ebN_local_kb = ebN_local*nQuadraturePoints_elementBoundary+kb,
 		ebN_local_kb_nSpace = ebN_local_kb*nSpace;
@@ -3016,6 +3023,14 @@ namespace proteus
 		  netMoments[3*boundaryFlags[ebN]+0] += (r_y*force_z - r_z*force_y)*dS;
 		  netMoments[3*boundaryFlags[ebN]+1] += (r_z*force_x - r_x*force_z)*dS;
 		  netMoments[3*boundaryFlags[ebN]+2] += (r_x*force_y - r_y*force_x)*dS;
+
+		  forces_x[ebNE_kb] = force_x;
+		  forces_y[ebNE_kb] = force_y;
+		  forces_z[ebNE_kb] = force_z;
+		  //std::cout<<"ebNE = "<<ebNE<<std::endl;
+		  //std::cout<<"ebN = "<<ebN<<std::endl;
+		  //std::cout<<"ebNE_kb = "<<ebNE_kb<<std::endl;
+
 		}
 	      //
 	      //update residuals

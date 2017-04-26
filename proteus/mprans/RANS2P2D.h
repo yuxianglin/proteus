@@ -163,7 +163,10 @@ namespace proteus
 				   double* wettedAreas,
 				   double* netForces_p,
 				   double* netForces_v,
-				   double* netMoments)=0;
+				   double* netMoments,
+				   double* forces_x,
+				   double* forces_y,
+				   double* forces_z)=0;
     virtual void calculateJacobian(//element
 				   double* mesh_trial_ref,
 				   double* mesh_grad_trial_ref,
@@ -1723,7 +1726,10 @@ namespace proteus
 			   double* wettedAreas,
 			   double* netForces_p,
 			   double* netForces_v,
-			   double* netMoments)
+			   double* netMoments,
+			   double* forces_x,
+			   double* forces_y,
+			   double* forces_z)
     {
       //
       //loop over elements to compute volume integrals and load them into element and global residual
@@ -3014,6 +3020,9 @@ namespace proteus
 		  //netMoments[3*boundaryFlags[ebN]+0] += (r_y*force_z - r_z*force_y)*dS;
 		  //netMoments[3*boundaryFlags[ebN]+1] += (r_z*force_x - r_x*force_z)*dS;
 		  netMoments[3*boundaryFlags[ebN]+2] += (r_x*force_y - r_y*force_x)*dS;
+		  forces_x[ebNE_kb]=force_x;
+		  forces_y[ebNE_kb]=force_y;
+		  forces_z[ebNE_kb]=force_z;
 		}
 	      //
 	      //update residuals
