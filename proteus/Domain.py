@@ -76,9 +76,9 @@ class MeshOptions:
         self.parallelPartitioningType = mpt.node
         self.nLayersOfOverlapForParallel = 0
         if self.nd == 2:
-            self.triangle_string = 'VApq30Dena'
+            self.triangle_string = 'KVApq30Dena'
         if self.nd == 3:
-            self.triangle_string = 'VApq1.35q12feena'
+            self.triangle_string = 'KVApq1.35q12feena'
         self.triangleOptions = None  # defined when setTriangleOptions called
 
     def elementSize(self, he, refinement_lvl=0.):
